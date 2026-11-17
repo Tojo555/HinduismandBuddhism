@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hinduism Test Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff7ee; --surface:#ffffff; --ink:#2b1a0e; --muted:#7a5a43; --line:#efd8bd;
+  --accent:#ff9933; --accent-ink:#2b1a0e; --accent-text:#a64b00; --focus:#2b1a0e;
+  --mark:#e8751a; --mark-ink:#5a2a00; --mark-bg:#ffe9d0;
+  --good:#1f5fbf; --good-bg:#e3eefc; --bad:#c0281d; --bad-bg:#fde6e3;
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1c0f06; --surface:#2a170a; --ink:#fdeedd; --muted:#d2b392; --line:#4d3017;
+    --accent:#ff9933; --accent-ink:#2b1a0e; --accent-text:#ffb566; --focus:#fdeedd;
+    --mark:#ff9933; --mark-ink:#ffd9ae; --mark-bg:#3d2208;
+    --good:#7db4ff; --good-bg:#14284a; --bad:#ff8f84; --bad-bg:#4a1612;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1c0f06; --surface:#2a170a; --ink:#fdeedd; --muted:#d2b392; --line:#4d3017;
+    --accent:#ff9933; --accent-ink:#2b1a0e; --accent-text:#ffb566; --focus:#fdeedd;
+    --mark:#ff9933; --mark-ink:#ffd9ae; --mark-bg:#3d2208;
+    --good:#7db4ff; --good-bg:#14284a; --bad:#ff8f84; --bad-bg:#4a1612;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{margin:0;border-top:6px solid var(--accent);background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1.05rem;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px 56px}
+
+/* header */
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding:26px 0 18px;flex-wrap:wrap}
+.top h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.8rem,5vw,2.5rem);line-height:1.1;margin:0 0 6px}
+.top p{margin:0;color:var(--muted)}
+.badge{margin-left:auto;text-align:right;max-width:260px;font-size:.9rem;font-style:italic;font-weight:700;
+  background:var(--mark-bg);color:var(--mark-ink);border:2px solid var(--mark);border-radius:8px;padding:8px 12px}
+
+/* tabs */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;
+  overflow-x:auto;padding:10px 0;border-bottom:1px solid var(--line);margin-bottom:22px}
+.tabs button{flex:0 0 auto;font:inherit;font-weight:700;font-size:.95rem;color:var(--muted);background:transparent;
+  border:1px solid transparent;border-radius:999px;padding:8px 16px;cursor:pointer;white-space:nowrap}
+.tabs button:hover{color:var(--ink);border-color:var(--line)}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+
+/* generic */
+h2{font-family:var(--serif);font-size:1.6rem;margin:0 0 6px;line-height:1.2}
+h3{font-family:var(--serif);font-size:1.15rem;margin:0 0 6px}
+.lede{color:var(--muted);margin:0 0 20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px;margin-bottom:18px}
+.callout{background:var(--mark-bg);border-left:5px solid var(--mark);border-radius:6px;padding:12px 16px;color:var(--mark-ink);margin:0 0 18px}
+.callout strong{color:inherit}
+table{border-collapse:collapse;width:100%}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.9rem;color:var(--muted);font-weight:700}
+td.pts{white-space:nowrap;font-weight:700}
+.btn{font:inherit;font-weight:700;background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:10px 20px;cursor:pointer}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:transparent;color:var(--accent-text);border:2px solid var(--accent)}
+[hidden]{display:none !important}
+
+/* quiz */
+.qmeta{display:flex;justify-content:space-between;color:var(--muted);font-size:.95rem;margin-bottom:10px}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:18px}
+.bar i{display:block;height:100%;background:var(--accent);transition:width .3s}
+.qtext{font-family:var(--serif);font-size:1.25rem;line-height:1.4;margin:0 0 16px}
+.passage{border-left:4px solid var(--accent);padding:4px 0 4px 16px;margin:0 0 16px;font-family:var(--serif);font-size:1.2rem;line-height:1.45}
+.srcnote{font-size:.88rem;color:var(--muted);margin:-6px 0 14px}
+.speaker{font-weight:700;margin:0 0 6px;color:var(--accent-text)}
+.stanza{white-space:pre-line}
+.opts{display:grid;gap:10px}
+.opt{font:inherit;text-align:left;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-radius:8px;padding:12px 16px;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--good);background:var(--good-bg)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.fb{margin-top:16px;padding:12px 16px;border-radius:8px}
+.fb.ok{background:var(--good-bg);color:var(--ink);border-left:5px solid var(--good)}
+.fb.no{background:var(--bad-bg);color:var(--ink);border-left:5px solid var(--bad)}
+.fb strong{display:block;margin-bottom:2px}
+.next{margin-top:14px}
+.score{font-family:var(--serif);font-size:2.2rem;margin:4px 0 12px}
+.missed{margin:14px 0 0;padding-left:20px}
+.missed li{margin-bottom:8px}
+
+/* written answers */
+.field-row{display:flex;gap:10px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.field-row label{font-weight:700}
+input.name-input{font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:6px;padding:6px 10px;min-width:220px}
+textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:8px;
+  padding:12px 14px;min-height:170px;resize:vertical;line-height:1.5;overflow:hidden}
+textarea:focus{border-color:var(--accent);outline:none}
+.wc{font-size:.9rem;color:var(--muted);margin:6px 0 12px}
+.lock{font-size:.95rem;color:var(--muted);margin:0 0 6px}
+details.notes{border:2px solid var(--accent);border-radius:8px;background:var(--surface);margin-top:8px}
+details.notes>summary{cursor:pointer;font-weight:700;padding:12px 16px;color:var(--accent-text);list-style:none}
+details.notes>summary::-webkit-details-marker{display:none}
+details.notes>summary::before{content:"\25B8";display:inline-block;margin-right:8px;transition:transform .15s}
+details.notes[open]>summary::before{transform:rotate(90deg)}
+details.notes .inside{padding:4px 18px 16px;border-top:1px solid var(--line)}
+details.notes h4{font-family:var(--serif);margin:16px 0 4px;font-size:1.02rem}
+details.notes ul{margin:4px 0 8px;padding-left:20px}
+details.notes li{margin-bottom:4px}
+.sample{background:var(--bg);border-radius:8px;padding:12px 14px;margin:6px 0}
+.checks label{display:block;margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chips span{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:2px 12px;font-size:.92rem}
+.shot{margin-top:16px;font-size:.95rem}
+.passage strong{background:var(--mark-bg);padding:0 3px;border-radius:3px}
+.typed-row{display:flex;gap:10px;flex-wrap:wrap}
+input.answer{flex:1 1 220px;font:inherit;font-size:1.1rem;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:8px;padding:10px 14px}
+input.answer:focus{border-color:var(--accent);outline:none}
+input.answer:disabled{opacity:.75}
+.flashgrid{display:grid;gap:10px;margin-top:10px}
+.flash{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 14px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.flash .def{flex:1 1 280px}
+.flash .term{font-family:var(--serif);font-weight:700;font-size:1.1rem;color:var(--accent-text)}
+.flash button{font:inherit;font-size:.9rem;font-weight:700;background:transparent;color:var(--accent-text);border:2px solid var(--accent);border-radius:6px;padding:4px 12px;cursor:pointer}
+.mhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.mlist{list-style:none;margin:12px 0 0;padding:0}
+.mlist li{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line)}
+.mlist .txt{flex:1 1 auto;min-width:0;font-size:.95rem}
+.dots{white-space:nowrap;font-size:1.1rem;letter-spacing:3px}
+.dots .on{color:var(--good)}
+.dots .off{color:var(--line)}
+.tag{font-size:.85rem;font-weight:700;padding:2px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.m{background:var(--good-bg);color:var(--good);border-color:var(--good)}
+@media (max-width:560px){
+  .badge{margin-left:0;text-align:left;max-width:none}
+  .card{padding:16px}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div>
+    <h1>Hinduism Test Review</h1>
+    <p>Practice every part of the test, one section at a time.</p>
+  </div>
+  <div class="badge">Prepared with AI support, reviewed by Mr. Johnson</div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Test sections">
+  <button role="tab" aria-selected="true" data-panel="start">Start here</button>
+  <button role="tab" aria-selected="false" data-panel="gods">God IDs</button>
+  <button role="tab" aria-selected="false" data-panel="gita">Gita stanza IDs</button>
+  <button role="tab" aria-selected="false" data-panel="concepts">Conceptual questions</button>
+  <button role="tab" aria-selected="false" data-panel="tea">TEA paragraph</button>
+  <button role="tab" aria-selected="false" data-panel="mastery">Mastery</button>
+</nav>
+
+<!-- START -->
+<section id="panel-start">
+  <div class="card">
+    <h2>What’s on the test</h2>
+    <p class="lede">35 points total. Each tab below matches one part.</p>
+    <table>
+      <thead><tr><th>Part</th><th>Points</th><th>How you practice it here</th></tr></thead>
+      <tbody>
+        <tr><td>God IDs</td><td class="pts">5</td><td>Multiple choice. Each question describes how a god looks: the visual cues you’d use to identify them in an image.</td></tr>
+        <tr><td>Gita stanza IDs</td><td class="pts">8</td><td>Read a passage, then type the key term it expresses from memory (no choices).</td></tr>
+        <tr><td>Conceptual questions</td><td class="pts">8</td><td>Two written answers (4 points each). Both are guaranteed to be on the test.</td></tr>
+        <tr><td>TEA paragraph</td><td class="pts">14</td><td>One written paragraph on how Hinduism accommodates human differences.</td></tr>
+        <tr><td>Extra credit</td><td class="pts">1</td><td>Not practiced here.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">
+    <strong>For the written parts:</strong> type your answer first. After you’ve made a real attempt, a drop-down with the completed notes unlocks so you can check yourself. If you want Mr. Johnson to look at your answer, take a screenshot of it (with your name showing) and send it to him.
+  </div>
+  <div class="callout">
+    <strong>Mastery:</strong> master each of the seven gods and each of the eight Gita key terms by getting questions about them right three times in a row. The Mastery tab shows where you stand.
+  </div>
+  <button class="btn" data-go="gods">Start with the God IDs</button>
+</section>
+
+<!-- GODS -->
+<section id="panel-gods" hidden>
+  <h2>God IDs <span style="font-weight:400;font-size:1.05rem;color:var(--muted)">(5 pts)</span></h2>
+  <p class="lede">The seven gods on the test: Vishnu, Shiva, Durga, Krishna, Lakshmi, Kali, Ganesha. These questions use visual cues only, the way you’d identify a god in an image. Each round gives you 10 questions.</p>
+  <div class="card" id="quiz-gods"></div>
+</section>
+
+<!-- GITA -->
+<section id="panel-gita" hidden>
+  <h2>Gita stanza IDs <span style="font-weight:400;font-size:1.05rem;color:var(--muted)">(8 pts)</span></h2>
+  <p class="lede">Read each passage and type the key term it expresses. There are no choices, just like on the real test. Spelling doesn’t have to be perfect. Some stanzas fit more than one term, and any term that fits is accepted. When part of a stanza is bold, that’s the part to focus on.</p>
+  <details class="notes" style="margin-bottom:18px">
+    <summary>Study the key terms (definitions)</summary>
+    <div class="inside">
+      <p class="lock">Each card shows a definition, with the term hidden. Try to say the term first, then click “Show term” to check yourself.</p>
+      <p><button class="btn ghost" id="flash-all" type="button">Show all terms</button></p>
+      <div class="flashgrid" id="flash"></div>
+    </div>
+  </details>
+  <div class="card" id="quiz-gita"></div>
+  <div style="margin-top:4px">
+    <button class="btn ghost" id="more-gita" type="button" aria-expanded="false">Want more practice? Try longer invented stanzas</button>
+  </div>
+  <div id="invented" hidden>
+    <h3 style="margin-top:24px">More practice: invented stanzas</h3>
+    <div class="callout"><strong>These stanzas are invented.</strong> They were written for practice and are not real text from the Gita, but they are written to sound like it. Each one names its speaker (usually Krishna, sometimes Arjuna). Don’t quote them on the test.</div>
+    <div class="card" id="quiz-gita2"></div>
+  </div>
+</section>
+
+<!-- CONCEPTS -->
+<section id="panel-concepts" hidden>
+  <h2>Conceptual questions <span style="font-weight:400;font-size:1.05rem;color:var(--muted)">(8 pts)</span></h2>
+  <p class="lede">Both of these are guaranteed to be on the test. 4 points each.</p>
+
+  <div class="card written" data-id="concept1" data-min="25">
+    <h3>Question 1 (4 pts)</h3>
+    <p class="qtext">Explain what Arjuna’s dilemma in the Gita is, and what dharma has to do with it.</p>
+    <div class="field-row"><label>Name</label><input class="name-input" type="text" placeholder="Your name" autocomplete="off"></div>
+    <textarea placeholder="Type your answer here before you look at the notes."></textarea>
+    <p class="wc"></p>
+    <p class="lock"></p>
+    <details class="notes" hidden>
+      <summary>Check your answer against the completed notes</summary>
+      <div class="inside">
+        <h4>Setting</h4>
+        <ul>
+          <li>A battlefield just before a war between two sets of cousins: the Pandavas (the “dharma” side, led by five brothers including Arjuna) and the Kauravas (the “adharma” side).</li>
+          <li>Arjuna is the warrior prince. Krishna is his charioteer, and also the Supreme God.</li>
+        </ul>
+        <h4>The dilemma</h4>
+        <ul>
+          <li>Krishna halts the chariot between the two armies. Arjuna sees his kinsmen gathered against him and says, “I shall not fight” (2.9).</li>
+          <li><strong>Dharma’s role:</strong> his individual dharma as a warrior says he must fight for a good cause and protect his kinsmen. But he also has a dharma <em>not</em> to kill his kinsmen, teachers, and others he should respect. Two duties collide. Key passage: 2.7.</li>
+        </ul>
+        <h4>Krishna’s answer</h4>
+        <ul>
+          <li>Fight, but with the right mindset.</li>
+          <li>Reincarnation: you are not killing anyone permanently (2.11–13, 2.17–22, 2.27).</li>
+          <li>Everyone’s atman is eternal (2.18, 2.20, 2.30).</li>
+          <li>It is Arjuna’s duty to fight (2.31–36).</li>
+          <li>Acting without selfish desire leads to moksha (2.51, 2.70–72).</li>
+        </ul>
+        <h4>Sample answer</h4>
+        <div class="sample">Arjuna’s dilemma is that he has conflicting sacred duties. He even tells Krishna this in the opening stanzas of Chapter 2. On the one hand, as a member of the warrior class, his dharma as a warrior is to protect his brothers and kinsmen. But to do so, he has to kill his cousins and his teachers on the other side of the battle. He also has a duty as a relative to protect his relatives and teachers, and there is no way to protect his brothers without harming his other relatives and teachers.</div>
+      </div>
+    </details>
+    <p class="shot"><strong>Want Mr. Johnson to review this?</strong> Take a screenshot of your answer (with your name showing) and send it to him.</p>
+  </div>
+
+  <div class="card written" data-id="concept2" data-min="25">
+    <h3>Question 2 (4 pts)</h3>
+    <p class="qtext">Explain who Oppenheimer is, and why he was so drawn to Arjuna’s dilemma in the Gita.</p>
+    <div class="field-row"><label>Name</label><input class="name-input" type="text" placeholder="Your name" autocomplete="off"></div>
+    <textarea placeholder="Type your answer here before you look at the notes."></textarea>
+    <p class="wc"></p>
+    <p class="lock"></p>
+    <details class="notes" hidden>
+      <summary>Check your answer against the completed notes</summary>
+      <div class="inside">
+        <h4>Who he is</h4>
+        <ul>
+          <li>J. Robert Oppenheimer was an American physicist and the scientific director of the Los Alamos laboratory, the center of the Manhattan Project, the U.S. effort in World War II to build the atomic bomb. (The project as a whole was directed by General Leslie Groves.)</li>
+          <li>He had studied Sanskrit and read the Gita, which he called a deeply influential book.</li>
+        </ul>
+        <h4>Why the dilemma drew him</h4>
+        <ul>
+          <li>Like Arjuna, he was caught between competing duties: his duty to his country and his work in wartime, and the horror of what the weapon would do.</li>
+          <li>Krishna’s advice (do your duty, act without attachment to the results) gave him a way to think about acting when the outcome is terrible.</li>
+          <li>After the first test of the bomb, he recalled the line where Krishna reveals himself as Death, the destroyer of worlds.</li>
+        </ul>
+        <h4>Sample answer</h4>
+        <div class="sample">Oppenheimer was the scientific director of the Los Alamos laboratory, the center of the Manhattan Project, which created the atomic bomb for the United States in World War II. He was drawn to Arjuna’s dilemma because he too had conflicting duties. He had a duty to his country, the US, to win the war. But he knew as a scientist that he also had a duty to humanity in general. Creating a weapon of mass destruction means killing a lot of innocent people. And on top of that, he was probably unsure whether he really was serving humanity in the long run by creating such a powerful weapon.</div>
+      </div>
+    </details>
+    <p class="shot"><strong>Want Mr. Johnson to review this?</strong> Take a screenshot of your answer (with your name showing) and send it to him.</p>
+  </div>
+</section>
+
+<!-- TEA -->
+<section id="panel-tea" hidden>
+  <h2>TEA paragraph <span style="font-weight:400;font-size:1.05rem;color:var(--muted)">(14 pts)</span></h2>
+  <p class="lede">One of our enduring understandings: “Simple statements about any religion are misleading because every religion is complex and diverse.” Hinduism is an exemplar of that diversity because of how it accommodates the natural diversity of humanity.</p>
+
+  <div class="card written" data-id="tea" data-min="60">
+    <h3>Your task</h3>
+    <p class="qtext">In what ways does Hinduism accommodate the fact that people are different?</p>
+    <p>Explain <strong>three</strong> ways, using key terms along the way. Structure: Topic sentence, Evidence (your three ways), Analysis. Mechanics doesn’t matter.</p>
+    <div class="field-row"><label>Name</label><input class="name-input" type="text" placeholder="Your name" autocomplete="off"></div>
+    <textarea style="min-height:260px" placeholder="Type your paragraph here before you look at the notes."></textarea>
+    <p class="wc"></p>
+    <p class="lock"></p>
+    <details class="notes" hidden>
+      <summary>Check your answer against the completed notes</summary>
+      <div class="inside">
+        <h4>Ways Hinduism accommodates different people</h4>
+        <ul>
+          <li><strong>Four aims of life:</strong> kama (sensual pleasure), artha (wealth, fame, power), dharma (sacred duty), moksha (liberation from samsara). All are legitimate, though the later ones are seen as more selfless and longer-lasting.</li>
+          <li><strong>Different yogas (paths to moksha):</strong> karma yoga (action), jnana yoga (wisdom: atman = brahman), bhakti yoga (devotion to a chosen god, the most popular path, open to women and the casteless).</li>
+          <li><strong>Choice of gods:</strong> you can worship various gods as supreme, because devotional Hindus say Brahman has attributes and qualities.</li>
+          <li><strong>Choice of forms:</strong> you can even choose among the various forms of those gods (see Gita 11.44).</li>
+          <li><strong>Not a good answer:</strong> the caste system, because there is no choice involved.</li>
+        </ul>
+        <h4>Key terms you could use</h4>
+        <div class="chips"><span>kama</span><span>artha</span><span>dharma</span><span>moksha</span><span>samsara</span><span>yoga</span><span>karma yoga</span><span>jnana</span><span>bhakti</span><span>atman</span><span>brahman</span><span>avatar</span></div>
+        <h4>Sample paragraph</h4>
+        <div class="sample">Hinduism accommodates the fact that people are different in several ways. First, it recognizes four legitimate aims of life: kama (pleasure), artha (wealth, fame, and power), dharma (sacred duty), and moksha (liberation from samsara), so people who want different things can all pursue something valid. Second, it offers several yogas, or paths to moksha. Thoughtful, philosophical people can follow jnana yoga, the path of wisdom, by realizing that their atman is brahman, while people who prefer love and worship can follow bhakti yoga, the path of devotion to a chosen god, which is open to everyone. Third, Hinduism lets people choose which god to worship as supreme, and even which form of that god to focus on, because devotional Hindus believe Brahman has attributes. Together, these choices show that Hinduism does not expect everyone to reach the same goal in the same way.</div>
+        <h4>Grade yourself (mechanics don’t count)</h4>
+        <div class="checks">
+          <label><input type="checkbox"> I gave three different, distinct ways (up to 3 points each, 9 total).</label>
+          <label><input type="checkbox"> I used at least four key terms correctly (4 points).</label>
+          <label><input type="checkbox"> I used at least one term in each of my three ways (1 point).</label>
+        </div>
+      </div>
+    </details>
+    <p class="shot"><strong>Want Mr. Johnson to review this?</strong> Take a screenshot of your paragraph (with your name showing) and send it to him.</p>
+  </div>
+</section>
+
+<!-- MASTERY -->
+<section id="panel-mastery" hidden>
+  <h2>Mastery</h2>
+  <p class="lede">You master a <strong>god</strong> or a <strong>key term</strong> by answering questions about it correctly <strong>three times in a row</strong>. Different questions about the same god or term all count toward the same streak, and a miss resets it to zero. Practice rounds pick questions about the ones you haven’t mastered yet first. This covers the God IDs and the Gita stanza IDs, not the written parts. Your progress is saved in this browser.</p>
+  <div id="mastery-body"></div>
+  <p><button class="btn ghost" id="reset-mastery" type="button">Reset my progress</button></p>
+</section>
+
+</div>
+
+<script>
+/* ---------- helpers ---------- */
+function shuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
+function h(tag,props){
+  var el=document.createElement(tag);
+  props=props||{};
+  Object.keys(props).forEach(function(k){
+    if(k==="class")el.className=props[k];
+    else if(k==="text")el.textContent=props[k];
+    else if(k.indexOf("on")===0)el.addEventListener(k.slice(2),props[k]);
+    else el.setAttribute(k,props[k]);
+  });
+  for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null)continue;el.appendChild(typeof c==="string"?document.createTextNode(c):c);}
+  return el;
+}
+function store(key,val){try{localStorage.setItem("hinduism-review:"+key,val);}catch(e){}}
+function load(key){try{return localStorage.getItem("hinduism-review:"+key)||"";}catch(e){return "";}}
+
+/* ---------- quiz data ---------- */
+var GODS=["Vishnu","Shiva","Durga","Krishna","Lakshmi","Kali","Ganesha"];
+var GOD_BANK=[
+ {q:"Which figure is shown holding a discus (a spinning disc) as a weapon, with a “U” on the forehead?",a:"Vishnu",t:["Shiva","Durga"],why:"The discus is Vishnu’s most telling element, along with the “U” on the forehead. Shiva’s weapon is the trident."},
+ {q:"Which figure has blue skin, a “U” on the forehead, and holds a mace, a conch, and a lotus flower?",a:"Vishnu",t:["Krishna","Shiva"],why:"Blue skin alone isn’t enough, since Krishna and Shiva can be blue too. The “U” on the forehead plus the mace, conch, and lotus point to Vishnu."},
+ {q:"Which figure is shown with a giant eagle as his special mount or companion?",a:"Vishnu",t:["Ganesha","Shiva"],why:"The giant eagle (Garuda) travels with Vishnu."},
+ {q:"Which figure is a woman seated on a lotus flower, holding lotuses, with one hand making a blessing gesture as coins pour out?",a:"Lakshmi",t:["Durga","Kali"],why:"The lotus seat and the coins pouring from her hand are Lakshmi’s imagery."},
+ {q:"Which figure is shown with a pair of elephants beside her, pouring water over her?",a:"Lakshmi",t:["Ganesha","Durga"],why:"The two elephants pouring water are part of Lakshmi’s imagery. Ganesha has an elephant head, but he doesn’t sit with elephants pouring water on him."},
+ {q:"Which figure is a blue-skinned youth playing a flute?",a:"Krishna",t:["Vishnu","Shiva"],why:"The flute-playing youth is Krishna. Blue skin is not unique to him."},
+ {q:"Which figure is blue-skinned and shown driving a chariot with a warrior prince beside him?",a:"Krishna",t:["Vishnu","Shiva"],why:"Krishna as Arjuna’s charioteer is one of his classic images. Blue skin alone isn’t enough, so look at the chariot scene."},
+ {q:"Which figure is blue-skinned and shown together with a woman named Radha?",a:"Krishna",t:["Vishnu","Shiva"],why:"Radha and Krishna are shown together in classic images."},
+ {q:"Which figure holds a trident and has a third eye and three horizontal lines across the forehead?",a:"Shiva",t:["Vishnu","Kali"],why:"The trident, the third eye, and the three horizontal lines identify Shiva. Kali shares some Shiva features, so check the details."},
+ {q:"Which figure is shown with a bull standing or resting beside him as his animal mount?",a:"Shiva",t:["Durga","Ganesha"],why:"The bull beside him (Nandi) is Shiva’s animal mount."},
+ {q:"Which figure is shown in a dancing form, surrounded by a circle of flames?",a:"Shiva",t:["Kali","Durga"],why:"The dancing figure inside a ring of flames is Shiva as Nataraja, the cosmic dancer."},
+ {q:"Which figure has chalky white skin, a trident, and a third eye?",a:"Shiva",t:["Vishnu","Kali"],why:"Shiva is shown with blue skin or with chalky white skin, along with the trident and third eye."},
+ {q:"Which figure is shown as a single body that is half male and half female?",a:"Shiva",t:["Durga","Kali"],why:"One of Shiva’s forms joins Shiva and his consort in one body, half male and half female."},
+ {q:"Which figure is a goddess riding a lion or a tiger and has 8 or 10 arms?",a:"Durga",t:["Kali","Lakshmi"],why:"The lion or tiger and the many arms are Durga’s signature."},
+ {q:"Which figure is a goddess with many arms, each hand holding a different weapon?",a:"Durga",t:["Kali","Shiva"],why:"Each of Durga’s hands holds the special weapon of one of the gods."},
+ {q:"Which figure is a goddess with black or blue skin, usually naked, with a long lolling tongue?",a:"Kali",t:["Durga","Shiva"],why:"The lolling tongue and the black or blue skin are Kali’s."},
+ {q:"Which figure wears a necklace of decapitated heads and a skirt of human arms?",a:"Kali",t:["Shiva","Durga"],why:"The necklace of heads and the skirt of human arms are Kali’s. Shiva shares some features with her, so check the details."},
+ {q:"Which figure has the head of an elephant?",a:"Ganesha",t:["Vishnu","Shiva"],why:"The elephant head is Ganesha’s defining feature."},
+ {q:"Which figure is potbellied and holds round Indian sweets in his hand?",a:"Ganesha",t:["Shiva","Krishna"],why:"The potbelly and the round sweets are Ganesha’s."},
+ {q:"Which figure has a large rat as his vehicle, shown beside him?",a:"Ganesha",t:["Shiva","Krishna"],why:"The large bandicoot rat is Ganesha’s vehicle."}
+];
+
+var GITA_TERMS=["Samsara","Moksha","Atman","Brahman","Jnana","Bhakti","Avatar","Dharma"];
+var GITA_BANK=[
+ {q:"Just as a person discards worn-out clothes and puts on new ones, the embodied self discards worn-out bodies and takes on new ones.",a:"Samsara",bold:"the embodied self discards worn-out bodies and takes on new ones",t:["Atman","Moksha"],why:"The passage compares the lives we live to clothes we discard: we take on new bodies because of the cycle of birth, death, and rebirth."},
+ {q:"The self is indestructible. It is never born and never dies, so there is no reason for Arjuna to grieve.",a:"Atman",t:["Brahman","Samsara"],why:"The “self” here is the individual self, the atman, which is reborn again and again until it reaches moksha."},
+ {q:"If you abandon your duty as a warrior, you will “gain evil.”",a:"Dharma",bold:"abandon your duty as a warrior",t:["Moksha","Jnana"],why:"The passage stresses Arjuna’s sacred duty as a warrior. (Karma is not an option on the test, though “gaining evil” is bad karma.)"},
+ {q:"Those who “glorify” and “worship” me are great souls who “devote themselves to my divine nature.”",a:"Bhakti",t:["Jnana","Dharma"],why:"Glorifying and worshipping a personal god is the path of devotion, bhakti yoga."},
+ {q:"“Surrender all actions to me.”",a:"Bhakti",t:["Dharma","Jnana"],why:"Krishna is telling Arjuna to do things for him, the god. That is bhakti yoga, the path of devotion."},
+ {q:"One who is selfless and desireless, who “acts without craving,” will achieve peace.",a:"Moksha",also:["Jnana"],t:["Dharma","Bhakti"],why:"The “peace” is moksha, liberation from samsara. Selfless, desireless living is also the heart of jnana (seeing that atman = brahman, so there is no separate self to be selfish for), so either answer fits."},
+ {q:"Whenever dharma is in trouble, “I create myself” and come down to destroy men who do evil.",a:"Avatar",bold:"“I create myself” and come down",t:["Brahman","Dharma"],why:"An avatar is the manifestation of a god on Earth. Krishna is an avatar of Vishnu, who has ten of them."},
+ {q:"Those who worship the unmanifest, who “rejoice in the welfare of all creatures,” and whose “reason clings to my unmanifest nature.”",a:"Jnana",t:["Bhakti","Brahman"],why:"They worship the unmanifest Brahman, not a personal god like Vishnu or Shiva. That is jnana yoga, the path of knowledge."},
+ {q:"A priest who truly understands knows the divine is not found only in sacred texts, just as a well is not the only place to find water “when water flows everywhere.”",a:"Brahman",t:["Atman","Jnana"],why:"Everything is Brahman, the universal self, so it is everywhere, not just in sacred texts."}
+];
+
+/* ---------- quiz engine ---------- */
+function makeQuiz(root,cfg){
+  var st={};
+  function start(){
+    st.items=pick(cfg.bank,cfg.perRound);
+    st.i=0;st.score=0;st.missed=[];
+    renderQ();
+  }
+  function renderQ(){
+    root.replaceChildren();
+    var it=st.items[st.i];
+    var total=st.items.length;
+    root.appendChild(h("div",{class:"qmeta"},h("span",{text:"Question "+(st.i+1)+" of "+total}),h("span",{text:"Score: "+st.score})));
+    var bar=h("div",{class:"bar"},h("i",{style:"width:"+(st.i/total*100)+"%"}));
+    root.appendChild(bar);
+    if(cfg.invented){root.appendChild(h("p",{class:"speaker",text:it.speaker+" speaks:"}));root.appendChild(h("blockquote",{class:"passage stanza",text:it.q}));root.appendChild(h("p",{class:"srcnote",text:"Invented stanza, written for practice. It is not real text from the Gita."}));root.appendChild(h("p",{class:"qtext",text:"Which key term does this stanza express?"}));}else if(cfg.passage){
+      root.appendChild(h("blockquote",{class:"passage",text:"“"+it.q.replace(/^“|”$/g,"")+"”"}));
+      root.appendChild(h("p",{class:"srcnote",text:"Paraphrased from the passages we reviewed in class. On the test, the stanza comes from our Miller translation."}));
+      root.appendChild(h("p",{class:"qtext",text:"Which key term does this passage express?"}));
+    } else {
+      root.appendChild(h("p",{class:"qtext",text:it.q}));
+    }
+    var distract=shuffle(it.t).concat(shuffle(cfg.pool.filter(function(x){return x!==it.a&&it.t.indexOf(x)<0;})));
+    var opts=shuffle([it.a].concat(distract.slice(0,3)));
+    var box=h("div",{class:"opts",role:"group","aria-label":"Answer choices"});
+    var fb=h("div",{"aria-live":"polite"});
+    var done=false;
+    opts.forEach(function(o){
+      var b=h("button",{class:"opt",type:"button",text:o});
+      b.addEventListener("click",function(){
+        if(done)return;done=true;
+        var ok=(o===it.a);
+        Array.prototype.forEach.call(box.children,function(c){
+          c.disabled=true;
+          if(c.textContent===it.a)c.classList.add("right");
+        });
+        recordResult(it.id,ok);if(ok){st.score++;}else{b.classList.add("wrong");st.missed.push(it);}
+        fb.appendChild(h("div",{class:"fb "+(ok?"ok":"no")},
+          h("strong",{text:ok?"Correct: "+it.a:"Not quite. The answer is "+it.a+"."}),
+          h("span",{text:it.why}),h("div",{class:"srcnote",style:"margin:8px 0 0",text:streakNote(it.id)})));
+        var last=(st.i===total-1);
+        var nb=h("button",{class:"btn next",type:"button",text:last?"See my results":"Next question"});
+        nb.addEventListener("click",function(){ if(last){renderEnd();}else{st.i++;renderQ();} });
+        fb.appendChild(nb);
+        nb.focus();
+      });
+      box.appendChild(b);
+    });
+    root.appendChild(box);
+    root.appendChild(fb);
+  }
+  function renderEnd(){
+    root.replaceChildren();
+    var total=st.items.length;
+    root.appendChild(h("p",{class:"qmeta",text:"Round complete"}));
+    root.appendChild(h("div",{class:"score",text:st.score+" of "+total+" correct"}));
+    if(st.missed.length===0){
+      root.appendChild(h("p",{text:"You got every one. Run another round to keep it fresh."}));
+    } else {
+      root.appendChild(h("p",{text:"Review the ones you missed:"}));
+      var ul=h("ul",{class:"missed"});
+      st.missed.forEach(function(m){
+        ul.appendChild(h("li",{},h("em",{text:m.q}),h("br"),h("strong",{text:"Answer: "+m.a+(m.also&&m.also.length?" (or "+m.also.join(", ")+")":"")+". "}),h("span",{text:m.why})));
+      });
+      root.appendChild(ul);
+    }
+    root.appendChild(h("button",{class:"btn next",type:"button",text:"Practice again",onclick:start}));
+  }
+  start();
+}
+/* ---------- mastery + typed answers ---------- */
+GOD_BANK.forEach(function(x){x.id="god:"+x.a;});
+GITA_BANK.forEach(function(x){x.id="term:"+x.a;});
+var MASTERY_KEY="mastery";
+var mastery={};
+try{mastery=JSON.parse(load(MASTERY_KEY)||"{}")||{};}catch(e){mastery={};}
+function streakOf(id){return (mastery[id]&&mastery[id].s)||0;}
+function triedOf(id){return (mastery[id]&&mastery[id].n)||0;}
+function isMastered(id){return streakOf(id)>=3;}
+function recordResult(id,ok){
+  var m=mastery[id]||(mastery[id]={s:0,n:0});
+  m.n++; m.s=ok?m.s+1:0;
+  store(MASTERY_KEY,JSON.stringify(mastery));
+}
+function streakNote(id){
+  var s=streakOf(id),name=id.split(":")[1];
+  if(s>=3)return "Mastered: "+name+" ("+s+" right in a row).";
+  if(s===0)return "Your streak on "+name+" is back to 0. Get it right 3 times in a row to master it.";
+  return "Streak on "+name+": "+s+" of 3 in a row.";
+}
+function pick(bank,n){
+  var un=shuffle(bank.filter(function(x){return !isMastered(x.id);}));
+  var ma=shuffle(bank.filter(function(x){return isMastered(x.id);}));
+  return shuffle(un.concat(ma).slice(0,n));
+}
+
+var TERM_DEFS=[
+ {term:"Samsara",def:"The cycle of birth, death, and rebirth."},
+ {term:"Moksha",def:"Liberation from samsara; the goal in Hinduism."},
+ {term:"Atman",def:"The individual self in Hinduism."},
+ {term:"Brahman",def:"The universal self, or God, in Hinduism."},
+ {term:"Jnana",def:"The discipline (yoga) or path of wisdom and knowledge, where one tries to understand that atman = brahman."},
+ {term:"Bhakti",def:"The discipline (yoga) or path of devotion, where one devotes oneself to a chosen god; the most popular path."},
+ {term:"Avatar",def:"An incarnation (usually of a god) in human or animal form."},
+ {term:"Dharma",def:"The pursuit of doing one’s sacred duty; one of the four legitimate aims of life."}
+];
+var TERM_ALTS={Samsara:["sansara","samsaara"],Moksha:["moksa","mokshaa"],Atman:["atma","aatman"],Brahman:["braman"],Jnana:["gyana","jnan","gnana","jnaana"],Bhakti:["bhakthi","bhakthy"],Avatar:["avatara","avathar"],Dharma:["dharm"]};
+function normTerm(x){
+  x=x.normalize?x.normalize("NFD").replace(/[\u0300-\u036f]/g,""):x;
+  return x.toLowerCase().replace(/[^a-z\s]/g," ").replace(/\byoga\b/g," ").replace(/\s+/g,"");
+}
+function lev(a,b){
+  var prev=[],cur=[],i,j;
+  for(j=0;j<=b.length;j++)prev[j]=j;
+  for(i=1;i<=a.length;i++){
+    cur=[i];
+    for(j=1;j<=b.length;j++){
+      cur[j]=Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+(a.charAt(i-1)===b.charAt(j-1)?0:1));
+    }
+    prev=cur;
+  }
+  return prev[b.length];
+}
+function gradeTerm(input,term){
+  var x=normTerm(input);
+  if(!x)return "empty";
+  var t=normTerm(term);
+  if(term==="Brahman"&&x==="brahmin")return "brahmin";
+  var cands=[t].concat((TERM_ALTS[term]||[]).map(normTerm));
+  var i;
+  for(i=0;i<cands.length;i++){if(x===cands[i])return i===0?"exact":"alt";}
+  var allowed=t.length>=7?2:1;
+  for(i=0;i<cands.length;i++){if(lev(x,cands[i])<=allowed)return "close";}
+  return "wrong";
+}
+
+function setQuote(el,text,bold){
+  var i=bold?text.indexOf(bold):-1;
+  if(i<0){el.textContent=text;return;}
+  el.appendChild(document.createTextNode(text.slice(0,i)));
+  el.appendChild(h("strong",{text:bold}));
+  el.appendChild(document.createTextNode(text.slice(i+bold.length)));
+}
+function makeTypedQuiz(root,cfg){
+  var st={};
+  function start(){
+    st.items=pick(cfg.bank,cfg.perRound);
+    st.i=0;st.score=0;st.missed=[];
+    renderQ(false);
+  }
+  function renderQ(focus){
+    root.replaceChildren();
+    var it=st.items[st.i];
+    var total=st.items.length;
+    root.appendChild(h("div",{class:"qmeta"},h("span",{text:"Question "+(st.i+1)+" of "+total}),h("span",{text:"Score: "+st.score})));
+    root.appendChild(h("div",{class:"bar"},h("i",{style:"width:"+(st.i/total*100)+"%"})));
+    var bq=h("blockquote",{class:cfg.invented?"passage stanza":"passage"});
+    setQuote(bq,cfg.invented?it.q:"“"+it.q.replace(/^“|”$/g,"")+"”",it.bold);
+    if(cfg.invented)root.appendChild(h("p",{class:"speaker",text:it.speaker+" speaks:"}));
+    root.appendChild(bq);
+    if(it.bold)root.appendChild(h("p",{class:"srcnote",text:"The bold part is the part to focus on."}));
+    root.appendChild(h("p",{class:"srcnote",text:cfg.invented?"Invented stanza, written for practice. It is not real text from the Gita.":"Paraphrased from the passages we reviewed in class. On the test, the stanza comes from our Miller translation."}));
+    root.appendChild(h("p",{class:"qtext",text:"Type the key term this "+(cfg.invented?"stanza":"passage")+" expresses."}));
+    var inp=h("input",{class:"answer",type:"text",placeholder:"Type the term","aria-label":"Your answer",autocomplete:"off",autocapitalize:"off",spellcheck:"false"});
+    var btn=h("button",{class:"btn",type:"button",text:"Check answer"});
+    var fb=h("div",{"aria-live":"polite"});
+    var done=false;
+    function check(){
+      if(done)return;
+      var accepted=[it.a].concat(it.also||[]);
+      var r="wrong",hit=it.a,k;
+      for(k=0;k<accepted.length;k++){
+        var rr=gradeTerm(inp.value,accepted[k]);
+        if(rr==="empty"){r="empty";break;}
+        if(rr==="exact"||rr==="alt"||rr==="close"){r=rr;hit=accepted[k];break;}
+        if(rr==="brahmin"&&r==="wrong")r="brahmin";
+      }
+      if(r==="empty"){inp.focus();return;}
+      done=true;inp.disabled=true;btn.disabled=true;
+      var ok=(r==="exact"||r==="alt"||r==="close");
+      var cid=ok?"term:"+hit:it.id;
+      recordResult(cid,ok);
+      if(ok)st.score++;else st.missed.push(it);
+      var others=accepted.filter(function(x){return x!==hit;});
+      var more=(ok&&others.length)?" ("+others.join(", ")+" also accepted here.)":"";
+      var head;
+      if(r==="exact"||r==="alt")head="Correct: "+hit+"."+more;
+      else if(r==="close")head="Correct, with a spelling slip. It’s spelled "+hit+"."+more;
+      else if(r==="brahmin")head="Not quite. “Brahmin” is the priestly class. The term here is "+it.a+".";
+      else head="Not quite. The answer is "+it.a+(it.also&&it.also.length?" (also accepted: "+it.also.join(", ")+")":"")+".";
+      fb.appendChild(h("div",{class:"fb "+(ok?"ok":"no")},h("strong",{text:head}),h("span",{text:it.why}),h("div",{class:"srcnote",style:"margin:8px 0 0",text:streakNote(cid)})));
+      var last=(st.i===total-1);
+      var nb=h("button",{class:"btn next",type:"button",text:last?"See my results":"Next question"});
+      nb.addEventListener("click",function(){if(last){renderEnd();}else{st.i++;renderQ(true);}});
+      fb.appendChild(nb);
+      nb.focus();
+    }
+    btn.addEventListener("click",check);
+    inp.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();check();}});
+    root.appendChild(h("div",{class:"typed-row"},inp,btn));
+    root.appendChild(fb);
+    if(focus)inp.focus();
+  }
+  function renderEnd(){
+    root.replaceChildren();
+    var total=st.items.length;
+    root.appendChild(h("p",{class:"qmeta",text:"Round complete"}));
+    root.appendChild(h("div",{class:"score",text:st.score+" of "+total+" correct"}));
+    if(st.missed.length===0){
+      root.appendChild(h("p",{text:"You got every one. Run another round to keep building your streaks."}));
+    } else {
+      root.appendChild(h("p",{text:"Review the ones you missed:"}));
+      var ul=h("ul",{class:"missed"});
+      st.missed.forEach(function(m){
+        ul.appendChild(h("li",{},h("em",{text:m.q.replace(/\n/g," ")}),h("br"),h("strong",{text:"Answer: "+m.a+(m.also&&m.also.length?" (or "+m.also.join(", ")+")":"")+". "}),h("span",{text:m.why})));
+      });
+      root.appendChild(ul);
+    }
+    root.appendChild(h("button",{class:"btn next",type:"button",text:"Practice again",onclick:start}));
+  }
+  start();
+}
+
+/* study cards (terms hidden until clicked) */
+(function(){
+  var grid=document.getElementById("flash");
+  var allBtn=document.getElementById("flash-all");
+  if(!grid)return;
+  var cards=[];
+  function setShown(c,on){c.term.hidden=!on;c.btn.textContent=on?"Hide term":"Show term";}
+  TERM_DEFS.forEach(function(d){
+    var term=h("span",{class:"term",text:d.term});
+    var btn=h("button",{type:"button",text:"Show term"});
+    var c={term:term,btn:btn};
+    term.hidden=true;
+    btn.addEventListener("click",function(){setShown(c,c.term.hidden);});
+    cards.push(c);
+    grid.appendChild(h("div",{class:"flash"},h("div",{class:"def",text:d.def}),h("div",{},term,btn)));
+  });
+  var allOn=false;
+  allBtn.addEventListener("click",function(){
+    allOn=!allOn;
+    cards.forEach(function(c){setShown(c,allOn);});
+    allBtn.textContent=allOn?"Hide all terms":"Show all terms";
+  });
+})();
+
+/* mastery page */
+function clip(x,n){x=x.replace(/\s+/g," ");return x.length>n?x.slice(0,n-1)+"…":x;}
+function renderMastery(){
+  var body=document.getElementById("mastery-body");
+  body.replaceChildren();
+  var groups=[
+    {title:"God IDs",note:"Streaks count across every question about that god.",items:GODS.map(function(n){return {id:"god:"+n,name:n};})},
+    {title:"Gita stanza IDs",note:"Streaks count across every passage and invented stanza whose answer is that term.",items:GITA_TERMS.map(function(n){return {id:"term:"+n,name:n};})}
+  ];
+  var totalAll=0,doneAll=0;
+  groups.forEach(function(g){totalAll+=g.items.length;g.items.forEach(function(x){if(isMastered(x.id))doneAll++;});});
+  body.appendChild(h("div",{class:"card"},
+    h("div",{class:"score",text:doneAll+" of "+totalAll+" mastered"}),
+    h("div",{class:"bar"},h("i",{style:"width:"+(totalAll?doneAll/totalAll*100:0)+"%"}))));
+  groups.forEach(function(g){
+    var n=0;g.items.forEach(function(x){if(isMastered(x.id))n++;});
+    var ul=h("ul",{class:"mlist"});
+    g.items.forEach(function(it){
+      var s=streakOf(it.id),k=Math.min(s,3);
+      var dots=h("span",{class:"dots","aria-label":k+" of 3 in a row"});
+      for(var i=0;i<3;i++)dots.appendChild(h("span",{class:i<k?"on":"off",text:"●"}));
+      var m=isMastered(it.id);
+      var tag=h("span",{class:"tag"+(m?" m":""),text:m?"Mastered":(triedOf(it.id)?"In progress":"Not tried")});
+      ul.appendChild(h("li",{},h("span",{class:"txt",text:it.name}),dots,tag));
+    });
+    body.appendChild(h("div",{class:"card"},
+      h("div",{class:"mhead"},h("h3",{text:g.title}),h("span",{text:n+" of "+g.items.length+" mastered"})),
+      h("p",{class:"srcnote",style:"margin:4px 0 0",text:g.note}),
+      h("div",{class:"bar",style:"margin:8px 0 0"},h("i",{style:"width:"+(g.items.length?n/g.items.length*100:0)+"%"})),
+      ul));
+  });
+}
+(function(){
+  var rb=document.getElementById("reset-mastery");
+  var timer=null;
+  rb.addEventListener("click",function(){
+    if(rb.getAttribute("data-armed")!=="1"){
+      rb.setAttribute("data-armed","1");rb.textContent="Click again to erase all my progress";
+      timer=setTimeout(function(){rb.removeAttribute("data-armed");rb.textContent="Reset my progress";},4000);
+    } else {
+      clearTimeout(timer);rb.removeAttribute("data-armed");rb.textContent="Reset my progress";
+      mastery={};store(MASTERY_KEY,"{}");renderMastery();
+    }
+  });
+})();
+
+makeQuiz(document.getElementById("quiz-gods"),{bank:GOD_BANK,pool:GODS,perRound:10});
+makeTypedQuiz(document.getElementById("quiz-gita"),{bank:GITA_BANK,perRound:GITA_BANK.length});
+
+var INVENTED_BANK=[
+ {speaker:"Krishna",q:"Beings are born and die and are born again,\nturning on the wheel through life after life.\nThe wheel has no beginning the eye can find,\nand it carries all who are bound to it.",a:"Samsara",t:["Moksha","Atman"],why:"Krishna describes the endless wheel of birth, death, and rebirth. That is samsara."},
+ {speaker:"Krishna",q:"No blade can wound the one who dwells in the body,\nno flame can scorch him, no flood can drown him.\nHe was never born and will never cease to be;\nthe body falls, but the dweller within is untouched.",a:"Atman",t:["Brahman","Samsara"],why:"The deathless “dweller” in each body is the individual self, the atman."},
+ {speaker:"Krishna",q:"Look to your own duty, Arjuna, and do not tremble.\nBetter to do your own work imperfectly\nthan another’s work well;\nto leave your post is to wound the order you were born to guard.",a:"Dharma",t:["Moksha","Jnana"],why:"Krishna is urging Arjuna to do his own sacred duty, his dharma."},
+ {speaker:"Krishna",q:"Whoever offers me a flower, a fruit, or a cup of water\nwith a heart full of love,\nI take that gift gladly,\nfor I stand close to those who love me.",a:"Bhakti",t:["Jnana","Dharma"],why:"Loving offerings to a personal god are the path of devotion, bhakti yoga."},
+ {speaker:"Arjuna",q:"Krishna, you are my refuge; I bow my head to you.\nI know no teacher but you, no path but your feet.\nHold me as a mother holds her child,\nand I will walk wherever you lead.",a:"Bhakti",t:["Dharma","Moksha"],why:"Arjuna surrenders himself in love and trust to a personal god. That is bhakti."},
+ {speaker:"Krishna",q:"When desire falls away like a dry leaf from the tree,\nand the mind rests untroubled in itself,\nsuch a one is freed from the round of births\nand passes beyond all sorrow into peace.",a:"Moksha",t:["Samsara","Jnana"],why:"Being freed from the round of births is moksha. Samsara is the cycle itself, not the escape from it."},
+ {speaker:"Krishna",q:"Many births of mine have passed, Arjuna, and many of yours;\nI remember them all, though you do not.\nThough I am unborn, whenever the righteous are crushed,\nI take on a body and walk among you again.",a:"Avatar",bold:"whenever the righteous are crushed,\nI take on a body and walk among you again",t:["Atman","Brahman"],why:"Many births might suggest samsara, but the part that matters is a god taking on a body to restore what is right. That is an avatar."},
+ {speaker:"Krishna",q:"In age after age, whenever righteousness fades,\nI appear: now as a hero, now as a child,\nnow in a form no mortal had seen,\nto set the world upright again.",a:"Avatar",t:["Brahman","Dharma"],why:"Appearing in many forms to restore dharma is the idea of the avatar."},
+ {speaker:"Krishna",q:"The wise one sees through the veil that splits the one into many.\nHe knows the Self within him is the Self in all,\nand no longer says “mine” and “yours.”\nThat seeing, deep and still, is the lamp of knowledge.",a:"Jnana",also:["Brahman"],t:["Bhakti","Brahman"],why:"Seeing through the illusion of difference is the path of knowledge, jnana yoga. Knowing that the Self within is the Self in all is realizing that atman = brahman, so Brahman is accepted too."},
+ {speaker:"Krishna",q:"I am the thread on which all beings are strung like pearls.\nIn the flame I am the heat, in the waters the taste.\nNothing, moving or still, is apart from me,\nfor all that exists rests in my one being.",a:"Brahman",t:["Atman","Avatar"],why:"Krishna speaks here as the universal self underlying everything: Brahman."},
+ {speaker:"Arjuna",q:"My limbs fail me, Krishna, and my mouth is dry.\nHow can I strike the teachers I have bowed to,\nthe kinsmen I was sworn to protect?\nMy duty tears two ways, and I cannot see the road.",a:"Dharma",bold:"My duty tears two ways, and I cannot see the road.",t:["Samsara","Moksha"],why:"Arjuna is caught between conflicting sacred duties. That is the heart of his dilemma over dharma."},
+ {speaker:"Arjuna",q:"How many bodies have I worn, Krishna, and left behind?\nI have been warrior, beast, and beggar,\nand still the wheel carries me on.\nWhen will I step off?",a:"Samsara",also:["Moksha"],t:["Moksha","Atman"],why:"The wheel that keeps carrying him through body after body is samsara. His longing to step off is moksha, so either answer fits."},
+ {speaker:"Krishna",q:"Those who fix their minds on me and worship me with steady love,\nI lift them from the ocean of death and rebirth,\nand before long they come to me.",a:"Bhakti",also:["Moksha"],t:["Jnana","Samsara"],why:"Worshipping a personal god with steady love is bhakti. Being lifted out of the ocean of death and rebirth is moksha, so either answer fits."}
+];
+INVENTED_BANK.forEach(function(x){x.id="term:"+x.a;});
+makeTypedQuiz(document.getElementById("quiz-gita2"),{bank:INVENTED_BANK,perRound:8,invented:true});
+(function(){
+  var mb=document.getElementById("more-gita"),inv=document.getElementById("invented");
+  mb.addEventListener("click",function(){
+    var open=inv.hidden;
+    inv.hidden=!open;
+    mb.setAttribute("aria-expanded",open?"true":"false");
+    mb.textContent=open?"Hide the invented stanzas":"Want more practice? Try longer invented stanzas";
+    if(open)inv.scrollIntoView({behavior:"smooth",block:"start"});
+  });
+})();
+
+/* ---------- written answers ---------- */
+function words(s){var m=s.trim().match(/\S+/g);return m?m.length:0;}
+function grow(t){t.style.height="auto";t.style.height=Math.max(t.scrollHeight+4,parseInt(getComputedStyle(t).minHeight)||0)+"px";}
+var nameInputs=Array.prototype.slice.call(document.querySelectorAll(".name-input"));
+var savedName=load("name");
+nameInputs.forEach(function(n){
+  n.value=savedName;
+  n.addEventListener("input",function(){
+    nameInputs.forEach(function(o){if(o!==n)o.value=n.value;});
+    store("name",n.value);
+  });
+});
+Array.prototype.forEach.call(document.querySelectorAll(".written"),function(card){
+  var id=card.getAttribute("data-id");
+  var min=parseInt(card.getAttribute("data-min"),10);
+  var ta=card.querySelector("textarea");
+  var wc=card.querySelector(".wc");
+  var lock=card.querySelector(".lock");
+  var notes=card.querySelector("details.notes");
+  function update(){
+    var n=words(ta.value);
+    wc.textContent=n+(n===1?" word":" words");
+    if(n>=min){
+      notes.hidden=false;
+      lock.textContent="The completed notes are unlocked. Compare your answer, then revise it in the box above if you like.";
+    } else {
+      notes.hidden=true;
+      lock.textContent="Write at least "+min+" words to unlock the completed notes ("+(min-n)+" to go).";
+    }
+    grow(ta);
+  }
+  ta.value=load(id);
+  ta.addEventListener("input",function(){store(id,ta.value);update();});
+  update();
+});
+
+/* ---------- tabs ---------- */
+var tabs=Array.prototype.slice.call(document.querySelectorAll(".tabs button"));
+function show(name){
+  tabs.forEach(function(t){t.setAttribute("aria-selected",t.getAttribute("data-panel")===name?"true":"false");});
+  ["start","gods","gita","concepts","tea","mastery"].forEach(function(p){
+    document.getElementById("panel-"+p).hidden=(p!==name);
+  });
+  if(name==="mastery")renderMastery();
+  window.scrollTo(0,0);
+  Array.prototype.forEach.call(document.querySelectorAll("#panel-"+name+" textarea"),grow);
+}
+tabs.forEach(function(t){t.addEventListener("click",function(){show(t.getAttribute("data-panel"));});});
+Array.prototype.forEach.call(document.querySelectorAll("[data-go]"),function(b){b.addEventListener("click",function(){show(b.getAttribute("data-go"));});});
+</script>
+</body>
+</html>

@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Final Review Arena — Hinduism and Buddhism</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;0,800;1,400&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3F4EF; --surface:#FFFFFF; --ink:#1B2526; --muted:#5A6765; --line:#D2D8D2;
+  --accent:#2E4A9A; --accent-soft:#E2E7F6;
+  --saffron:#B4600E; --saffron-soft:#FCEAD3; --maroon:#8C2A37; --maroon-soft:#F4DFE2;
+  --good:#2C7A45; --good-soft:#DDF1E3; --bad:#B23A2E; --bad-soft:#F8E0DC;
+  --t0:#2B6767; --t1:#B4600E; --t2:#8C2A37; --t3:#2E4A9A; --t4:#5B6B1E; --t5:#5B4A86;
+  --serif:"Alegreya", Georgia, serif; --sans:"Alegreya Sans", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#121819; --surface:#1A2223; --ink:#E6ECE8; --muted:#A1B0AC; --line:#2F3C3D;
+    --accent:#A9B8F2; --accent-soft:#232B45;
+    --saffron:#F3AE62; --saffron-soft:#3B2A16; --maroon:#EC9BA8; --maroon-soft:#3D2026;
+    --good:#7DCB93; --good-soft:#1C3424; --bad:#F29C90; --bad-soft:#3B221F;
+    --t0:#6FC1BA; --t1:#F3AE62; --t2:#EC9BA8; --t3:#A9B8F2; --t4:#B9CC6A; --t5:#C2B1EE;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121819; --surface:#1A2223; --ink:#E6ECE8; --muted:#A1B0AC; --line:#2F3C3D;
+  --accent:#A9B8F2; --accent-soft:#232B45;
+  --saffron:#F3AE62; --saffron-soft:#3B2A16; --maroon:#EC9BA8; --maroon-soft:#3D2026;
+  --good:#7DCB93; --good-soft:#1C3424; --bad:#F29C90; --bad-soft:#3B221F;
+  --t0:#6FC1BA; --t1:#F3AE62; --t2:#EC9BA8; --t3:#A9B8F2; --t4:#B9CC6A; --t5:#C2B1EE;
+  color-scheme: dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:1.15rem;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding:.7rem 1.4rem .2rem;max-width:90rem;margin:0 auto}
+.top h1{font-family:var(--serif);font-weight:800;font-size:clamp(1.6rem,3vw,2.3rem);margin:0;line-height:1.1}
+.top h1 small{display:block;font-family:var(--sans);font-weight:500;font-size:.95rem;color:var(--muted);margin-top:.15rem}
+.credit{font-style:italic;font-size:.88rem;color:var(--muted);text-align:right;white-space:nowrap;padding-top:.3rem}
+
+.sticky{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:0 1px 0 var(--line)}
+.tabs{display:flex;gap:.4rem;padding:.5rem 1.4rem;max-width:90rem;margin:0 auto;overflow-x:auto}
+.tabs button{border:1px solid var(--line);background:var(--paper);padding:.4rem 1rem;border-radius:999px;font-weight:700;white-space:nowrap}
+.tabs button[aria-current="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.board{display:flex;gap:.5rem;flex-wrap:wrap;align-items:stretch;padding:.2rem 1.4rem .6rem;max-width:90rem;margin:0 auto}
+.team{display:flex;align-items:center;gap:.5rem;border:2px solid var(--tc);border-radius:8px;padding:.25rem .3rem .25rem .7rem;background:var(--paper);min-width:9.5rem}
+.team .nm{font-weight:800;color:var(--tc);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:10rem}
+.team .sc{font-family:var(--serif);font-weight:800;font-size:1.8rem;min-width:2ch;text-align:right;font-variant-numeric:tabular-nums}
+.team .adj{display:flex;flex-direction:column;gap:2px}
+.team .adj button{border:1px solid var(--line);background:var(--surface);border-radius:4px;width:1.7rem;height:1.3rem;line-height:1;font-size:.95rem;padding:0}
+.team.lead{background:var(--surface);box-shadow:0 0 0 2px var(--tc) inset}
+.board .undo{margin-left:auto;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:.3rem .8rem;font-size:.95rem;color:var(--muted)}
+.flash{animation:fl .6s ease}
+@keyframes fl{0%{transform:scale(1.15)}100%{transform:scale(1)}}
+
+main{max-width:90rem;margin:0 auto;padding:1.2rem 1.4rem 4rem}
+section.panel{display:none}
+section.panel.active{display:block}
+h2{font-family:var(--serif);font-size:2rem;margin:.1rem 0 .4rem;line-height:1.15}
+h3{font-family:var(--serif);font-size:1.35rem;margin:1.2rem 0 .4rem}
+.lede{color:var(--muted);margin:0 0 1rem;max-width:52rem}
+.btn{border:2px solid var(--ink);background:var(--ink);color:var(--paper);padding:.5rem 1.1rem;border-radius:6px;font-weight:800}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.good{background:var(--good);border-color:var(--good);color:var(--paper)}
+.btn.bad{background:var(--bad);border-color:var(--bad);color:var(--paper)}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.3rem}
+.grid2{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(18rem,1fr);gap:1.2rem;align-items:start}
+@media (max-width:900px){.grid2{grid-template-columns:1fr}}
+.small{font-size:.95rem;color:var(--muted)}
+.pill{display:inline-block;padding:.05rem .6rem;border-radius:999px;font-size:.85rem;font-weight:700;background:var(--accent-soft);color:var(--accent)}
+.pill.hin{background:var(--saffron-soft);color:var(--saffron)}
+.pill.bud{background:var(--maroon-soft);color:var(--maroon)}
+
+/* teams setup */
+.setup label{display:block;font-weight:700;margin:.2rem 0}
+.setup input[type=text]{font:inherit;padding:.4rem .6rem;border:2px solid var(--tc);border-radius:6px;background:var(--paper);color:var(--ink);width:100%;max-width:20rem}
+.names{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.8rem;margin:.8rem 0 1.2rem}
+select{font:inherit;padding:.35rem .5rem;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+
+/* timer */
+.timer{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.timer .clock{font-family:var(--serif);font-weight:800;font-size:2.4rem;font-variant-numeric:tabular-nums;min-width:4.2ch}
+.timer .clock.done{color:var(--bad);animation:fl .6s ease 3}
+.timer button{border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:.3rem .7rem;font-weight:700}
+
+/* story swat */
+.storypick{display:grid;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));gap:.8rem}
+.storypick button{text-align:left;border:2px solid var(--line);background:var(--surface);border-radius:10px;padding:1rem}
+.storypick button b{display:block;font-family:var(--serif);font-size:1.3rem}
+.story{font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,1.75rem);line-height:1.6}
+.story p{margin:0 0 .7rem}
+.story p.past{color:var(--muted);font-size:.8em}
+.story .fill{font-weight:800;color:var(--good);border-bottom:3px solid var(--good)}
+.story p.past .fill{color:var(--ink);border-bottom-color:var(--line)}
+.target{display:inline-block;min-width:7em;padding:.1em .4em;margin:0 .1em;text-align:center;border:4px dashed var(--accent);border-radius:10px;background:var(--accent-soft);color:var(--accent);font-family:var(--sans);font-weight:800;line-height:1.5}
+.target.hit{border-style:solid;background:var(--good-soft);color:var(--good);border-color:var(--good)}
+.current{font-size:clamp(1.7rem,3.2vw,2.5rem);line-height:1.55;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1rem 1.3rem;margin:.6rem 0 1rem}
+.wb{display:flex;flex-wrap:wrap;gap:.45rem;margin:.6rem 0 0}
+.wb span{border:1px solid var(--line);background:var(--surface);border-radius:5px;padding:.2rem .7rem;font-weight:700;font-size:1.05rem}
+.wb span.used{opacity:.35;text-decoration:line-through}
+.teambtns{display:flex;flex-wrap:wrap;gap:.5rem}
+.teambtns button{border:3px solid var(--tc);background:var(--surface);color:var(--tc);border-radius:8px;padding:.45rem .9rem;font-weight:800}
+.teambtns button.on{background:var(--tc);color:var(--paper)}
+.teambtns button:disabled{opacity:.3;text-decoration:line-through;cursor:not-allowed}
+.status{font-weight:700;min-height:1.6em;margin:.5rem 0}
+.cue{display:flex;align-items:center;gap:.4rem;color:var(--muted);font-family:var(--sans);font-weight:800;min-height:3.1em}
+.cue i{width:.7em;height:.7em;border-radius:50%;background:var(--accent);display:inline-block;animation:dot 1s ease-in-out infinite}
+.cue i:nth-child(2){animation-delay:.15s}.cue i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,100%{transform:translateY(0);opacity:.35}50%{transform:translateY(-.4em);opacity:1}}
+.appear{animation:appear .7s ease-out}
+.startline{font-size:1.4rem;padding:.8rem 1.6rem}
+@keyframes appear{from{opacity:0;transform:translateY(.6em)}to{opacity:1;transform:none}}
+.status.good{color:var(--good)} .status.bad{color:var(--bad)}
+.progress{font-weight:800;color:var(--muted)}
+
+/* clinic */
+.scenario{font-family:var(--serif);font-size:clamp(1.8rem,3.4vw,2.7rem);line-height:1.3;font-weight:700;padding:1.4rem 1.5rem;background:var(--maroon-soft);border-left:8px solid var(--maroon);border-radius:10px;margin:.8rem 0 1rem}
+.scenario.empty{background:var(--surface);border-left-color:var(--line);color:var(--muted);font-weight:400;font-size:1.4rem}
+.rubric{list-style:none;padding:0;margin:.3rem 0;counter-reset:r}
+.rubric li{padding:.3rem 0 .3rem 2.2rem;position:relative;border-bottom:1px dashed var(--line)}
+.rubric li::before{counter-increment:r;content:counter(r);position:absolute;left:0;top:.3rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-weight:800;font-size:.9rem}
+.scoretable{width:100%;border-collapse:collapse}
+.scoretable td{padding:.45rem .3rem;border-bottom:1px solid var(--line)}
+.scoretable td:first-child{font-weight:800;color:var(--tc);white-space:nowrap}
+.pts{display:flex;gap:.3rem;flex-wrap:wrap}
+.pts button{width:2.4rem;height:2.4rem;border:2px solid var(--line);background:var(--surface);border-radius:6px;font-weight:800;font-size:1.1rem}
+.pts button:hover:not(:disabled){border-color:var(--ink)}
+.pts button.on{background:var(--good);border-color:var(--good);color:var(--paper)}
+.pts button:disabled:not(.on){opacity:.3;cursor:not-allowed}
+details.judge{margin-top:1rem;border:1px dashed var(--line);border-radius:8px;padding:.5rem .9rem;background:var(--surface)}
+details.judge summary{cursor:pointer;font-weight:800;color:var(--muted)}
+details.judge ul{margin:.4rem 0;padding-left:1.2rem}
+details.judge li{margin:.2rem 0}
+
+/* myth court */
+.mythpick{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:.6rem;margin-bottom:1rem}
+.mythpick button{text-align:left;border:2px solid var(--line);background:var(--surface);border-radius:10px;padding:.7rem .9rem}
+.mythpick button.on{border-color:var(--ink);box-shadow:inset 0 -4px 0 var(--ink)}
+.mythpick button.used{opacity:.55}
+.mythpick b{display:block;font-family:var(--serif);font-size:1.12rem;line-height:1.2;margin:.25rem 0 .1rem}
+.myth{font-family:var(--serif);font-size:clamp(1.15rem,1.8vw,1.4rem);line-height:1.6}
+.myth h3{margin-top:0;font-size:1.7rem}
+.myth .src{font-family:var(--sans);font-size:.9rem;color:var(--muted);font-style:italic;margin-top:.8rem}
+.verdict{display:grid;grid-template-columns:auto 1fr;gap:.4rem .8rem;align-items:center}
+.verdict .lbl{font-weight:700}
+.total{font-family:var(--serif);font-size:1.6rem;font-weight:800;margin:.6rem 0}
+.objrow{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;padding:.4rem 0;border-bottom:1px solid var(--line)}
+.objrow .nm{font-weight:800;color:var(--tc);min-width:7rem}
+.objrow .res{font-weight:700}
+.rules{background:var(--accent-soft);border-radius:8px;padding:.7rem 1rem;margin:.6rem 0}
+.rules p{margin:.2rem 0}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>Final Review Arena<small>Hinduism and Buddhism · Mr. Johnson</small></h1>
+  <div class="credit">Prepared with AI support, reviewed by Mr. Johnson</div>
+</header>
+<div class="sticky">
+  <nav class="tabs" aria-label="Game sections">
+    <button data-go="teams">Teams</button>
+    <button data-go="court">1 · Myth Court</button>
+    <button data-go="swat">2 · Story Swat</button>
+    <button data-go="clinic">3 · Suffering Clinic</button>
+  </nav>
+  <div class="board" id="board" aria-label="Scoreboard"></div>
+</div>
+
+<main>
+<!-- TEAMS -->
+<section class="panel" id="teams">
+  <h2>Set up teams</h2>
+  <p class="lede">Choose how many teams are playing and name them. Scores stay on the board across all three games, and the page remembers them if you reload.</p>
+  <div class="card setup">
+    <div class="row"><label for="nTeams" style="margin:0">Number of teams</label>
+      <select id="nTeams"><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+    <div class="names" id="names"></div>
+    <div class="row">
+      <button class="btn" data-jump="court">Start with Myth Court</button>
+      <button class="btn ghost" id="resetScores">Reset all scores to 0</button>
+      <button class="btn ghost" id="resetAll">Reset everything</button>
+    </div>
+  </div>
+  <h3>How points work</h3>
+  <div class="card">
+    <p style="margin:.2rem 0"><strong>Myth Court:</strong> up to 6 points for the presenting team; each other team may steal 1 point with a sustained written objection.</p>
+    <p style="margin:.2rem 0"><strong>Story Swat:</strong> +1 for a correct swat, −1 for a wrong one.</p>
+    <p style="margin:.2rem 0"><strong>Suffering Clinic:</strong> 0–4 points per team, per scenario.</p>
+    <p class="small" style="margin:.6rem 0 0">Made a mistake? Use the small + and − buttons on any team, or “Undo last” on the scoreboard.</p>
+  </div>
+</section>
+
+<!-- MYTH COURT -->
+<section class="panel" id="court">
+  <h2>Myth Court</h2>
+  <div class="rules">
+    <p><strong>The case (6 pts):</strong> Name two terms (1 pt each). Tie each one to a <em>specific thing in the story</em> and explain how the story works as a myth through it: a ritual, an ethic, or a worldview (2 pts each).</p>
+    <p><strong>Objections:</strong> Every other team may submit one <em>written</em> objection naming the point they challenge and why. If the judge sustains it, that team steals 1 point.</p>
+  </div>
+  <div class="mythpick" id="mythPick"></div>
+  <div id="courtPlay" hidden>
+    <div class="grid2">
+      <div class="card myth" id="mythText"></div>
+      <div>
+        <div class="card">
+          <div class="row" style="justify-content:space-between"><strong>Timer</strong><span class="small">Prep 4:00 · Present 1:00 · Objections 1:30</span></div>
+          <div class="timer" id="courtTimer"></div>
+        </div>
+        <div class="card" style="margin-top:1rem">
+          <div class="row"><label for="presenter" style="font-weight:800">Presenting team</label><select id="presenter"></select></div>
+          <div class="verdict" style="margin-top:.8rem" id="verdict"></div>
+          <div class="total" id="courtTotal">Case total: 0 / 6</div>
+          <button class="btn good" id="awardCase">Award points</button>
+          <div id="objections" hidden>
+            <h3>Objections</h3>
+            <div id="objRows"></div>
+          </div>
+          <details class="judge"><summary>Judge’s notes (terms tied to the story)</summary><div id="mythNotes" class="small"></div></details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- STORY SWAT -->
+<section class="panel" id="swat">
+  <h2>Story Swat</h2>
+  <p class="lede">The story unfolds one sentence at a time. When a sentence appears, the first player to swat the blank gets to answer. Correct: +1. Wrong: −1, and the other teams can still swat. Rotate players every sentence.</p>
+  <div id="swatPick">
+    <div class="storypick" id="storyPick"></div>
+  </div>
+  <div id="swatPlay" hidden>
+    <div class="row" style="justify-content:space-between">
+      <span class="progress" id="swatProg"></span>
+      <div class="row">
+        <label class="small"><input type="checkbox" id="showBank" checked> Show word bank</label>
+        <button class="btn ghost" id="swatQuit">Choose another story</button>
+      </div>
+    </div>
+    <div class="story" id="pastLines"></div>
+    <div class="story current" id="curLine"></div>
+    <div class="grid2">
+      <div>
+        <div class="small" style="font-weight:700;margin-bottom:.3rem">Who swatted first?</div>
+        <div class="teambtns" id="swatTeams"></div>
+        <div class="row" style="margin-top:.7rem">
+          <button class="btn good" id="swatRight" disabled>Correct (+1)</button>
+          <button class="btn bad" id="swatWrong" disabled>Wrong (−1)</button>
+          <button class="btn ghost" id="swatReveal">Reveal answer</button>
+          <button class="btn" id="swatNext">Next sentence →</button>
+        </div>
+        <div class="status" id="swatStatus" aria-live="polite"></div>
+      </div>
+      <div class="card" id="bankCard">
+        <div style="font-weight:800">Word bank</div>
+        <div class="wb" id="wb"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUFFERING CLINIC -->
+<section class="panel" id="clinic">
+  <h2>Suffering Clinic</h2>
+  <p class="lede">Draw a scenario. Each team gets one crack at writing a Buddhist “prescription” and earns 0–4 points.</p>
+  <div class="row">
+    <button class="btn" id="drawScen">Draw a scenario</button>
+    <span class="small" id="scenCount"></span>
+  </div>
+  <div class="scenario empty" id="scenText">Click “Draw a scenario” to begin.</div>
+  <div class="grid2">
+    <div class="card">
+      <div style="font-weight:800">The prescription: 1 point each</div>
+      <ol class="rubric">
+        <li><strong>Diagnosis:</strong> name the craving or attachment behind the suffering.</li>
+        <li><strong>Treatment:</strong> name a Buddhist concept that applies.</li>
+        <li><strong>Specific dose:</strong> apply that concept to <em>this</em> scenario, not in general.</li>
+        <li><strong>Prognosis:</strong> explain how it would actually reduce the suffering.</li>
+      </ol>
+      <details class="judge" id="scenJudge"><summary>Judge’s notes (possible answers)</summary><div id="scenNotes" class="small">Draw a scenario first.</div></details>
+    </div>
+    <div class="card">
+      <div class="timer" id="clinicTimer"></div>
+      <h3 style="margin-top:.8rem">Award points</h3>
+      <table class="scoretable"><tbody id="clinicRows"></tbody></table>
+      <p class="small">Each team gets one score per scenario. Undo on the scoreboard reopens it.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+(function(){
+"use strict";
+/* ================= DATA ================= */
+var STORIES = [
+  { title:"A Summer in Varanasi", blurb:"Hinduism", extra:["Maya","Jnana yoga","Vishnu","Nonself"], lines:[
+    "Before her trip to India, Ella was sure the country would feel chaotic, but her teacher warned that judging it only by Western standards would be [[Eurocentric]].",
+    "In Varanasi, she watched families scatter the ashes of loved ones in the Ganges, hoping they would be freed from [[Samsara]], the cycle of birth, death, and rebirth.",
+    "Her host grandmother explained that the true goal of life is [[Moksha]], and that dying in this holy city is believed to bring it closer.",
+    "Every morning the grandmother offered flowers and a small lamp at a family shrine, a daily act of love that follows the path of [[Bhakti yoga]].",
+    "The blue-skinned flute player on the shrine was [[Krishna]], a god who comes to earth to protect good from evil.",
+    "She laughed that Americans think [[Yoga]] just means stretching, when really it means a path toward liberation.",
+    "One evening a wandering holy man told Ella that her true self, the [[Atman]], was never born and would never die.",
+    "Pointing at the river, he said the individual self and the universal self, [[Brahman]], are as inseparable as a wave and the water.",
+    "Her host brother, who was studying to become a doctor, said he was simply doing his [[Dharma]], his sacred duty to his family.",
+    "On the flight home, Ella realized that her whole [[Worldview]], her basic outlook on life, had been built around one God and one path."
+  ]},
+  { title:"A Weekend at the Monastery", blurb:"Buddhism", extra:["Asceticism","Hedonism","Nirvana","The Eightfold Path"], lines:[
+    "On a weekend retreat at a Buddhist monastery, Theo learned that Siddhartha left his palace after [[The Four Sights]] revealed sickness, old age, and death.",
+    "Those sights taught him [[Impermanence]], the truth that everything changes.",
+    "After years of starving himself, Siddhartha rejected that extreme too and chose [[The Middle Way]] between pleasure and punishment.",
+    "A monk explained that seeing things as they really are, without distortion, is called [[Right View]].",
+    "Theo admitted he had arrived sure that meditation would be boring and had noticed only the boring parts; the monk smiled and called it [[Confirmation bias]].",
+    "At dinner, everyone practiced [[Right Speech]], avoiding gossip and never speaking cruelly.",
+    "The monk said that “Theo” is not a fixed thing but a collection of changing parts, a teaching called [[Nonself]].",
+    "He described the ideal of the [[Bodhisattva]], a being who seeks awakening out of compassion for all others.",
+    "The monks, nuns, and lay visitors together formed the [[Sangha]], the Buddhist community.",
+    "As Theo left, the monk handed him a card listing [[The Four Noble Truths]], beginning with the truth that life involves suffering."
+  ]},
+  { title:"Debate Night", blurb:"Both, plus critical thinking", extra:["Krishna","Bhakti yoga","Brahman","Worldview"], lines:[
+    "At debate night, Priya argued that ancient stories still matter, because a [[Myth]] is a sacred story that explains how people should act and what they should believe.",
+    "Her first example was the Bhagavad Gita, where the warrior prince [[Arjuna]] refuses to fight his own cousins.",
+    "His charioteer tells him that fighting is his [[Dharma]], his sacred duty as a warrior.",
+    "The charioteer then reveals that he is an [[Avatar]], a god who takes human form whenever goodness is threatened.",
+    "Her opponent claimed the Gita only matters to people who already believe it, but Priya said he was falling into [[Confirmation bias]], noticing only what fit his opinion.",
+    "She added that dismissing a classic just because it isn’t European is [[Eurocentric]].",
+    "Next, her teammate described the philosopher’s path of [[Jnana yoga]], which seeks wisdom about the self.",
+    "This path aims to realize that the [[Atman]], the individual self, is one with the universal self.",
+    "Siddhartha, she noted, looked within and found something different: [[Nonself]], the teaching that we are made of elements that are not us.",
+    "The judges agreed with Lao Tzu that knowing the self is [[Enlightenment]]."
+  ]}
+];
+
+var SCENARIOS = [
+  { t:"Your phone dies right before you can post the photo everyone has been waiting to see.",
+    n:["Craving: attention, likes, approval, control over the moment.","Impermanence: the likes, the photo’s moment, even the excitement would fade anyway.","Right View: the belief that the post decides how people see you is a distorted perception.","The Middle Way: a healthier balance with your phone instead of needing it constantly."] },
+  { t:"You find out the group chat made weekend plans without you.",
+    n:["Craving: belonging, being included, approval.","Right View: “where there is perception, there is deception”; maybe it wasn’t personal.","Right Speech: don’t fire off an angry or passive-aggressive text.","Nonself: your worth isn’t a fixed thing defined by one group chat."] },
+  { t:"You get a C on a test you studied hard for.",
+    n:["Craving: success, a certain image of yourself, a grade.","Impermanence: one grade and the disappointment will both change.","Right View: one test doesn’t mean you’re “bad at” the subject.","The Middle Way: don’t give up, and don’t swing to all-night cramming either."] },
+  { t:"Your coach benches you for the biggest game of the season.",
+    n:["Craving: recognition, playing time, status.","Impermanence: lineups change; this feeling will pass.","Right Speech: don’t complain about the coach to teammates.","Right View: seeing the coach’s decision clearly instead of as a personal attack."] },
+  { t:"Your roommate ate the snacks your family sent you.",
+    n:["Craving: possessions, fairness, the comfort of food from home.","Right Speech: talk to your roommate honestly but not cruelly.","Impermanence: the snacks were going to be gone soon anyway.","Bodhisattva: compassion like a bodhisattva’s; maybe they were having a hard day too."] },
+  { t:"The dining hall runs out of your favorite dessert right as you reach the front of the line.",
+    n:["Craving: sensual pleasure (kama), a specific treat.","Four Noble Truths: the second truth says the craving, not the dessert, is what causes the suffering.","The Middle Way: not every meal needs to be the best one; avoid hedonism.","Impermanence: you’ll forget about this by tomorrow."] },
+  { t:"You sent a long text three hours ago. It says “Read,” but there’s still no reply.",
+    n:["Craving: reassurance, a response, control.","Right View: you don’t actually know why they haven’t replied; they may just be busy.","Confirmation bias: (bonus crossover) noticing only signs that they’re upset with you.","Impermanence: the worry will pass once you know more."] },
+  { t:"Your family can’t make it to Family Weekend, but your friends’ families are all here.",
+    n:["Craving: connection, being seen, fairness.","Sangha: lean on your community; friends and their families can include you.","Impermanence: this weekend passes, and the next visit will come.","Right View: their absence doesn’t mean they don’t care."] },
+  { t:"Your new haircut came out wrong, and school photos are tomorrow.",
+    n:["Craving: looking a certain way, others’ approval.","Nonself: you aren’t your hair; you’re a changing collection of elements.","Impermanence: hair grows back, literally.","Right View: others notice far less than you think."] },
+  { t:"Your team loses to your biggest rival on a last-second shot.",
+    n:["Craving: winning, pride, bragging rights.","Impermanence: the score, the season, and the sting will all change.","Right Speech: shake hands, no trash talk afterward.","The Middle Way: care about the game without letting it consume you."] }
+];
+
+var MYTHS = [
+  { id:"yashoda", tag:"hin", tradition:"Hindu", title:"Yashoda Looks into Krishna’s Mouth",
+    src:"Retold and condensed from the Bhagavata Purana, Book 10, Chapter 8.",
+    text:["When Krishna was a small boy in the village of Gokula, his playmates ran to his mother, Yashoda, with news: Krishna had been eating dirt. Yashoda grabbed him by the hand. “Is it true?” she scolded. “They are lying,” said the little boy. “If you don’t believe me, look for yourself.” And he opened his mouth wide.",
+      "Yashoda bent down to look, and froze. Inside her son’s mouth she saw the entire universe: the sky and the stars, the planets, wind and fire, oceans, islands, and mountains, every moving and unmoving thing. And there, inside it all, she saw the village of Gokula, and herself, standing and looking into her son’s mouth.",
+      "Trembling, she wondered, “Is this a dream? A trick of the mind? Or is this the true power of my child?” She bowed down to the Lord who contains all things. Then Krishna drew a veil over her mind. The vision faded, and she forgot it completely. Yashoda lifted the little boy onto her lap and hugged him, loving him once again simply as her son."],
+    notes:[
+      ["Brahman","The entire universe, “every moving and unmoving thing,” is inside Krishna.","Worldview: everything is contained in one ultimate reality."],
+      ["Atman","Yashoda sees herself standing inside her son’s mouth.","Worldview: the individual self is part of the universal self."],
+      ["Maya","Krishna “drew a veil over her mind,” and the vision faded.","Worldview: the everyday world of separate things hides the deeper truth."],
+      ["Bhakti yoga","She ends by hugging him and loving him “simply as her son.”","Ethic: loving devotion matters even more than overwhelming knowledge of God."],
+      ["Avatar","The supreme god appears as a little boy who gets caught eating dirt.","Worldview: God comes to earth in human form."] ] },
+  { id:"gajendra", tag:"hin", tradition:"Hindu", title:"The Elephant King and the Crocodile",
+    src:"Retold and condensed from the Bhagavata Purana, Book 8, Chapters 2–4.",
+    text:["Gajendra, king of the elephants, was proud and mighty, and he led his herd through the forests of a great mountain. One hot day he waded into a lake to drink and play with his family. Suddenly a crocodile clamped its jaws around his leg and began dragging him toward deep water.",
+      "Gajendra pulled with all his strength. The struggle went on for a thousand years. His herd tried to help, then gave up and left him alone. At last his strength was gone, and he understood that no one, not his family and not his own power, could save him.",
+      "So he stopped struggling. He lifted a lotus flower with his trunk and prayed to Vishnu, the Supreme Lord, offering himself completely. Vishnu came at once, riding on Garuda. With his discus he cut off the crocodile’s head and pulled Gajendra from the water. At Vishnu’s touch, Gajendra was freed not only from the crocodile but from the cycle of birth and death, and he took on a shining form and went to live with his Lord."],
+    notes:[
+      ["Bhakti yoga","He lifts a lotus and offers himself completely to Vishnu, and only then is he saved.","Ritual and ethic: offering and surrender to a chosen god."],
+      ["Moksha","At Vishnu’s touch he is freed “from the cycle of birth and death.”","Worldview: a devotee’s god can grant liberation."],
+      ["Samsara","The thousand-year struggle in the crocodile’s jaws, with no way out on his own.","Worldview: being trapped in the endless cycle."],
+      ["Vishnu","He arrives on Garuda and uses his discus.","Ritual: teaches devotees how to recognize Vishnu’s sacred images."] ] },
+  { id:"svetaketu", tag:"hin", tradition:"Hindu", title:"Svetaketu and the Salt",
+    src:"Retold and condensed from the Chandogya Upanishad, Chapter 6.",
+    text:["Svetaketu was twelve when his father, the sage Uddalaka, sent him away to study. He came home at twenty-four, proud and conceited, sure that he knew everything. His father asked, “Have you learned the teaching by which what is unheard becomes heard, and what is unknown becomes known?” Svetaketu had not.",
+      "So his father said, “Put this lump of salt in a cup of water and come back in the morning.” The next morning Uddalaka said, “Bring me the salt.” Svetaketu looked, but the salt had dissolved, and he could not find it.",
+      "“Sip the water from this side,” said his father. “How is it?” “Salty.” “From the middle?” “Salty.” “From the far side?” “Salty.” “You cannot see it,” said Uddalaka, “yet it is everywhere in the water. In the same way, there is a hidden essence you cannot see, and the whole world has it as its innermost being. That is what is real. And you, Svetaketu, are that.”"],
+    notes:[
+      ["Atman","“And you, Svetaketu, are that.” The essence is inside Svetaketu himself.","Worldview: each person’s innermost self is divine."],
+      ["Brahman","The unseen essence is “everywhere in the water,” and the whole world has it as its innermost being.","Worldview: one reality runs through everything."],
+      ["Jnana yoga","He learns through a teacher’s wisdom and by tasting for himself, not through ritual.","Ethic: the path of knowledge and direct understanding."],
+      ["Maya","The salt seems to have vanished, yet it is in every sip.","Worldview: appearances hide what is truly there."] ] },
+  { id:"kisa", tag:"bud", tradition:"Buddhist", title:"Kisa Gotami and the Mustard Seed",
+    src:"Retold and condensed from the traditional Buddhist commentary on the Therigatha and Dhammapada.",
+    text:["Kisa Gotami was a young mother whose only son died just as he was learning to walk. Wild with grief, she carried his body from house to house, begging for medicine to bring him back. People turned away or laughed, until one kind man told her, “Go to the Buddha. He will know.”",
+      "She knelt before the Buddha and asked for medicine. “I can help,” he said. “Bring me a handful of mustard seeds, but they must come from a house where no one has ever died.” Full of hope, Kisa Gotami went from door to door. Everyone was willing to give her mustard seeds. But at every house someone said, “We lost our father last year,” or “Our daughter died,” or “The dead here are many; the living are few.”",
+      "By evening she had not collected a single seed. She sat down at the edge of the city and understood: death comes to every family. She buried her son and returned to the Buddha. “Did you bring the seeds?” he asked. “No,” she said. “I have no more need of them.” She asked to join the community of nuns, and in time she found complete freedom from suffering."],
+    notes:[
+      ["Impermanence","At every single house, someone has died.","Worldview: nothing and no one lasts forever."],
+      ["Four Noble Truths","Her suffering comes from craving her son back (second truth); when she says she has “no more need” of the seeds, it begins to end (third truth).","Worldview: suffering is caused by craving and can end."],
+      ["Sangha","She asks to join the community of nuns.","Ritual: joining the Buddhist community as part of the path."],
+      ["Nirvana","“In time she found complete freedom from suffering.”","Worldview: liberation is possible for anyone, even a grieving mother."] ] },
+  { id:"insult", tag:"bud", tradition:"Buddhist", title:"The Gift That Was Not Accepted",
+    src:"Retold and condensed from the Akkosa Sutta (Samyutta Nikaya 7.2).",
+    text:["One day a man who hated the Buddha stormed into the place where he was teaching. In front of everyone, he shouted insult after insult at him, calling him a fraud, a fool, and worse. The Buddha sat quietly and listened until the man ran out of words.",
+      "Then the Buddha asked, “Friend, when guests come to your home, do you ever offer them food?” “Of course I do,” the man snapped. “And if your guests do not accept the food, to whom does it belong?” The man frowned. “Then it still belongs to me.”",
+      "“In the same way,” said the Buddha, “you have offered me your insults, and I do not accept them. They are still yours. Whoever answers anger with anger makes things worse for himself and for the other. But whoever does not return anger for anger wins a battle that is very hard to win.” The man was silent for a long time. Then he bowed, and later he asked to join the Buddha’s community of monks."],
+    notes:[
+      ["Right Speech","The Buddha answers a stream of insults calmly and truthfully, without one cruel word.","Ethic: how to speak, especially under attack."],
+      ["Nonself","The insults have nothing fixed to stick to; the Buddha has no “me” to defend, so he can simply decline the “gift.”","Worldview: there is no permanent self to be wounded."],
+      ["The Middle Way","He neither fights back nor runs away, but answers with calm questions.","Ethic: avoiding both extremes."],
+      ["Sangha","The angry man later asks to join the community of monks.","Ritual: joining the Buddhist community."] ] },
+  { id:"angulimala", tag:"bud", tradition:"Buddhist", title:"The Bandit Who Stopped",
+    src:"Retold and condensed from the Angulimala Sutta (Majjhima Nikaya 86).",
+    text:["In the kingdom of Kosala lived a bandit so feared that whole villages emptied when he came near. People called him Angulimala, “finger necklace,” because he wore a string of fingers taken from the people he had killed. One morning the Buddha walked straight down the road toward the bandit’s forest, even though villagers begged him to turn back.",
+      "Angulimala grabbed his sword and ran after him. But no matter how fast he ran, he could not catch up with the Buddha, who was only walking calmly. Exhausted, Angulimala shouted, “Stop, monk! Stop!” The Buddha answered, “I have stopped, Angulimala. It is you who have not stopped.” “What do you mean?” Angulimala cried. “I have stopped harming living beings,” said the Buddha. “You have not.”",
+      "The words struck Angulimala like lightning. He threw his sword into a ravine, knelt, and asked to become a monk. When the king’s soldiers came to arrest the bandit, they found only a quiet monk with a shaved head. Some villagers still threw stones at him when he walked through town, and he came back bleeding. “Bear it,” the Buddha told him gently. “You are paying now for what you once did.”"],
+    notes:[
+      ["Nonself","A feared killer becomes a gentle monk; there was never a fixed “Angulimala” who had to stay that way.","Worldview: a person is not a fixed, unchanging thing."],
+      ["Impermanence","Even the most terrifying bandit in the kingdom changes completely.","Worldview: everything changes, including people."],
+      ["Sangha","He joins the community of monks, which shelters him from the soldiers.","Ritual: joining the community as a new beginning."],
+      ["Karma","The stones and bleeding: “You are paying now for what you once did.”","Worldview: actions have consequences, an idea Buddhism shares with Hinduism."] ] }
+];
+
+/* ================= STATE ================= */
+var KEY = "hbarena:v1";
+var defaults = function(){ return { teams:[{name:"Team 1",score:0},{name:"Team 2",score:0},{name:"Team 3",score:0},{name:"Team 4",score:0}], log:[], tab:"teams",
+  swat:{ story:null, idx:0, revealed:false, locked:[], active:null, bank:[] },
+  clinic:{ order:[], pos:0, cur:null, done:{} },
+  court:{ myth:null, used:[], presenter:0, s:[0,0,0,0], awarded:false, awardedPts:0, obj:{}, steals:0 } }; };
+var S;
+try { S = JSON.parse(localStorage.getItem(KEY)) || defaults(); } catch(e){ S = defaults(); }
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){} }
+var $ = function(id){ return document.getElementById(id); };
+function el(tag, cls, txt){ var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+function tcol(i){ return "var(--t" + (i % 6) + ")"; }
+function shuffle(a){ a = a.slice(); for (var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+
+/* ================= SCOREBOARD ================= */
+var flashTeams = [];
+function change(changes, label, meta){
+  changes.forEach(function(c){ if (S.teams[c.team]) { S.teams[c.team].score += c.delta; flashTeams.push(c.team); } });
+  S.log.push({ changes:changes, label:label, meta:meta || null });
+  if (S.log.length > 200) S.log.shift();
+  save(); renderBoard();
+}
+function undo(){
+  var e = S.log.pop(); if (!e) return;
+  e.changes.forEach(function(c){ if (S.teams[c.team]) { S.teams[c.team].score -= c.delta; flashTeams.push(c.team); } });
+  if (e.meta){
+    if (e.meta.type === "clinic" && S.clinic.cur === e.meta.scen) delete S.clinic.done[e.meta.team];
+    if (e.meta.type === "case" && S.court.myth === e.meta.myth){ S.court.awarded = false; S.court.awardedPts = 0; S.court.obj = {}; S.court.steals = 0; }
+    if (e.meta.type === "steal" && S.court.myth === e.meta.myth){ delete S.court.obj[e.meta.team]; S.court.steals = Math.max(0, S.court.steals-1); }
+    if (e.meta.type === "swat-right" && S.swat.story === e.meta.story && S.swat.idx === e.meta.idx){ S.swat.revealed = false; }
+    if (e.meta.type === "swat-wrong" && S.swat.story === e.meta.story && S.swat.idx === e.meta.idx){ S.swat.locked = S.swat.locked.filter(function(t){ return t !== e.meta.team; }); }
+  }
+  save(); renderAll();
+}
+function renderBoard(){
+  var b = $("board"); b.innerHTML = "";
+  var max = Math.max.apply(null, S.teams.map(function(t){ return t.score; }));
+  S.teams.forEach(function(t, i){
+    var d = el("div", "team"); d.style.setProperty("--tc", tcol(i));
+    if (t.score === max && max > 0) d.classList.add("lead");
+    var nm = el("span", "nm", t.name); var sc = el("span", "sc", t.score);
+    if (flashTeams.indexOf(i) !== -1) sc.classList.add("flash");
+    var adj = el("span", "adj");
+    var p = el("button", null, "+"); p.setAttribute("aria-label", "Add a point to " + t.name);
+    p.addEventListener("click", function(){ change([{team:i,delta:1}], "Manual +1"); });
+    var m = el("button", null, "−"); m.setAttribute("aria-label", "Subtract a point from " + t.name);
+    m.addEventListener("click", function(){ change([{team:i,delta:-1}], "Manual −1"); });
+    adj.appendChild(p); adj.appendChild(m);
+    d.appendChild(nm); d.appendChild(sc); d.appendChild(adj); b.appendChild(d);
+  });
+  var u = el("button", "undo", S.log.length ? "Undo: " + S.log[S.log.length-1].label : "Undo last");
+  u.disabled = !S.log.length; u.addEventListener("click", undo); b.appendChild(u);
+  flashTeams = [];
+}
+
+/* ================= TABS ================= */
+function show(id){
+  S.tab = id; save();
+  document.querySelectorAll("section.panel").forEach(function(p){ p.classList.toggle("active", p.id === id); });
+  document.querySelectorAll(".tabs button").forEach(function(b){ b.setAttribute("aria-current", b.dataset.go === id ? "true" : "false"); });
+  try { history.replaceState(null, "", "#" + id); } catch(e){}
+}
+document.querySelectorAll(".tabs button").forEach(function(b){ b.addEventListener("click", function(){ show(b.dataset.go); }); });
+document.querySelectorAll("[data-jump]").forEach(function(b){ b.addEventListener("click", function(){ show(b.dataset.jump); }); });
+
+/* ================= TEAMS ================= */
+function renderTeams(){
+  $("nTeams").value = String(S.teams.length);
+  var box = $("names"); box.innerHTML = "";
+  S.teams.forEach(function(t, i){
+    var w = el("div"); w.style.setProperty("--tc", tcol(i));
+    var l = el("label", null, "Team " + (i+1) + " name"); l.htmlFor = "tn" + i; l.style.color = tcol(i);
+    var inp = el("input"); inp.type = "text"; inp.id = "tn" + i; inp.value = t.name; inp.maxLength = 24;
+    inp.addEventListener("input", function(){ S.teams[i].name = inp.value || ("Team " + (i+1)); save(); renderBoard(); });
+    w.appendChild(l); w.appendChild(inp); box.appendChild(w);
+  });
+}
+$("nTeams").addEventListener("change", function(){
+  var n = +this.value;
+  while (S.teams.length < n) S.teams.push({ name:"Team " + (S.teams.length+1), score:0 });
+  if (S.teams.length > n) S.teams = S.teams.slice(0, n);
+  S.log = []; save(); renderAll();
+});
+$("resetScores").addEventListener("click", function(){
+  if (!confirm("Set every team’s score back to 0?")) return;
+  S.teams.forEach(function(t){ t.score = 0; }); S.log = []; save(); renderAll();
+});
+$("resetAll").addEventListener("click", function(){
+  if (!confirm("Reset teams, scores, and all game progress?")) return;
+  S = defaults(); save(); renderAll(); show("teams");
+});
+
+/* ================= TIMER ================= */
+function makeTimer(host, presets){
+  var left = presets[0][1], total = left, iv = null;
+  host.innerHTML = "";
+  var clock = el("span", "clock");
+  var start = el("button", null, "Start"), reset = el("button", null, "Reset");
+  host.appendChild(clock); host.appendChild(start); host.appendChild(reset);
+  presets.forEach(function(p){ var b = el("button", null, p[0]); b.addEventListener("click", function(){ stop(); total = left = p[1]; draw(); }); host.appendChild(b); });
+  function fmt(s){ return Math.floor(s/60) + ":" + String(s%60).padStart(2, "0"); }
+  function draw(){ clock.textContent = fmt(left); clock.classList.toggle("done", left === 0); start.textContent = iv ? "Pause" : "Start"; }
+  function stop(){ if (iv){ clearInterval(iv); iv = null; } draw(); }
+  function beep(){ try { var a = new (window.AudioContext || window.webkitAudioContext)(); [0, .35, .7].forEach(function(t){ var o = a.createOscillator(), g = a.createGain(); o.frequency.value = 880; o.connect(g); g.connect(a.destination); g.gain.setValueAtTime(.2, a.currentTime + t); g.gain.exponentialRampToValueAtTime(.001, a.currentTime + t + .3); o.start(a.currentTime + t); o.stop(a.currentTime + t + .3); }); } catch(e){} }
+  start.addEventListener("click", function(){
+    if (iv){ stop(); return; }
+    if (left === 0) left = total;
+    iv = setInterval(function(){ left--; if (left <= 0){ left = 0; stop(); beep(); } draw(); }, 1000); draw();
+  });
+  reset.addEventListener("click", function(){ stop(); left = total; draw(); });
+  draw();
+}
+
+/* ================= STORY SWAT ================= */
+function answerOf(line){ var m = line.match(/\[\[(.+?)\]\]/); return m ? m[1] : ""; }
+function renderStoryPick(){
+  var box = $("storyPick"); box.innerHTML = "";
+  STORIES.forEach(function(s, i){
+    var b = el("button"); var t = el("b", null, s.title); b.appendChild(t);
+    b.appendChild(el("span", "small", s.blurb + " · 10 blanks"));
+    b.addEventListener("click", function(){
+      S.swat = { story:i, idx:0, revealed:false, locked:[], active:null,
+        bank: shuffle(s.lines.map(answerOf).concat(s.extra)) };
+      save(); swatWait = true; renderSwat();
+    });
+    box.appendChild(b);
+  });
+}
+function lineNode(line, mode){
+  var p = el("p"); var parts = line.split(/\[\[(.+?)\]\]/);
+  parts.forEach(function(x, k){
+    if (k % 2 === 0){ p.appendChild(document.createTextNode(x)); return; }
+    if (mode === "past"){ p.appendChild(el("span", "fill", x)); }
+    else if (mode === "revealed"){ p.appendChild(el("span", "target hit", x)); }
+    else { p.appendChild(el("span", "target", "?")); }
+  });
+  return p;
+}
+var swatHold = false, swatAnim = false, holdTimer = null, swatWait = false;
+function cueLine(){
+  swatHold = true; if (holdTimer) clearTimeout(holdTimer);
+  renderSwat();
+  holdTimer = setTimeout(function(){ swatHold = false; swatAnim = true; renderSwat(); swatAnim = false; }, 2200);
+}
+function renderSwat(){
+  var sw = S.swat, playing = sw.story !== null && sw.story !== undefined;
+  $("swatPick").hidden = playing; $("swatPlay").hidden = !playing;
+  if (!playing){ renderStoryPick(); return; }
+  var st = STORIES[sw.story];
+  $("swatProg").textContent = st.title + " · Blank " + (sw.idx+1) + " of " + st.lines.length;
+  var past = $("pastLines"); past.innerHTML = "";
+  for (var i = 0; i < sw.idx; i++){ var pl = lineNode(st.lines[i], "past"); pl.className = "past"; past.appendChild(pl); }
+  var cur = $("curLine"); cur.innerHTML = "";
+  if (swatWait){
+    var go = el("button", "btn startline", "▶ Show sentence " + (sw.idx+1));
+    go.addEventListener("click", function(){ swatWait = false; cueLine(); });
+    cur.appendChild(go);
+  } else if (swatHold){
+    var cue = el("div", "cue"); cue.appendChild(el("span", null, "Get ready ")); cue.appendChild(el("i")); cue.appendChild(el("i")); cue.appendChild(el("i"));
+    cue.setAttribute("aria-label", "Get ready"); cur.appendChild(cue);
+  } else {
+    var ln = lineNode(st.lines[sw.idx], sw.revealed ? "revealed" : "open");
+    if (swatAnim) ln.classList.add("appear");
+    cur.appendChild(ln);
+  }
+  // teams
+  var tb = $("swatTeams"); tb.innerHTML = "";
+  S.teams.forEach(function(t, i){
+    var b = el("button", null, t.name); b.style.setProperty("--tc", tcol(i));
+    if (sw.active === i) b.classList.add("on");
+    b.disabled = swatWait || swatHold || sw.revealed || sw.locked.indexOf(i) !== -1;
+    b.addEventListener("click", function(){ S.swat.active = i; save(); renderSwat(); });
+    tb.appendChild(b);
+  });
+  $("swatRight").disabled = $("swatWrong").disabled = sw.active === null || sw.revealed;
+  $("swatReveal").disabled = sw.revealed || swatHold || swatWait;
+  var last = sw.idx >= st.lines.length - 1;
+  $("swatNext").textContent = last ? "Finish story" : "Next sentence →";
+  $("swatNext").disabled = !sw.revealed;
+  // word bank
+  var used = st.lines.slice(0, sw.idx + (sw.revealed ? 1 : 0)).map(answerOf);
+  var wb = $("wb"); wb.innerHTML = "";
+  sw.bank.forEach(function(w){ var s = el("span", used.indexOf(w) !== -1 ? "used" : null, w); wb.appendChild(s); });
+  $("bankCard").hidden = !$("showBank").checked;
+}
+function swatStatus(txt, cls){ var s = $("swatStatus"); s.textContent = txt; s.className = "status " + (cls || ""); }
+$("swatRight").addEventListener("click", function(){
+  var sw = S.swat, t = sw.active; if (t === null) return;
+  sw.revealed = true; sw.active = null;
+  change([{team:t, delta:1}], "Story Swat +1", { type:"swat-right", story:sw.story, idx:sw.idx });
+  swatStatus(S.teams[t].name + " got it! +1", "good"); renderSwat();
+});
+$("swatWrong").addEventListener("click", function(){
+  var sw = S.swat, t = sw.active; if (t === null) return;
+  sw.locked.push(t); sw.active = null;
+  change([{team:t, delta:-1}], "Story Swat −1", { type:"swat-wrong", story:sw.story, idx:sw.idx, team:t });
+  var left = S.teams.length - sw.locked.length;
+  swatStatus(S.teams[t].name + " loses a point. " + (left ? "Other teams can still swat." : "No teams left; reveal the answer."), "bad"); renderSwat();
+});
+$("swatReveal").addEventListener("click", function(){ S.swat.revealed = true; S.swat.active = null; save(); swatStatus("Answer revealed. Rotate players!"); renderSwat(); });
+$("swatNext").addEventListener("click", function(){
+  var sw = S.swat, st = STORIES[sw.story];
+  if (sw.idx >= st.lines.length - 1){ S.swat.story = null; save(); swatStatus(""); renderSwat(); return; }
+  sw.idx++; sw.revealed = false; sw.locked = []; sw.active = null; save(); swatStatus("Rotate players!"); swatWait = true; renderSwat();
+});
+$("swatQuit").addEventListener("click", function(){ if (confirm("Leave this story and choose another?")){ S.swat.story = null; save(); swatStatus(""); renderSwat(); } });
+$("showBank").addEventListener("change", renderSwat);
+
+/* ================= SUFFERING CLINIC ================= */
+function renderClinic(){
+  var c = S.clinic, has = c.cur !== null && c.cur !== undefined;
+  var st = $("scenText");
+  st.className = "scenario" + (has ? "" : " empty");
+  st.textContent = has ? SCENARIOS[c.cur].t : "Click “Draw a scenario” to begin.";
+  $("scenCount").textContent = has ? "Scenario " + c.pos + " of " + SCENARIOS.length + " in this deck" : "";
+  var notes = $("scenNotes"); notes.innerHTML = "";
+  if (has){ var ul = el("ul"); SCENARIOS[c.cur].n.forEach(function(n){
+    var k = n.indexOf(":"); var li = el("li");
+    if (k > 0){ li.appendChild(el("strong", null, n.slice(0, k+1) + " ")); li.appendChild(document.createTextNode(n.slice(k+1).trim())); } else li.textContent = n;
+    ul.appendChild(li); }); notes.appendChild(ul); }
+  else notes.textContent = "Draw a scenario first.";
+  var rows = $("clinicRows"); rows.innerHTML = "";
+  S.teams.forEach(function(t, i){
+    var tr = el("tr"); tr.style.setProperty("--tc", tcol(i));
+    tr.appendChild(el("td", null, t.name));
+    var td = el("td"); var pts = el("div", "pts");
+    var done = c.done[i];
+    [0,1,2,3,4].forEach(function(v){
+      var b = el("button", done === v ? "on" : null, String(v));
+      b.setAttribute("aria-label", v + " points for " + t.name);
+      b.disabled = !has || done !== undefined;
+      b.addEventListener("click", function(){
+        S.clinic.done[i] = v;
+        change([{team:i, delta:v}], "Clinic +" + v + " " + t.name, { type:"clinic", scen:c.cur, team:i });
+        renderClinic();
+      });
+      pts.appendChild(b);
+    });
+    td.appendChild(pts); tr.appendChild(td); rows.appendChild(tr);
+  });
+}
+$("drawScen").addEventListener("click", function(){
+  var c = S.clinic;
+  if (!c.order.length || c.pos >= c.order.length){ c.order = shuffle(SCENARIOS.map(function(_, i){ return i; })); c.pos = 0; }
+  c.cur = c.order[c.pos++]; c.done = {};
+  $("scenJudge").open = false; save(); renderClinic();
+});
+
+/* ================= MYTH COURT ================= */
+function renderMythPick(){
+  var box = $("mythPick"); box.innerHTML = "";
+  MYTHS.forEach(function(m){
+    var b = el("button");
+    if (S.court.myth === m.id) b.classList.add("on");
+    if (S.court.used.indexOf(m.id) !== -1 && S.court.myth !== m.id) b.classList.add("used");
+    b.appendChild(el("span", "pill " + m.tag, m.tradition));
+    b.appendChild(el("b", null, m.title));
+    if (S.court.used.indexOf(m.id) !== -1) b.appendChild(el("span", "small", "Already argued"));
+    b.addEventListener("click", function(){
+      if (S.court.myth && S.court.awarded && S.court.used.indexOf(S.court.myth) === -1) S.court.used.push(S.court.myth);
+      S.court.myth = m.id; S.court.s = [0,0,0,0]; S.court.awarded = false; S.court.awardedPts = 0; S.court.obj = {}; S.court.steals = 0;
+      save(); renderCourt();
+    });
+    box.appendChild(b);
+  });
+}
+var SLOTS = [["Term 1 named", 1], ["Term 1 tied to the story and explained", 2], ["Term 2 named", 1], ["Term 2 tied to the story and explained", 2]];
+function renderCourt(){
+  renderMythPick();
+  var c = S.court, m = MYTHS.filter(function(x){ return x.id === c.myth; })[0];
+  $("courtPlay").hidden = !m; if (!m) return;
+  var mt = $("mythText"); mt.innerHTML = "";
+  mt.appendChild(el("span", "pill " + m.tag, m.tradition + " myth"));
+  mt.appendChild(el("h3", null, m.title));
+  m.text.forEach(function(p){ mt.appendChild(el("p", null, p)); });
+  mt.appendChild(el("p", "src", m.src));
+  // presenter
+  var sel = $("presenter"); sel.innerHTML = "";
+  S.teams.forEach(function(t, i){ var o = el("option", null, t.name); o.value = i; sel.appendChild(o); });
+  if (c.presenter >= S.teams.length) c.presenter = 0;
+  sel.value = c.presenter; sel.disabled = c.awarded;
+  // verdict
+  var v = $("verdict"); v.innerHTML = "";
+  SLOTS.forEach(function(sl, k){
+    v.appendChild(el("span", "lbl", sl[0]));
+    var pts = el("div", "pts");
+    for (var x = 0; x <= sl[1]; x++){ (function(x){
+      var b = el("button", c.s[k] === x ? "on" : null, String(x)); b.disabled = c.awarded;
+      b.addEventListener("click", function(){ S.court.s[k] = x; save(); renderCourt(); });
+      pts.appendChild(b);
+    })(x); }
+    v.appendChild(pts);
+  });
+  var tot = c.s.reduce(function(a, b){ return a + b; }, 0);
+  $("courtTotal").textContent = c.awarded ? "Awarded: " + c.awardedPts + " / 6" + (c.steals ? " (" + c.steals + " stolen)" : "") : "Case total: " + tot + " / 6";
+  $("awardCase").disabled = c.awarded;
+  // objections
+  $("objections").hidden = !c.awarded;
+  var or = $("objRows"); or.innerHTML = "";
+  S.teams.forEach(function(t, i){
+    if (i === c.presenter) return;
+    var r = el("div", "objrow"); r.style.setProperty("--tc", tcol(i));
+    r.appendChild(el("span", "nm", t.name));
+    var res = c.obj[i];
+    if (res){ r.appendChild(el("span", "res", res === "sustained" ? "Sustained: stole 1 point" : res === "overruled" ? "Overruled" : "No objection")); }
+    else {
+      var canSteal = c.steals < c.awardedPts;
+      var su = el("button", "btn good", "Sustained (steal 1)"); su.disabled = !canSteal;
+      if (!canSteal) su.title = "No points left to steal";
+      su.addEventListener("click", function(){
+        S.court.obj[i] = "sustained"; S.court.steals++;
+        change([{team:c.presenter, delta:-1}, {team:i, delta:1}], "Objection: " + t.name + " steals 1", { type:"steal", myth:c.myth, team:i });
+        renderCourt();
+      });
+      var ov = el("button", "btn ghost", "Overruled");
+      ov.addEventListener("click", function(){ S.court.obj[i] = "overruled"; save(); renderCourt(); });
+      var no = el("button", "btn ghost", "No objection");
+      no.addEventListener("click", function(){ S.court.obj[i] = "none"; save(); renderCourt(); });
+      r.appendChild(su); r.appendChild(ov); r.appendChild(no);
+    }
+    or.appendChild(r);
+  });
+  var notes = $("mythNotes"); notes.innerHTML = "";
+  var ul = el("ul"); m.notes.forEach(function(n){
+    var li = el("li"); li.appendChild(el("strong", null, n[0] + ": ")); li.appendChild(document.createTextNode(n[1] + " ")); li.appendChild(el("em", null, n[2])); ul.appendChild(li);
+  }); notes.appendChild(ul);
+}
+$("presenter").addEventListener("change", function(){ S.court.presenter = +this.value; save(); renderCourt(); });
+$("awardCase").addEventListener("click", function(){
+  var c = S.court, tot = c.s.reduce(function(a, b){ return a + b; }, 0);
+  c.awarded = true; c.awardedPts = tot; c.obj = {}; c.steals = 0;
+  if (c.used.indexOf(c.myth) === -1) c.used.push(c.myth);
+  change([{team:c.presenter, delta:tot}], "Myth Court +" + tot + " " + S.teams[c.presenter].name, { type:"case", myth:c.myth });
+  renderCourt();
+});
+
+/* ================= INIT ================= */
+function renderAll(){ renderBoard(); renderTeams(); renderSwat(); renderClinic(); renderCourt(); }
+makeTimer($("clinicTimer"), [["1:30", 90], ["2:00", 120], ["1:00", 60]]);
+makeTimer($("courtTimer"), [["Prep 4:00", 240], ["Present 1:00", 60], ["Objections 1:30", 90]]);
+renderAll();
+var h = (location.hash || "").replace("#", "");
+show(["teams","swat","clinic","court"].indexOf(h) !== -1 ? h : (S.tab || "teams"));
+window.addEventListener("hashchange", function(){ var h = location.hash.replace("#", ""); if (["teams","swat","clinic","court"].indexOf(h) !== -1) show(h); });
+})();
+</script>
+</body>
+</html>

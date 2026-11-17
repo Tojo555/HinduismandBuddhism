@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hinduism and Buddhism</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap">
+<style>
+  :root{
+    --bg:#F6F0E4; --card:#FFFCF6; --ink:#2B1F17; --soft:#6E5E50; --line:#E3D6C0;
+    --saffron:#A85508; --saffron-tint:#FCE9D2;
+    --maroon:#7A1F2B; --maroon-tint:#F4E0E2;
+    --teal:#2F6A70; --teal-tint:#DDEDEE;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1B1612; --card:#251E18; --ink:#F1E9DC; --soft:#BCAE9C; --line:#3B3128;
+      --saffron:#F0A050; --saffron-tint:#3A2814;
+      --maroon:#E58A95; --maroon-tint:#3A1D22;
+      --teal:#7FC0C6; --teal-tint:#1B2E30;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1B1612; --card:#251E18; --ink:#F1E9DC; --soft:#BCAE9C; --line:#3B3128;
+    --saffron:#F0A050; --saffron-tint:#3A2814;
+    --maroon:#E58A95; --maroon-tint:#3A1D22;
+    --teal:#7FC0C6; --teal-tint:#1B2E30;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--ink);font-family:"Lora",Georgia,serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:18px 16px 64px}
+
+  .credit-row{display:flex;justify-content:flex-end}
+  .credit{font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:13.5px;
+    border:1px solid var(--soft);border-radius:999px;padding:5px 14px;background:var(--card)}
+
+  header{margin:28px 0 8px;border-bottom:3px double var(--line);padding-bottom:22px}
+  .eyebrow{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:13px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--saffron);margin:0 0 6px}
+  h1{font-family:"Fraunces",Georgia,serif;font-weight:700;font-size:clamp(32px,6vw,52px);
+    line-height:1.05;letter-spacing:-.015em;margin:0 0 10px}
+  h1 .amp{color:var(--maroon);font-style:italic;font-weight:500}
+  .lede{color:var(--soft);font-size:17px;max-width:62ch;margin:0}
+
+  section{margin-top:38px}
+  h2{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:21px;margin:0 0 4px;display:flex;align-items:baseline;gap:10px}
+  h2 .num{font-size:14px;color:var(--soft);font-weight:500}
+  .section-note{color:var(--soft);font-size:15px;margin:0 0 14px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px}
+  .card{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);
+    border-top:5px solid var(--c);border-radius:12px;padding:16px 18px 18px;color:inherit;text-decoration:none;
+    transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease}
+  a.card:hover,a.card:focus-visible{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.08);border-color:var(--c);outline:none}
+  .card h3{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:19px;margin:0;line-height:1.2}
+  .card p{margin:0;font-size:15px;color:var(--soft)}
+  .card .go{margin-top:auto;padding-top:6px;font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:14px;color:var(--c)}
+  .tags{display:flex;gap:6px;flex-wrap:wrap}
+  .tag{font-family:"Fraunces",Georgia,serif;font-size:12px;font-weight:600;background:var(--t);color:var(--c);
+    border-radius:999px;padding:2px 10px}
+  .hindu{--c:var(--saffron);--t:var(--saffron-tint)}
+  .writing{--c:var(--teal);--t:var(--teal-tint)}
+  .final{--c:var(--maroon);--t:var(--maroon-tint)}
+  .card.pending{opacity:.6}
+
+  footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--soft);font-size:13.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="credit-row"><span class="credit">Prepared with AI support, reviewed by Mr. Johnson</span></div>
+
+  <header>
+    <p class="eyebrow">Mr. Johnson · Class resources</p>
+    <h1>Hinduism <span class="amp">&amp;</span> Buddhism</h1>
+    <p class="lede">Every practice tool for the course in one place. Pick the one that matches what you're working on. Your progress saves in the browser you use, so stick to the same device when you can.</p>
+  </header>
+
+  <section>
+    <h2><span class="num">01</span> Hinduism unit</h2>
+    <p class="section-note">Readings from Eck and Prothero, the gods, and the Bhagavad Gita.</p>
+    <div class="grid">
+      <a class="card hindu" href="hindu-diversity-team-builder.html">
+        <div class="tags"><span class="tag">Writing practice</span></div>
+        <h3>Build the T.E.A.M. Paragraph: Hindu Diversity</h3>
+        <p>Drag sentences into place to build three paragraphs from Diana Eck and Stephen Prothero on Hinduism's oneness and manyness.</p>
+        <span class="go">Open →</span>
+      </a>
+      <a class="card hindu" href="hinduism-test-review.html">
+        <div class="tags"><span class="tag">Test review</span></div>
+        <h3>Hinduism Test Review</h3>
+        <p>Practice every part of the Hinduism test: god IDs, Gita stanza terms, the conceptual questions, and the TEA paragraph, with mastery tracking.</p>
+        <span class="go">Open →</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">02</span> Paragraph writing</h2>
+    <p class="section-note">Plan, write, and turn in your T.E.A.M. paragraph.</p>
+    <div class="grid">
+      <a class="card writing" id="workspace-card" href="PASTE-NETLIFY-LINK-HERE">
+        <div class="tags"><span class="tag">Password protected</span></div>
+        <h3>TEAM Paragraph Workspace</h3>
+        <p>Choose your question, plan in the organizer, write with the course readings at hand, then copy and submit your paragraph.</p>
+        <span class="go">Open (class password needed) →</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">03</span> Final assessment</h2>
+    <p class="section-note">Hinduism and Buddhism together, for the final.</p>
+    <div class="grid">
+      <a class="card final" href="final-study-tool.html">
+        <div class="tags"><span class="tag">Study on your own</span></div>
+        <h3>Final Assessment Study Tool</h3>
+        <p>The test format, fill-in-the-blank narratives, flash cards, Buddhist concepts, paragraph practice, and myth analysis, with a progress page.</p>
+        <span class="go">Open →</span>
+      </a>
+      <a class="card final" href="final-review-arena.html">
+        <div class="tags"><span class="tag">In class, teacher-led</span></div>
+        <h3>Final Review Arena</h3>
+        <p>Team review game in three rounds: Myth Court, Story Swat, and Suffering Clinic, with a shared scoreboard.</p>
+        <span class="go">Open →</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>Hinduism and Buddhism · Mr. Johnson</footer>
+</div>
+<script>
+  // Until the Netlify link is pasted in above, show the workspace card as "coming soon" instead of a broken link.
+  (function(){
+    var c=document.getElementById('workspace-card');
+    if(c && c.getAttribute('href').indexOf('PASTE-')===0){
+      var d=document.createElement('div'); d.className=c.className+' pending'; d.innerHTML=c.innerHTML;
+      d.querySelector('.go').textContent='Link coming soon';
+      c.replaceWith(d);
+    }
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hinduism and Buddhism — Final Assessment Study Tool</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;1,400&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2F5F1; --surface:#FFFFFF; --ink:#1E2A2B; --muted:#5A6866; --line:#D3DCD6;
+  --pond:#2B6767; --pond-soft:#DDEBE8; --lotus:#3F4E9A; --lotus-soft:#E3E7F6;
+  --saffron:#A85508; --saffron-soft:#FCE9D2; --saffron-line:#E08A2E;
+  --maroon:#8C2A37; --maroon-soft:#F4DFE2; --maroon-line:#A8414F;
+  --hl-moment:#D6E4F7; --hl-source:#F8D6CF; --hl-concept:#EFD3DA; --hl-reduce:#D6EEDB; --hl-key:#FFEFAE;
+  --good:#2F7A45; --good-soft:#E1F1E5; --bad:#B23A2E; --bad-soft:#F8E2DF;
+  --serif:"Alegreya", Georgia, "Times New Roman", serif;
+  --sans:"Alegreya Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color-scheme: light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#131B1C; --surface:#1A2425; --ink:#E4ECE8; --muted:#9FB0AC; --line:#2E3D3E;
+    --pond:#7DC2BC; --pond-soft:#1F3534; --lotus:#A9B6F0; --lotus-soft:#232A45;
+    --saffron:#F3AE62; --saffron-soft:#3B2A16; --saffron-line:#C77A2A;
+    --maroon:#EC9BA8; --maroon-soft:#3D2026; --maroon-line:#B5566A;
+    --hl-moment:#1E3048; --hl-source:#45241F; --hl-concept:#43212B; --hl-reduce:#1D3826; --hl-key:#3E3714;
+    --good:#7BCB91; --good-soft:#1C3324; --bad:#F09A8E; --bad-soft:#3A2220;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131B1C; --surface:#1A2425; --ink:#E4ECE8; --muted:#9FB0AC; --line:#2E3D3E;
+  --pond:#7DC2BC; --pond-soft:#1F3534; --lotus:#A9B6F0; --lotus-soft:#232A45;
+  --saffron:#F3AE62; --saffron-soft:#3B2A16; --saffron-line:#C77A2A;
+  --maroon:#EC9BA8; --maroon-soft:#3D2026; --maroon-line:#B5566A;
+  --hl-moment:#1E3048; --hl-source:#45241F; --hl-concept:#43212B; --hl-reduce:#1D3826; --hl-key:#3E3714;
+  --good:#7BCB91; --good-soft:#1C3324; --bad:#F09A8E; --bad-soft:#3A2220;
+  color-scheme: dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+img{max-width:100%}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--lotus);outline-offset:2px}
+
+.credit{max-width:60rem;margin:0 auto;padding:.6rem 1.25rem 0;text-align:right;font-style:italic;font-size:.92rem;color:var(--muted)}
+header.top{max-width:60rem;margin:0 auto;padding:.25rem 1.25rem 1rem}
+header.top h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.9rem,4.5vw,2.8rem);line-height:1.1;margin:.2rem 0 .3rem;letter-spacing:-.01em}
+header.top p{margin:0;color:var(--muted);max-width:44rem}
+
+nav.steps{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+nav.steps .inner{max-width:60rem;margin:0 auto;padding:.5rem 1.25rem;display:flex;gap:.4rem;overflow-x:auto}
+nav.steps button{flex:0 0 auto;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:.45rem .9rem;border-radius:999px;font-weight:500;white-space:nowrap}
+nav.steps button[aria-current="true"]{background:var(--pond);border-color:var(--pond);color:var(--paper)}
+nav.steps button:disabled{opacity:.5;cursor:not-allowed}
+
+main{max-width:60rem;margin:0 auto;padding:1.5rem 1.25rem 4rem}
+section.panel{display:none}
+section.panel.active{display:block}
+h2{font-family:var(--serif);font-size:1.75rem;line-height:1.2;margin:.2rem 0 .6rem}
+h3{font-family:var(--serif);font-size:1.3rem;margin:1.6rem 0 .4rem}
+.lede{color:var(--muted);max-width:42rem;margin-top:0}
+
+/* format */
+.points{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.75rem;margin:1.2rem 0}
+.pt{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--pond);padding:.9rem 1rem;border-radius:4px}
+.pt b{font-family:var(--serif);font-size:2rem;line-height:1;display:block;color:var(--pond)}
+.pt span{display:block;font-weight:700;margin:.3rem 0 .15rem}
+.pt small{color:var(--muted);font-size:.95rem;display:block}
+.total{font-family:var(--serif);font-size:1.25rem;margin:.2rem 0 1rem}
+.rubric{background:var(--surface);border:1px solid var(--line);padding:1rem 1.25rem;border-radius:4px;margin:.8rem 0}
+.rubric h4{margin:0 0 .4rem;font-family:var(--serif);font-size:1.12rem}
+.rubric ul{margin:.3rem 0 0;padding-left:1.2rem}
+.rubric li{margin:.2rem 0}
+.ack{margin-top:1.5rem;padding:1.1rem 1.25rem;background:var(--lotus-soft);border-radius:4px;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
+.ack p{margin:0;max-width:34rem}
+
+.btn{border:1px solid var(--pond);background:var(--pond);color:var(--paper);padding:.6rem 1.1rem;border-radius:4px;font-weight:700}
+.btn.ghost{background:transparent;color:var(--pond)}
+.btn.lotus{background:var(--lotus);border-color:var(--lotus);color:var(--paper)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+/* fill in */
+.versions{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0 1.25rem}
+.versions button{border:1px solid var(--line);background:var(--surface);color:var(--ink);min-width:2.8rem;padding:.4rem .6rem;border-radius:4px;font-weight:700;position:relative}
+.versions button[aria-pressed="true"]{border-color:var(--lotus);box-shadow:inset 0 -3px 0 var(--lotus)}
+.versions button .best{display:block;font-weight:400;font-size:.75rem;color:var(--muted)}
+.vtitle{font-family:var(--serif);font-style:italic;color:var(--muted);margin:0 0 .5rem}
+
+.bank{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:.9rem 1rem;margin-bottom:1.25rem}
+.bank h4{margin:0 0 .5rem;font-size:1rem}
+.bank .hint{font-size:.92rem;color:var(--muted);margin:0 0 .6rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{border:1px solid var(--pond);background:var(--pond-soft);color:var(--ink);padding:.25rem .65rem;border-radius:3px;font-size:.98rem}
+.chip.used{opacity:.4;text-decoration:line-through}
+
+.passage{font-family:var(--serif);font-size:1.22rem;line-height:2.15;max-width:44rem;margin:0 0 1rem}
+.blank{display:inline-flex;align-items:baseline;gap:.15rem;white-space:nowrap}
+.blank .num{font-family:var(--sans);font-size:.72rem;color:var(--lotus);font-weight:700;vertical-align:super}
+.blank input{font-family:var(--sans);font-size:1rem;border:0;border-bottom:2px solid var(--lotus);background:transparent;color:var(--ink);width:9.5em;padding:0 .2rem;border-radius:0}
+.blank input:focus{outline:none;background:var(--lotus-soft)}
+.blank.ok input{border-bottom-color:var(--good);background:var(--good-soft)}
+.blank.no input{border-bottom-color:var(--bad);background:var(--bad-soft)}
+.blank .fix{font-family:var(--sans);font-size:.92rem;color:var(--good);font-weight:700}
+.actions{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:1rem 0}
+.score{font-family:var(--serif);font-size:1.3rem}
+.review{margin-top:1rem;border-top:1px solid var(--line);padding-top:.8rem}
+.review dl{margin:0;display:grid;grid-template-columns:minmax(8rem,12rem) 1fr;gap:.35rem 1rem}
+.review dt{font-weight:700}
+.review dd{margin:0;color:var(--ink)}
+.review dt.missed{color:var(--bad)}
+@media (max-width:560px){.review dl{grid-template-columns:1fr}.review dd{margin-bottom:.5rem}}
+
+/* writing */
+.task{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:1.1rem 1.25rem;margin:1rem 0 1.5rem}
+.task .prompt{font-family:var(--serif);font-size:1.15rem;margin:0 0 .3rem}
+.task .meta{color:var(--muted);font-size:.95rem;margin:0 0 .8rem}
+textarea{width:100%;min-height:11rem;font:inherit;font-size:1.02rem;line-height:1.55;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:.75rem}
+textarea.tall{min-height:17rem}
+.meter{display:flex;align-items:center;gap:.75rem;margin:.5rem 0 .2rem;font-size:.95rem;color:var(--muted)}
+.bar{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--lotus);transition:width .2s}
+.bar i.full{background:var(--good)}
+.reveal{display:none;margin-top:1rem;border-top:1px dashed var(--line);padding-top:1rem}
+.reveal.open{display:block}
+.reveal h4{font-family:var(--serif);font-size:1.12rem;margin:.6rem 0 .3rem}
+.model{background:var(--pond-soft);padding:.9rem 1rem;border-radius:4px;font-family:var(--serif);font-size:1.08rem;line-height:1.65}
+.model p{margin:.2rem 0 .5rem}
+.checks{list-style:none;padding:0;margin:.3rem 0}
+.checks li{padding:.15rem 0 .15rem 1.6rem;position:relative}
+.checks li::before{position:absolute;left:0;font-weight:700}
+.checks li.y::before{content:"✓";color:var(--good)}
+.checks li.n::before{content:"✗";color:var(--bad)}
+.checks li.q::before{content:"?";color:var(--muted)}
+.notes{padding-left:1.2rem;margin:.3rem 0}
+.notes li{margin:.25rem 0}
+.found{display:flex;flex-wrap:wrap;gap:.3rem;margin:.3rem 0}
+.found span{background:var(--good-soft);color:var(--good);padding:.1rem .5rem;border-radius:3px;font-size:.92rem;font-weight:500}
+.small{font-size:.92rem;color:var(--muted)}
+/* religion colors */
+.chip.hin{border-color:var(--saffron-line);background:var(--saffron-soft)}
+.chip.bud{border-color:var(--maroon-line);background:var(--maroon-soft)}
+.chip.dual{border-color:var(--saffron-line);background:linear-gradient(90deg,var(--saffron-soft) 50%,var(--maroon-soft) 50%)}
+.review dt.hin{color:var(--saffron)}
+.review dt.bud{color:var(--maroon)}
+.review dt.dual{color:var(--saffron)}
+.review dt .miss{color:var(--bad);font-weight:500;font-size:.9rem}
+.found span.hin{background:var(--saffron-soft);color:var(--saffron)}
+.found span.bud{background:var(--maroon-soft);color:var(--maroon)}
+.found span.dual{background:linear-gradient(90deg,var(--saffron-soft) 50%,var(--maroon-soft) 50%);color:var(--ink)}
+.found span.ct{background:var(--pond-soft);color:var(--pond)}
+.legend{display:flex;flex-wrap:wrap;gap:.4rem 1rem;font-size:.92rem;color:var(--muted);margin:.1rem 0 .6rem}
+.legend span::before{content:"";display:inline-block;width:.85em;height:.85em;border-radius:2px;margin-right:.35em;vertical-align:-.1em;border:1px solid var(--line)}
+.legend .lg-hin::before{background:var(--saffron-soft);border-color:var(--saffron-line)}
+.legend .lg-bud::before{background:var(--maroon-soft);border-color:var(--maroon-line)}
+.legend .lg-ct::before{background:var(--pond-soft);border-color:var(--pond)}
+/* annotated samples */
+.model mark{color:inherit;padding:.05em .2em;border-radius:2px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hl-moment{background:var(--hl-moment)}
+.hl-source{background:var(--hl-source)}
+.hl-concept{background:var(--hl-concept);font-weight:700}
+.hl-reduce{background:var(--hl-reduce)}
+.hl-key{background:var(--hl-key);font-weight:700}
+.criteria{list-style:none;padding:0;margin:.4rem 0}
+.criteria li{margin:.55rem 0;padding-left:0}
+.criteria .tag{display:inline-block;padding:.05em .45em;border-radius:2px;font-weight:700;margin-right:.35rem}
+/* paragraph annotation */
+.hl-topic{background:var(--hl-key)}
+.hl-arg{background:var(--hl-moment)}
+.hl-evid{background:var(--hl-reduce)}
+.hl-anal{background:var(--hl-source)}
+.legend .lg-topic::before{background:var(--hl-key)}
+.legend .lg-arg::before{background:var(--hl-moment)}
+.legend .lg-evid::before{background:var(--hl-reduce)}
+.legend .lg-anal::before{background:var(--hl-source)}
+.model .t-hin,.t-hin{color:var(--saffron);font-weight:700}
+.model .t-bud,.t-bud{color:var(--maroon);font-weight:700}
+.model .t-ct,.t-ct{color:var(--pond);font-weight:700}
+.tag.t-tagterms{background:linear-gradient(90deg,var(--saffron-soft) 50%,var(--maroon-soft) 50%)}
+/* copy */
+.copyrow{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-top:.6rem}
+.copyrow p{margin:0;flex:1 1 16rem}
+.copyrow p.ok{color:var(--good);font-weight:500}
+/* flash cards */
+.note{background:var(--lotus-soft);border-left:5px solid var(--lotus);padding:1rem 1.25rem;border-radius:4px;margin:1rem 0}
+.note p{margin:0 0 .7rem;max-width:40rem}
+.note .row{display:flex;flex-wrap:wrap;gap:.6rem}
+.fc-controls{display:flex;flex-wrap:wrap;gap:.8rem 1.2rem;align-items:center;margin:1rem 0}
+.fc-controls label{display:flex;gap:.4rem;align-items:center}
+.card{display:block;width:100%;max-width:36rem;min-height:15rem;margin:0 0 1rem;background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--pond);border-radius:6px;padding:1.5rem;text-align:center;color:var(--ink)}
+.card.hin{border-top-color:var(--saffron-line)}
+.card.bud{border-top-color:var(--maroon-line)}
+.card.dual{border-top-color:var(--saffron-line);box-shadow:inset 0 6px 0 -0px transparent}
+.card .cat{font-size:.9rem;color:var(--muted);display:block;margin-bottom:.6rem}
+.card .term{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.4rem);font-weight:700;display:block;line-height:1.15}
+.card .def{font-family:var(--serif);font-size:1.25rem;line-height:1.5;display:block}
+.card .flip{display:block;margin-top:1rem;font-size:.9rem;color:var(--muted)}
+.badge{display:inline-block;margin-top:.7rem;padding:.1rem .55rem;border-radius:3px;font-size:.88rem;font-weight:700}
+.badge.m{background:var(--good-soft);color:var(--good)}
+.badge.l{background:var(--line);color:var(--muted)}
+.fc-nav{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+/* progress */
+.overall{display:flex;align-items:center;gap:1rem;margin:1rem 0 1.5rem;max-width:36rem}
+.overall b{font-family:var(--serif);font-size:1.6rem;white-space:nowrap}
+.overall .bar{height:10px}
+.overall .bar i{background:var(--good)}
+.pgroup h3{display:flex;align-items:center;gap:.5rem}
+.pgroup h3::before{content:"";width:.9rem;height:.9rem;border-radius:2px}
+.pgroup.hin h3::before{background:var(--saffron-line)}
+.pgroup.bud h3::before{background:var(--maroon-line)}
+.pgroup.ct h3::before{background:var(--pond)}
+.plist{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.4rem}
+.plist li{display:flex;justify-content:space-between;align-items:center;gap:.5rem;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:.45rem .7rem}
+.plist li.done{border-color:var(--good);background:var(--good-soft)}
+.dots{display:flex;gap:.2rem;align-items:center;white-space:nowrap;font-size:.85rem;color:var(--good);font-weight:700}
+.dots i{width:.6rem;height:.6rem;border-radius:50%;border:1.5px solid var(--muted);display:inline-block}
+.dots i.on{background:var(--good);border-color:var(--good)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="credit">Prepared with AI support, reviewed by Mr. Johnson</div>
+<header class="top">
+  <h1>Final assessment study tool</h1>
+  <p>Hinduism and Buddhism · Mr. Johnson · Practice every part of the test: the format, the fill-in-the-blank narratives, the Buddhist concepts, and both paragraphs.</p>
+</header>
+
+<nav class="steps" aria-label="Study sections">
+  <div class="inner">
+    <button data-go="format" aria-current="true">Test format</button>
+    <button data-go="fill" disabled>Fill-in-the-blank</button>
+    <button data-go="flash" disabled>Flash cards</button>
+    <button data-go="concepts" disabled>Buddhist concepts</button>
+    <button data-go="paras" disabled>Paragraph</button>
+    <button data-go="myth" disabled>Myth analysis</button>
+    <button data-go="progress" disabled>My progress</button>
+  </div>
+</nav>
+
+<main>
+<!-- FORMAT -->
+<section class="panel active" id="format">
+  <h2>What the test looks like</h2>
+  <p class="lede">The final is worth 40 points, plus 1 point of extra credit. Read this page first. The practice sections unlock once you confirm you’ve seen it.</p>
+  <div class="points">
+    <div class="pt"><b>15</b><span>Narrative fill-in-the-blank</span><small>A story with blanks. You choose from a large, 20-term word bank.</small></div>
+    <div class="pt"><b>8</b><span>Buddhist concepts</span><small>Two 4-point questions: applying Buddhism to today or yesterday, and the Four Noble Truths by heart, in order.</small></div>
+    <div class="pt"><b>11</b><span>One paragraph</span><small>You choose ONE of two paragraph questions.</small></div>
+    <div class="pt"><b>6</b><span>Myth analysis</span><small>A long excerpt from a Hindu or Buddhist myth. Explain how it functions as a myth.</small></div>
+    <div class="pt"><b>+1</b><span>Extra credit</span><small>One bonus point.</small></div>
+  </div>
+  <p class="total">Total: 40 points</p>
+  <p>For the paragraph, you’ll pick <strong>one</strong> of these two questions on the test. It’s your choice.</p>
+
+  <div class="rubric">
+    <h4>Paragraph option A — Diversity within each religion (11 pts)</h4>
+    <p style="margin:.2rem 0 .4rem">In what ways are the religions we have studied diverse in belief and practice? Use at least two terms from Hinduism and two from Buddhism. Do <em>not</em> contrast the two religions. Explain how each tradition is diverse <em>within itself</em>.</p>
+    <ul>
+      <li>Clear topic sentence that answers the question and previews your evidence (1 pt)</li>
+      <li>At least four terms used appropriately, on or off the review sheet (4 pts)</li>
+      <li>At least two distinctive arguments (6 pts)</li>
+    </ul>
+  </div>
+  <div class="rubric">
+    <h4>Paragraph option B — “Knowing the self is enlightenment” (11 pts)</h4>
+    <p style="margin:.2rem 0 .4rem">Lao Tzu writes, “Knowing others is wisdom; Knowing the self is enlightenment.” In what ways has this been the core message of what we have learned so far? Cover BOTH Hinduism and Buddhism, and focus ONLY on the second part: “knowing the self is enlightenment.”</p>
+    <ul>
+      <li>Clear topic sentence that answers the question and previews your evidence (1 pt)</li>
+      <li>At least four terms used appropriately, on or off the review sheet (4 pts)</li>
+      <li>At least two distinctive arguments, one on Buddhism and one on Hinduism (6 pts)</li>
+    </ul>
+  </div>
+
+  <div class="rubric">
+    <h4>Myth analysis (6 pts)</h4>
+    <p style="margin:.2rem 0 .4rem">You’ll get a long excerpt from a Hindu or Buddhist myth and answer: <strong>How does this story function as a myth according to our definition of myth?</strong> The definition will NOT be on the test, so memorize it: <em>a sacred, often symbolic story that explains or establishes rituals, ethics, and worldviews of a society.</em></p>
+    <ul>
+      <li>Correctly identify two relevant ideas or terms in the story (1 pt each)</li>
+      <li>Explain how the story functions as a myth with each of those terms or ideas in mind (2 pts each)</li>
+    </ul>
+  </div>
+
+  <div class="ack">
+    <p id="ackText">Confirm that you’ve read the format to unlock the practice sections.</p>
+    <button class="btn lotus" id="ackBtn">I’ve read the test format</button>
+  </div>
+</section>
+
+<!-- FILL IN -->
+<section class="panel" id="fill">
+  <h2>Narrative fill-in-the-blank</h2>
+  <p class="lede">There are 10 versions. Each has 15 blanks and a 20-term word bank, just like the test. Most answers are the bolded terms from the review sheet. Click a blank, then click a word in the bank, or just type. Get a term right three times in a row and it counts as mastered; a wrong answer resets its streak.</p>
+  <div class="versions" id="versions" role="group" aria-label="Choose a version"></div>
+  <p class="vtitle" id="vtitle"></p>
+  <div class="bank">
+    <h4>Word bank</h4>
+    <p class="hint">Each word is used once at most. Five of them are distractors.</p>
+    <div class="legend"><span class="lg-hin">Hinduism</span><span class="lg-bud">Buddhism</span><span class="lg-ct">Critical thinking and general terms</span></div>
+    <div class="chips" id="chips"></div>
+  </div>
+  <div class="passage" id="passage"></div>
+  <div class="actions">
+    <button class="btn" id="checkBtn">Check answers</button>
+    <button class="btn ghost" id="resetBtn">Clear and try again</button>
+    <button class="btn ghost" id="nextBtn">Next version</button>
+    <span class="score" id="score" aria-live="polite"></span>
+  </div>
+  <div class="review" id="review" hidden>
+    <h3 style="margin-top:0">Terms in this passage</h3>
+    <dl id="reviewList"></dl>
+  </div>
+</section>
+
+<!-- CONCEPTS -->
+<section class="panel" id="concepts">
+  <h2>Buddhist concepts</h2>
+  <p class="lede">Write your answer first. A sample answer and the relevant notes appear once you’ve written enough to count as a real attempt.</p>
+
+  <div class="task" data-task="today" data-min="60">
+    <p class="prompt">Describe a moment from today or yesterday when you suffered or felt dissatisfied. How could understanding or applying Buddhist ideas have reduced that suffering? (4 pts)</p>
+    <p class="meta">Minimum to unlock the sample: 60 words.</p>
+    <textarea aria-label="Your answer: Buddhism applied to today or yesterday"></textarea>
+    <div class="meter"><span class="wc">0 / 60 words</span><div class="bar"><i></i></div></div>
+    <button class="btn" data-reveal disabled>Show sample answer</button>
+    <div class="reveal">
+      <h4>Sample answer</h4>
+      <div class="model"><p><mark class="hl-moment">Yesterday I got really upset when my coach didn’t start me in our soccer game</mark>, and I barely talked to anyone at dinner. <mark class="hl-concept">The second noble truth</mark> says suffering is caused by craving, and <mark class="hl-source">I was craving to be a starter and to be seen as one of the best players</mark>. If I had practiced <mark class="hl-concept">Right View</mark>, <mark class="hl-reduce">I would have noticed that my idea that “starting = happiness” was the very thing making me unhappy</mark>; as Thich Nhat Hanh writes, “it is often our very idea of happiness that prevents us from being happy.” I also could have remembered <mark class="hl-concept">impermanence</mark>: <mark class="hl-reduce">lineups change every week, and so would my mood</mark>. Finally, <mark class="hl-concept">Right Speech</mark> <mark class="hl-reduce">would have stopped me from complaining about the coach to teammates, which only spread my frustration</mark>.</p></div>
+      <h4>How this answer meets the question</h4>
+      <ul class="criteria">
+        <li><span class="tag hl-moment">Specific moment</span>It names one real event from yesterday, not a general habit like “I get stressed about sports.” The question asks about today or yesterday, so the example has to be that concrete.</li>
+        <li><span class="tag hl-source">Source of suffering</span>It identifies the craving underneath the frustration. That links the moment to the second noble truth instead of just describing a bad day.</li>
+        <li><span class="tag hl-concept">Buddhist concept</span>It uses three Buddhist ideas (Right View, impermanence, and Right Speech), and each one is used accurately.</li>
+        <li><span class="tag hl-reduce">Suffering reduced</span>Every concept is followed by exactly what would have changed. This is the part that is easiest to skip: naming a concept is not enough unless you show how it would have reduced the suffering.</li>
+      </ul>
+      <h4>Relevant notes</h4>
+      <ul class="notes">
+        <li>Second noble truth: suffering is caused by craving or desire.</li>
+        <li>Right View: “Where there is perception, there is deception”; “Our perceptions carry with them all the errors of subjectivity” (Hanh 52–53).</li>
+        <li>Right Speech: speak truthfully, don’t speak with a forked tongue, don’t speak cruelly (Hanh 84–85).</li>
+        <li>Impermanence: everything changes, as the Four Sights showed Siddhartha.</li>
+        <li>The Middle Way: balance between hedonism and asceticism.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="task" data-task="truths" data-min="20">
+    <p class="prompt">Write out the Four Noble Truths by heart, in their proper order. (4 pts)</p>
+    <p class="meta">Minimum to unlock the answer: 20 words. Number them 1–4.</p>
+    <textarea aria-label="Your answer: the Four Noble Truths"></textarea>
+    <div class="meter"><span class="wc">0 / 20 words</span><div class="bar"><i></i></div></div>
+    <button class="btn" data-reveal disabled>Show the answer</button>
+    <div class="reveal">
+      <h4>The Four Noble Truths</h4>
+      <div class="model">
+        <p>1. Life involves <mark class="hl-key">suffering</mark> (dissatisfaction): sickness, old age, death, and not getting what we want.</p>
+        <p>2. Suffering is caused by <mark class="hl-key">craving, or desire</mark>: attachment to things that are impermanent.</p>
+        <p>3. Suffering <mark class="hl-key">can end</mark>. Its end is nirvana.</p>
+        <p>4. The way to end suffering is <mark class="hl-key">the Eightfold Path</mark>, the Middle Way.</p>
+      </div>
+      <h4>How this answer meets the question</h4>
+      <ul class="criteria">
+        <li><span class="tag hl-key">Key idea</span>Each truth has one highlighted idea that carries its meaning: suffering, its cause, its end, and the path. Compare your answer to these four first.</li>
+        <li><strong>Proper order:</strong> the truths work like a doctor’s visit. First the illness (suffering), then its cause (craving), then the news that it can be cured (it can end), and finally the treatment (the Eightfold Path). If yours are out of order, the logic breaks.</li>
+        <li><strong>By heart:</strong> the explanation after each key idea shows you understand the truth, not just the label. A short phrase like “suffering is caused by craving” is better than one word.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PARAGRAPHS -->
+<section class="panel" id="paras">
+  <h2>Paragraph</h2>
+  <p class="lede">On the test you’ll choose ONE of these two questions. Practicing both means you’re ready for either. Write a full practice paragraph. Once you reach the minimum, you’ll see a self-check against the rubric, the terms the tool found in your writing, a sample paragraph, and the notes that support it.</p>
+
+  <div class="task" data-task="diversity" data-min="125" data-para="1">
+    <p class="prompt">In what ways are the religions we have studied diverse in belief and practice? Explain, using at least two terms in both Hinduism and Buddhism. Explain how each tradition is diverse <em>within itself</em>, rather than contrasting the two. (11 pts)</p>
+    <p class="meta">Minimum to unlock the sample: 125 words.</p>
+    <textarea class="tall" aria-label="Your paragraph on diversity"></textarea>
+    <div class="meter"><span class="wc">0 / 125 words</span><div class="bar"><i></i></div></div>
+    <button class="btn" data-reveal disabled>Check my paragraph and show a sample</button>
+    <div class="reveal">
+      <h4>Terms found in your paragraph</h4>
+      <div class="found" data-found></div>
+      <h4>Self-check against the rubric</h4>
+      <ul class="checks" data-paracheck></ul>
+      <h4>Sample paragraph</h4>
+      <div class="legend"><span class="lg-topic">Topic sentence</span><span class="lg-arg">Argument</span><span class="lg-evid">Evidence</span><span class="lg-anal">Analysis</span><span class="lg-hin">Hindu term</span><span class="lg-bud">Buddhist term</span></div>
+      <div class="model"><p><mark class="hl-topic">Both Hinduism and Buddhism are diverse within themselves: Hinduism offers many paths and many gods, while Buddhism makes room for different ideals and different ways of teaching the same truths.</mark> <mark class="hl-arg">As Prothero explains, Hindus largely agree that <b class="t-hin">samsara</b> is the problem and <b class="t-hin">moksha</b> is the solution, but they disagree about how to get there.</mark> <mark class="hl-evid">A philosophically minded Hindu may follow <b class="t-hin">jnana yoga</b>, trying to see through <b class="t-hin">maya</b> until realizing that <b class="t-hin">atman</b> is <b class="t-hin">Brahman</b>, while roughly a billion Hindus follow <b class="t-hin">bhakti yoga</b>, devoting themselves to a chosen god such as Vishnu, Shiva, or Durga. Even the gods multiply: Vishnu alone has ten <b class="t-hin">avatars</b>, and Eck observes that for Hindus “manyness is valued; indeed, it is seen as essential.”</mark> <mark class="hl-anal">This variety lets each Hindu choose the path and the god that fit them.</mark> <mark class="hl-arg">Buddhism is diverse in its own way.</mark> <mark class="hl-evid">Although all Buddhists share the <b class="t-bud">Four Noble Truths</b>, Mahayana Buddhists especially honor the <b class="t-bud">bodhisattva</b>, who seeks enlightenment out of compassion for all beings, as in the story of the Hungry Tigress. The Buddha’s <b class="t-bud">dharma</b> was also meant to be explained differently to different people; Hanh writes that “we can describe the truth in different ways to help different listeners understand.”</mark> <mark class="hl-anal">In both traditions, then, diversity is not a weakness but a way of meeting people where they are.</mark></p></div>
+      <h4>How this paragraph meets the rubric</h4>
+      <ul class="criteria">
+        <li><span class="tag hl-topic">Topic sentence (1 pt)</span>It answers the question in one sentence and previews both arguments: many paths and gods for Hinduism, different ideals and ways of teaching for Buddhism.</li>
+        <li><span class="tag hl-arg">Two distinctive arguments (6 pts)</span>One claim about Hinduism, one about Buddhism. Notice that neither one compares the religions; each shows variety <em>within</em> one tradition.</li>
+        <li><span class="tag hl-evid">Evidence</span>Each argument is backed by specifics: the yogas, the gods and avatars, the bodhisattva, and quotations from Prothero, Eck, and Hanh.</li>
+        <li><span class="tag hl-anal">Analysis</span>Short sentences explain why the evidence matters, rather than letting the facts speak for themselves.</li>
+        <li><span class="tag t-tagterms">Terms (4 pts)</span>Far more than four review-sheet terms, each used in a way that shows what it means. Saffron terms are Hindu; maroon terms are Buddhist.</li>
+      </ul>
+      <h4>Relevant notes</h4>
+      <ul class="notes">
+        <li>“Hinduism is the least dogmatic and the most diverse” (Prothero 134).</li>
+        <li>Three yogas: karma (action), jnana (wisdom), bhakti (devotion); bhakti is by far the most popular.</li>
+        <li>Four aims of life: kama, artha, dharma, moksha.</li>
+        <li>Many gods, many forms: Vishnu’s ten avatars; Devi as Durga or Kali; Shiva in many forms.</li>
+        <li>Eck: Mount Meru is wider at the top than the bottom, making room for many “best” things.</li>
+        <li>Buddhism: the bodhisattva ideal and emptiness in Mahayana; Right Speech allows describing truth “in different ways to help different listeners.”</li>
+        <li>Remember: the caste system is a weak example here, because no choice is involved.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="task" data-task="self" data-min="125" data-para="2">
+    <p class="prompt">Lao Tzu writes, “Knowing others is wisdom; Knowing the self is enlightenment.” In what ways has this been the core message of what we have learned so far? Cover BOTH Hinduism and Buddhism, focusing ONLY on “knowing the self is enlightenment.” (11 pts)</p>
+    <p class="meta">Minimum to unlock the sample: 125 words.</p>
+    <textarea class="tall" aria-label="Your paragraph on knowing the self"></textarea>
+    <div class="meter"><span class="wc">0 / 125 words</span><div class="bar"><i></i></div></div>
+    <button class="btn" data-reveal disabled>Check my paragraph and show a sample</button>
+    <div class="reveal">
+      <h4>Terms found in your paragraph</h4>
+      <div class="found" data-found></div>
+      <h4>Self-check against the rubric</h4>
+      <ul class="checks" data-paracheck></ul>
+      <h4>Sample paragraph</h4>
+      <div class="legend"><span class="lg-topic">Topic sentence</span><span class="lg-arg">Argument</span><span class="lg-evid">Evidence</span><span class="lg-anal">Analysis</span><span class="lg-hin">Hindu term</span><span class="lg-bud">Buddhist term</span><span class="lg-ct">Critical-thinking term</span></div>
+      <div class="model"><p><mark class="hl-topic">In both Hinduism and Buddhism, enlightenment comes from seeing the self as it truly is: Hindus discover that the self is one with the divine, while Buddhists discover that there is no fixed self at all.</mark> <mark class="hl-arg">In philosophical Hinduism, knowing the self means seeing through illusion.</mark> <mark class="hl-evid"><b class="t-hin">Maya</b> makes the world look like a collection of separate things, but a seeker on the path of <b class="t-hin">jnana yoga</b> learns that their <b class="t-hin">atman</b>, the individual self, is identical to <b class="t-hin">Brahman</b>, the universal self.</mark> <mark class="hl-anal">Once a person truly knows this, there is no reason to act selfishly, so they gather no <b class="t-hin">karma</b> and escape <b class="t-hin">samsara</b> to reach <b class="t-hin">moksha</b>.</mark> <mark class="hl-evid">The Gita makes the same point when Krishna teaches that desire is what “obscures knowledge,”</mark> <mark class="hl-anal">suggesting that the true battlefield is inside our own minds.</mark> <mark class="hl-arg">Buddhism also turns inward.</mark> <mark class="hl-evid">After teachers and <b class="t-bud">asceticism</b> failed him, the Buddha decided he “would look within and trust himself.” What he found was <b class="t-bud">nonself</b>: as Hanh puts it, “Non-self means that you are made of elements that are not you.”</mark> <mark class="hl-anal">Practicing <b class="t-bud">Right View</b> means recognizing that “where there is perception, there is deception,” much like the <b class="t-ct">confirmation bias</b> we studied at the start of the course. In both religions, then, knowing the self is not just useful self-awareness; it is the very doorway to moksha and <b class="t-bud">nirvana</b>.</mark></p></div>
+      <h4>How this paragraph meets the rubric</h4>
+      <ul class="criteria">
+        <li><span class="tag hl-topic">Topic sentence (1 pt)</span>It answers the question and previews both arguments: for Hindus the self is one with the divine; for Buddhists there is no fixed self.</li>
+        <li><span class="tag hl-arg">Two distinctive arguments (6 pts)</span>One on Hinduism, one on Buddhism, as the question requires. Both stay focused on knowing the <em>self</em>, not on knowing others.</li>
+        <li><span class="tag hl-evid">Evidence</span>Specific ideas and quotations: atman and Brahman, the Gita on desire, the Buddha looking within, and Hanh on nonself.</li>
+        <li><span class="tag hl-anal">Analysis</span>Each piece of evidence is followed by what it means: why knowing the self leads to moksha, and why Right View connects to the bias we studied.</li>
+        <li><span class="tag t-tagterms">Terms (4 pts)</span>Many review-sheet terms from both religions, plus a critical-thinking term, each used accurately.</li>
+      </ul>
+      <h4>Relevant notes</h4>
+      <ul class="notes">
+        <li>Enlightenment in the “Eastern” religions is usually the pursuit of “full and true knowledge of the self.”</li>
+        <li>Enduring understanding 1: “Being aware of your own biases, biased perspectives, and inborn mental shortcomings is a big step towards ‘enlightenment.’”</li>
+        <li>Philosophical Hinduism: see through maya; atman = Brahman; selflessness means no karma, which leads to moksha.</li>
+        <li>Gita 3.36–43: desire causes evil and obscures knowledge; the true battlefield may be the mind.</li>
+        <li>The Buddha “would look within and trust himself” (echoes jnana yoga and maya).</li>
+        <li>Nonself (Hanh 135); Baggini: “you are the sum of your parts.” Emptiness extends nonself to all things.</li>
+        <li>Right View: “Where there is perception, there is deception” (Hanh 52–53).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MYTH ANALYSIS -->
+<section class="panel" id="myth">
+  <h2>Myth analysis</h2>
+  <p class="lede">Worth 6 points. On the test you’ll get a long excerpt from a Hindu or Buddhist myth and answer one question: <strong>How does this story function as a myth according to our definition of myth?</strong></p>
+
+  <div class="rubric">
+    <h4>How it’s graded</h4>
+    <ul>
+      <li>Correctly identify two relevant ideas or terms in the story (1 pt each)</li>
+      <li>Explain how the story functions as a myth with each of those ideas in mind (2 pts each)</li>
+    </ul>
+    <p class="small" style="margin:.5rem 0 0">A strong explanation names which part of the definition the idea connects to (a ritual, an ethic, or a worldview) and points to a specific moment in the story.</p>
+  </div>
+
+  <h3>Step 1: Memorize the definition</h3>
+  <div class="task" data-task="mythdef" data-min="10">
+    <p class="prompt">Write our class definition of myth from memory. It will NOT be given to you on the test.</p>
+    <p class="meta">Minimum to unlock the answer: 10 words.</p>
+    <textarea aria-label="Your definition of myth" style="min-height:5rem"></textarea>
+    <div class="meter"><span class="wc">0 / 10 words</span><div class="bar"><i></i></div></div>
+    <button class="btn" data-reveal disabled>Check my definition</button>
+    <div class="reveal">
+      <h4>The definition</h4>
+      <div class="model"><p>Myth: a <mark class="hl-key">sacred</mark>, <mark class="hl-key">often symbolic</mark> <mark class="hl-key">story</mark> that <mark class="hl-key">explains or establishes</mark> <mark class="hl-key">rituals</mark>, <mark class="hl-key">ethics</mark>, and <mark class="hl-key">worldviews</mark> of a society.</p></div>
+      <h4>Which parts did you include?</h4>
+      <ul class="checks" data-defcheck></ul>
+      <p class="small">A simpler version to help it stick: myths are stories that tell believers how to act (rituals and ethics) and what to believe (worldviews).</p>
+      <h4>Key terms inside the definition</h4>
+      <ul class="notes">
+        <li><strong>Ritual:</strong> an established procedure that may or may not be religious (puja, darshan, meditation).</li>
+        <li><strong>Ethics:</strong> an area of study that deals with ideas about what is good and bad behavior.</li>
+        <li><strong>Worldview:</strong> a set of fundamental beliefs, values, etc., constituting a comprehensive outlook on the world; a perspective on life.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Step 2: Study a worked example</h3>
+  <div class="task example">
+    <p class="prompt">Carrying the Woman Across the River</p>
+    <p class="meta">This first story is real. It comes from the Zen Buddhist tradition, where it is often taught as a <strong>koan</strong>: a short story, question, or saying that Zen teachers use to jolt students out of ordinary thinking and toward insight. Some koans are puzzling on purpose, like “What is the sound of one hand clapping?” Others, like this one, end with a line that stops you in your tracks.</p>
+    <div class="model" style="background:var(--paper);border:1px solid var(--line)"><p>Two monks, Tanzan and Ekido, were walking together down a muddy road after a heavy rain. At a river crossing they came upon a young woman in a fine silk kimono, unable to get across without ruining it. Without a word, Tanzan picked her up, carried her through the mud and water, and set her down on the other side. The two monks walked on in silence. Monks of their order were not supposed to touch women, and Ekido grew more and more troubled. Hours later, when they reached the temple that night, he could hold it in no longer. “We monks are not supposed to go near women,” he burst out, “especially young and lovely ones. Why did you do that?” Tanzan replied, “I set her down hours ago, back at the river. Are you still carrying her?”</p></div>
+    <h4>Sample answer</h4>
+    <div class="legend"><span class="lg-topic">Term or idea (1 pt each)</span><span class="lg-arg">Which part of the myth definition</span><span class="lg-evid">Specific moment in the story</span><span class="lg-anal">Explanation</span></div>
+    <div class="model"><p>This story functions as a Buddhist myth because it establishes a worldview about where suffering comes from and an ethic of letting go. First, it expresses the <mark class="hl-key">Second Noble Truth</mark>, <mark class="hl-arg">the worldview that suffering is caused by craving and attachment</mark>. <mark class="hl-evid">Hours after the crossing, Ekido is still upset, and Tanzan asks, “Are you still carrying her?”</mark> <mark class="hl-anal">Ekido’s suffering does not come from the woman or from Tanzan; it comes from his own clinging to that moment and to the rule. Tanzan let go, so he is at peace.</mark> Second, the story teaches <mark class="hl-key">impermanence</mark> <mark class="hl-arg">as an ethic for how to live</mark>. <mark class="hl-evid">The crossing lasted only a few minutes, and Tanzan treated it that way, setting the woman down and moving on.</mark> <mark class="hl-anal">Because every moment passes, Buddhists learn that the right way to act is to help when help is needed and then let the moment go, instead of carrying it for hours.</mark></p></div>
+    <h4>How this answer earns all 6 points</h4>
+    <ul class="criteria">
+      <li><span class="tag hl-key">Two terms (2 pts)</span>The Second Noble Truth and impermanence are both clearly present in the story, and each is named directly.</li>
+      <li><span class="tag hl-arg">Ties to the definition</span>Each term is connected to a specific part of our definition: one is a worldview, the other is an ethic. That connection is what turns a summary into a myth analysis.</li>
+      <li><span class="tag hl-evid">Story evidence</span>Each point refers to a specific moment, including Tanzan’s final line, so the reader can see the term at work.</li>
+      <li><span class="tag hl-anal">Explanation (2 pts each)</span>Each point explains what a Buddhist reader learns about how to live or what to believe, not just what happened in the story.</li>
+    </ul>
+    <h4>Other ideas that would also work</h4>
+    <ul class="notes">
+      <li>Right View: Ekido’s perception is distorted by his rigid idea of the rule; Tanzan sees a person who needs help.</li>
+      <li>The Middle Way: Tanzan neither breaks the spirit of his vows nor clings to the letter of the rule.</li>
+      <li>Nonself or compassion: Tanzan acts without thinking about how it makes him look.</li>
+    </ul>
+  </div>
+
+  <h3>Step 3: Practice on your own</h3>
+  <p class="lede">These four stories were invented for practice, written in the style of Hindu and Buddhist myths. Write a full answer to the test question for each. A sample answer unlocks once you’ve written at least 60 words.</p>
+
+  <div class="task" data-task="myth1" data-min="60">
+    <p class="prompt">Practice story 1 (Hindu): The Potter’s Lamp</p>
+    <div class="model" style="background:var(--paper);border:1px solid var(--line);margin-bottom:.8rem"><p>In a village on the banks of the Ganges lived a potter named Madhav, so poor that he could never afford the silks and gold that wealthy families offered at the temple of Krishna. Each morning before work, he shaped a small clay lamp, filled it with a few drops of oil, and set it before the image of Krishna with a quiet prayer: “Everything I make today, I make for you.” Then he went to his wheel and worked all day, never asking for anything in return. One festival day, a rich merchant arrived with a cart of golden offerings, making sure the whole village saw him. That night the temple priest dreamed that Krishna appeared to him, smiling. “The merchant gave me gold,” Krishna said, “but he was thinking of his own name. Madhav gives me a lamp of clay, and his whole heart comes with it. His is the lamp that lights my temple.” When Madhav died many years later, the villagers said he was never born again, for Krishna had taken him home.</p></div>
+    <p class="meta">How does this story function as a myth according to our definition of myth?</p>
+    <textarea aria-label="Your myth analysis of The Potter’s Lamp"></textarea>
+    <div class="meter"><span class="wc">0 / 60 words</span><div class="bar"><i></i></div></div>
+    <button class="btn" data-reveal disabled>Show sample answer</button>
+    <div class="reveal">
+      <div class="legend"><span class="lg-topic">Term or idea</span><span class="lg-arg">Which part of the myth definition</span><span class="lg-evid">Specific moment in the story</span><span class="lg-anal">Explanation</span></div>
+      <div class="model"><p>This story functions as a Hindu myth by establishing both a ritual and an ethic. First, it models <mark class="hl-key">bhakti yoga</mark> through <mark class="hl-arg">the ritual of puja, making an offering to the image of a god</mark>. <mark class="hl-evid">Every morning Madhav sets a clay lamp before Krishna, and Krishna says it is the lamp that lights his temple.</mark> <mark class="hl-anal">The story teaches Hindus that what matters in worship is love and devotion, not how expensive the offering is.</mark> Second, it teaches <mark class="hl-key">selfless action leading to moksha</mark> as <mark class="hl-arg">an ethic, along with the worldview behind it</mark>. <mark class="hl-evid">The merchant gives to be seen, while Madhav works “for you” and asks for nothing; in the end he is “never born again.”</mark> <mark class="hl-anal">Because Madhav acts without selfish desire, he gathers no karma, and his god grants him liberation from samsara, showing believers how to act and what they can hope for.</mark></p></div>
+      <h4>Other ideas that would also work</h4>
+      <ul class="notes">
+        <li>Karma: the merchant’s selfish giving versus Madhav’s selfless giving.</li>
+        <li>Dharma: Madhav keeps doing his duty as a potter, offering it to his god.</li>
+        <li>Avatar: Krishna, the god Madhav worships, is an avatar of Vishnu.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="task" data-task="myth2" data-min="60">
+    <p class="prompt">Practice story 2 (Hindu): The Wave and the Ocean</p>
+    <div class="model" style="background:var(--paper);border:1px solid var(--line);margin-bottom:.8rem"><p>A young prince named Devesh could not stop weeping after his grandmother died. “She is gone,” he told his teacher, an old sage who lived by the sea. “Everything she was has ended.” The sage led him down to the shore and pointed at the water. “Watch that wave,” he said. A wave rose, curled, and crashed against the sand. “Is it gone?” Devesh nodded. “Look again,” said the sage. The water slid back into the sea, and a moment later another wave rose in its place. “The wave was never separate from the ocean,” the sage said. “It only looked that way. Your grandmother’s body has fallen, as a wave falls, but the self inside her was never born and can never die. It will rise again in another form. And one day, when it stops believing it is only a wave, it will know that it was the ocean all along.” Devesh wiped his eyes and sat by the water until the sun went down.</p></div>
+    <p class="meta">How does this story function as a myth according to our definition of myth?</p>
+    <textarea aria-label="Your myth analysis of The Wave and the Ocean"></textarea>
+    <div class="meter"><span class="wc">0 / 60 words</span><div class="bar"><i></i></div></div>
+    <button class="btn" data-reveal disabled>Show sample answer</button>
+    <div class="reveal">
+      <div class="legend"><span class="lg-topic">Term or idea</span><span class="lg-arg">Which part of the myth definition</span><span class="lg-evid">Specific moment in the story</span><span class="lg-anal">Explanation</span></div>
+      <div class="model"><p>This story functions as a Hindu myth because it establishes two central Hindu worldviews. First, it expresses <mark class="hl-key">samsara</mark>, <mark class="hl-arg">the worldview that every self is reborn again and again</mark>. <mark class="hl-evid">The sage says the grandmother’s self “will rise again in another form,” just as another wave rises after the first one falls.</mark> <mark class="hl-anal">This teaches Hindus not to see death as an ending, which is why Devesh can stop grieving, much like Krishna tells Arjuna not to grieve in the Gita.</mark> Second, it teaches that <mark class="hl-key">atman is Brahman</mark>, <mark class="hl-arg">the worldview at the heart of philosophical Hinduism</mark>. <mark class="hl-evid">The wave “was never separate from the ocean; it only looked that way,” and one day it will know “it was the ocean all along.”</mark> <mark class="hl-anal">The wave stands for the individual self and the ocean for the universal self. Seeing past the illusion of separateness is how a person finally reaches moksha.</mark></p></div>
+      <h4>Other ideas that would also work</h4>
+      <ul class="notes">
+        <li>Maya: the wave only “looked” separate, the illusion of difference.</li>
+        <li>Moksha: knowing it was “the ocean all along” is liberation from the cycle.</li>
+        <li>Jnana yoga: the sage teaches through wisdom and understanding, not devotion.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="task" data-task="myth3" data-min="60">
+    <p class="prompt">Practice story 3 (Buddhist): The Sand Mandala</p>
+    <div class="model" style="background:var(--paper);border:1px solid var(--line);margin-bottom:.8rem"><p>For three weeks, the young monk Tenzin and four older monks bent over a wooden platform in the monastery hall, tapping colored sand grain by grain from thin metal funnels. Slowly a mandala appeared: circles within squares within circles, gates and lotus petals in red, gold, and blue, so detailed that visitors held their breath. Tenzin had never made anything so beautiful. On the final morning, the abbot chanted a prayer, then drew his hand straight through the center of the design. The other monks swept the colors into a single gray pile. Tenzin felt his throat tighten. “Three weeks,” he whispered. “Gone.” The abbot poured the sand into an urn, and the monks walked in a line to the river, where they let it pour into the current. “It was always going to be swept away,” the abbot said gently. “So is this river. So is this body. So is your sadness. We did not make the mandala to keep it. We made it to see this.” Tenzin watched the colored water drift downstream until he could not tell it from the rest of the river.</p></div>
+    <p class="meta">How does this story function as a myth according to our definition of myth?</p>
+    <textarea aria-label="Your myth analysis of The Sand Mandala"></textarea>
+    <div class="meter"><span class="wc">0 / 60 words</span><div class="bar"><i></i></div></div>
+    <button class="btn" data-reveal disabled>Show sample answer</button>
+    <div class="reveal">
+      <div class="legend"><span class="lg-topic">Term or idea</span><span class="lg-arg">Which part of the myth definition</span><span class="lg-evid">Specific moment in the story</span><span class="lg-anal">Explanation</span></div>
+      <div class="model"><p>This story functions as a Buddhist myth because it explains a ritual and the worldview behind it. First, it teaches <mark class="hl-key">impermanence</mark> <mark class="hl-arg">by explaining the ritual of making and destroying a sand mandala</mark>. <mark class="hl-evid">After three weeks of work, the abbot sweeps the mandala away and says, “We did not make the mandala to keep it. We made it to see this.”</mark> <mark class="hl-anal">The story tells Buddhists why the ritual exists: destroying something beautiful is a way of practicing the truth that nothing lasts.</mark> Second, it expresses <mark class="hl-key">the Second Noble Truth</mark>, <mark class="hl-arg">the worldview that suffering comes from craving and attachment</mark>. <mark class="hl-evid">Tenzin’s throat tightens and he whispers, “Gone,” but by the end he watches the sand drift away calmly.</mark> <mark class="hl-anal">His pain came from wanting to keep the mandala forever. When he lets go of that craving, his suffering eases, which is exactly what Buddhists believe is possible for everyone.</mark></p></div>
+      <h4>Other ideas that would also work</h4>
+      <ul class="notes">
+        <li>Nonself: “So is this body” suggests even the self is temporary and made of changing parts.</li>
+        <li>Sangha: the monks work and walk together as a community.</li>
+        <li>Right View: seeing the mandala, the river, and sadness as they really are.</li>
+      </ul>
+      <p class="small">Sand mandalas are a real Tibetan Buddhist ritual; this particular story was invented for practice.</p>
+    </div>
+  </div>
+
+  <div class="task" data-task="myth4" data-min="60">
+    <p class="prompt">Practice story 4 (Buddhist): The Two Brothers and the Lute</p>
+    <div class="model" style="background:var(--paper);border:1px solid var(--line);margin-bottom:.8rem"><p>When a wealthy merchant died, he left his fortune to his two sons. The elder son spent his share on feasts, fine clothes, and wine, sleeping until noon and chasing every pleasure he could buy. The younger son, disgusted by his brother, gave away everything he owned and went into the forest, where he ate one handful of rice a day and slept on stones, believing that the more he suffered, the holier he would become. A year later both brothers were miserable: the elder was sick and in debt, and the younger was so weak he could hardly stand. A wandering nun found them resting at the same well. She took out a lute and plucked a string wound so tight that it snapped. Then she plucked one so loose that it made no sound at all. Finally she tuned a string just right, and a clear note rang out. “Your lives are like these strings,” she said. “One of you is too loose, and one of you is too tight. Neither of you can make music.” The brothers followed her back to her community of monks and nuns, where they learned to eat enough, rest enough, and sit in meditation each day.</p></div>
+    <p class="meta">How does this story function as a myth according to our definition of myth?</p>
+    <textarea aria-label="Your myth analysis of The Two Brothers and the Lute"></textarea>
+    <div class="meter"><span class="wc">0 / 60 words</span><div class="bar"><i></i></div></div>
+    <button class="btn" data-reveal disabled>Show sample answer</button>
+    <div class="reveal">
+      <div class="legend"><span class="lg-topic">Term or idea</span><span class="lg-arg">Which part of the myth definition</span><span class="lg-evid">Specific moment in the story</span><span class="lg-anal">Explanation</span></div>
+      <div class="model"><p>This story functions as a Buddhist myth by establishing an ethic and a ritual. First, it teaches <mark class="hl-key">the Middle Way</mark> <mark class="hl-arg">as an ethic for how to live</mark>. <mark class="hl-evid">The elder brother lives in hedonism and the younger in asceticism, and both end up miserable, until the nun shows that a string too loose or too tight cannot make music.</mark> <mark class="hl-anal">Like the Buddha himself, who tried both luxury and self-starvation, the brothers learn that balance, not extremes, is the right way to live.</mark> Second, it establishes the <mark class="hl-key">Sangha</mark> and <mark class="hl-arg">the ritual of daily meditation</mark>. <mark class="hl-evid">The brothers follow the nun to “her community of monks and nuns,” where they “sit in meditation each day.”</mark> <mark class="hl-anal">The story shows believers that the path is not walked alone: the Buddhist community and its regular practice of meditation are what make the Middle Way possible.</mark></p></div>
+      <h4>Other ideas that would also work</h4>
+      <ul class="notes">
+        <li>Hedonism and asceticism: the two extremes the Middle Way avoids.</li>
+        <li>The Buddha’s life story: the brothers repeat his journey from palace to forest to balance.</li>
+        <li>The Second Noble Truth: both brothers suffer because of craving, one for pleasure and one for holiness.</li>
+      </ul>
+      <p class="small">The lute-string image echoes a real teaching traditionally attributed to the Buddha; this story was invented for practice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FLASH CARDS -->
+<section class="panel" id="flash">
+  <h2>Flash cards</h2>
+  <div class="note" id="flashNote">
+    <p><strong>Before you start:</strong> the best way to prepare is to quiz yourself with the fill-in-the-blank. That’s what the test actually looks like, and it’s the only place a term can be marked mastered. Use these flash cards to fill gaps, not as your main study method.</p>
+    <div class="row">
+      <button class="btn" id="flashStart">Start flash cards</button>
+      <button class="btn ghost" data-jump="fill">Go to the fill-in-the-blank</button>
+    </div>
+  </div>
+  <div id="flashDeck" hidden>
+    <div class="fc-controls">
+      <label><input type="checkbox" id="fcIncl"> Include terms I’ve mastered</label>
+      <label>Show <select id="fcFilter"><option value="all">All terms</option><option value="hin">Hinduism</option><option value="bud">Buddhism</option><option value="ct">Critical thinking and general</option></select></label>
+      <button class="btn ghost" id="fcShuffle">Shuffle</button>
+    </div>
+    <button class="card" id="fcCard" aria-live="polite"></button>
+    <div class="fc-nav">
+      <button class="btn ghost" id="fcPrev">Previous</button>
+      <button class="btn" id="fcNext">Next</button>
+      <span class="small" id="fcCount"></span>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRESS -->
+<section class="panel" id="progress">
+  <h2>My progress</h2>
+  <p class="lede">A term is mastered when you get it right in the fill-in-the-blank three times in a row. One wrong answer resets its streak to zero. Progress is saved in this browser only.</p>
+  <div class="overall"><b id="pCount"></b><div class="bar"><i id="pBar"></i></div></div>
+  <div id="pGroups"></div>
+  <div class="actions">
+    <button class="btn" data-jump="fill">Practice the fill-in-the-blank</button>
+    <button class="btn ghost" id="pReset">Reset my progress</button>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var store = {
+    get: function(k){ try { var v = localStorage.getItem("hbfinal:"+k); return v ? JSON.parse(v) : null; } catch(e){ return null; } },
+    set: function(k,v){ try { localStorage.setItem("hbfinal:"+k, JSON.stringify(v)); } catch(e){} }
+  };
+
+  /* ---------- Terms from the review sheet ---------- */
+  var TERMS = [
+    ["Enlightenment",0,"“The action of bringing someone to a state of greater knowledge, understanding, or insight.”"],
+    ["Bias",0,"“An inclination, leaning, tendency, bent; predilection; prejudice.”"],
+    ["Confirmation bias",1,"The overwhelming tendency to look for what confirms our beliefs."],
+    ["Worldview",0,"A set of fundamental beliefs, values, etc., constituting a comprehensive outlook on the world; a perspective on life."],
+    ["Eurocentric",1,"Regarding Europe as the center; implicitly treating Europeans or European culture as pre-eminent."],
+    ["e.g.",0,"“For example.” Introduces one or more examples."],
+    ["i.e.",0,"“That is.” Restates or clarifies what came before."],
+    ["Cognitive bias",0,"A mental mistake caused by simplified, even lazy thinking."],
+    ["Karma",0,"The law by which good or bad actions determine the future modes of an individual’s existence."],
+    ["Moksha",1,"Liberation from samsara; the ultimate goal in Hinduism."],
+    ["Samsara",1,"The cycle of birth, death, and rebirth."],
+    ["Maya",0,"The illusion that makes the world seem a collection of different things."],
+    ["Krishna",0,"The 8th avatar of Vishnu and Arjuna’s charioteer in the Gita; often worshipped as a supreme god."],
+    ["Arjuna",0,"The warrior prince of the Gita who refuses to fight his kinsmen."],
+    ["Atman",1,"The individual self in Hinduism."],
+    ["Brahman",1,"The universal self, or God, in Hinduism."],
+    ["Jnana yoga",1,"The path of wisdom or knowledge, where one tries to understand that atman = Brahman."],
+    ["Artha",0,"The pursuit of wealth, fame, and power; one of the four legitimate aims of life."],
+    ["Dharma",1,"In Hinduism, sacred duty. In Buddhism, the Buddha’s teaching."],
+    ["Vishnu",0,"“The Preserver”; has ten avatars, including Rama and Krishna. Discus, “U” on forehead, Garuda."],
+    ["Bhakti yoga",1,"The path of devotion to a chosen god; the most popular path."],
+    ["Yoga",0,"A path or training to help one reach moksha or join the ultimate; from a word meaning “to yoke” or “union.”"],
+    ["Myth",0,"A sacred, often symbolic story that explains or establishes rituals, ethics, and worldviews."],
+    ["Avatar",1,"An incarnation, usually of a god, in human or animal form."],
+    ["The Buddha",0,"“The Awakened One”: Siddhartha Gautama after his enlightenment."],
+    ["Four Noble Truths",0,"Suffering exists; it is caused by craving; it can end; the way to end it is the Eightfold Path."],
+    ["Bodhisattva",1,"A being who seeks enlightenment out of compassion for all others."],
+    ["The Eightfold Path",0,"The Buddhist path to end suffering, including Right View, Right Speech, and Right Action."],
+    ["The Four Sights",0,"A sick man, an old man, a corpse, and a spiritual seeker."],
+    ["Hedonism",0,"The pursuit of pleasure and sensual indulgence."],
+    ["Asceticism",0,"Extreme self-denial; “punishing the body as a way to attain serenity and wisdom.”"],
+    ["Impermanence",1,"The truth that nothing lasts; everything changes."],
+    ["Nonself",1,"“You are made of elements that are not you” (Hanh 135)."],
+    ["Nirvana",1,"Release from suffering; “something we already have,” “this moment seen directly.”"],
+    ["Sangha",0,"The Buddhist community."],
+    ["The Middle Way",1,"The path between hedonism and asceticism."],
+    ["Right Speech",1,"Speak truthfully, don’t speak with a forked tongue, don’t speak cruelly."],
+    ["Right View",1,"Seeing clearly, starting with the Four Noble Truths; “where there is perception, there is deception.”"]
+  ];
+  var TERM_BY_NORM = {};
+  function norm(s){
+    return String(s||"").toLowerCase().replace(/[’']/g,"").replace(/^\s*the\s+/,"")
+      .replace(/[.,;:!?"“”]/g,"").replace(/[\s\-]+/g,"").replace(/s$/,"");
+  }
+  TERMS.forEach(function(t){ TERM_BY_NORM[norm(t[0])] = t; });
+  var HIN_SET = ["Karma","Moksha","Samsara","Maya","Krishna","Arjuna","Atman","Brahman","Jnana yoga","Artha","Vishnu","Bhakti yoga","Yoga","Avatar"].map(norm);
+  var BUD_SET = ["The Buddha","Four Noble Truths","Bodhisattva","The Eightfold Path","The Four Sights","Hedonism","Asceticism","Impermanence","Nonself","Nirvana","Sangha","The Middle Way","Right Speech","Right View"].map(norm);
+  function catClass(label){
+    var n = norm(label);
+    if (n === "dharma") return "dual";
+    if (HIN_SET.indexOf(n) !== -1) return "hin";
+    if (BUD_SET.indexOf(n) !== -1) return "bud";
+    return "ct";
+  }
+  var CAT_LABEL = { hin:"Hinduism", bud:"Buddhism", ct:"Critical thinking and general", dual:"Hinduism and Buddhism" };
+
+  /* ---------- Mastery ---------- */
+  function getStreaks(){ return store.get("streak") || {}; }
+  function streakOf(term){ return getStreaks()[norm(term)] || 0; }
+  function isMastered(term){ return streakOf(term) >= 3; }
+  function recordResult(term, ok){
+    var s = getStreaks(), k = norm(term), before = (s[k] || 0) >= 3;
+    s[k] = ok ? (s[k] || 0) + 1 : 0;
+    store.set("streak", s);
+    return !before && s[k] >= 3;
+  }
+  function renderProgress(){
+    var total = TERMS.length, done = TERMS.filter(function(t){ return isMastered(t[0]); }).length;
+    document.getElementById("pCount").textContent = done + " of " + total + " mastered";
+    document.getElementById("pBar").style.width = (done/total*100) + "%";
+    var wrap = document.getElementById("pGroups"); wrap.innerHTML = "";
+    [["hin","Hinduism"],["bud","Buddhism"],["ct","Critical thinking and general"]].forEach(function(g){
+      var terms = TERMS.filter(function(t){ var c = catClass(t[0]); return c === g[0] || (c === "dual" && g[0] === "hin"); });
+      var sec = document.createElement("div"); sec.className = "pgroup " + g[0];
+      var h = document.createElement("h3"); h.textContent = g[1]; sec.appendChild(h);
+      var ul = document.createElement("ul"); ul.className = "plist";
+      terms.forEach(function(t){
+        var st = Math.min(3, streakOf(t[0])), m = st >= 3;
+        var li = document.createElement("li"); if (m) li.className = "done";
+        var name = document.createElement("span"); name.textContent = t[0] + (catClass(t[0]) === "dual" ? " (both)" : "");
+        var dots = document.createElement("span"); dots.className = "dots";
+        dots.setAttribute("aria-label", m ? "Mastered" : st + " of 3 in a row");
+        if (m) { dots.textContent = "Mastered"; }
+        else { for (var i = 0; i < 3; i++){ var d = document.createElement("i"); if (i < st) d.className = "on"; dots.appendChild(d); } }
+        li.appendChild(name); li.appendChild(dots); ul.appendChild(li);
+      });
+      sec.appendChild(ul); wrap.appendChild(sec);
+    });
+  }
+
+  /* ---------- Flash cards ---------- */
+  var deck = [], fcIdx = 0, fcFlipped = false;
+  function buildDeck(){
+    var incl = document.getElementById("fcIncl").checked, f = document.getElementById("fcFilter").value;
+    deck = TERMS.filter(function(t){
+      var c = catClass(t[0]);
+      if (f !== "all" && !(c === f || (c === "dual" && (f === "hin" || f === "bud")))) return false;
+      return incl || !isMastered(t[0]);
+    });
+    fcIdx = 0; fcFlipped = false; renderCard();
+  }
+  function renderCard(){
+    var card = document.getElementById("fcCard"), cnt = document.getElementById("fcCount");
+    card.innerHTML = ""; card.className = "card";
+    if (!deck.length){
+      var e = document.createElement("span"); e.className = "def";
+      e.textContent = "You’ve mastered every term in this set. Check “Include terms I’ve mastered” to review them anyway.";
+      card.appendChild(e); cnt.textContent = ""; card.disabled = true; return;
+    }
+    card.disabled = false;
+    var t = deck[fcIdx], c = catClass(t[0]); card.classList.add(c);
+    var cat = document.createElement("span"); cat.className = "cat"; cat.textContent = CAT_LABEL[c];
+    card.appendChild(cat);
+    var main = document.createElement("span");
+    if (!fcFlipped){ main.className = "term"; main.textContent = t[0]; }
+    else { main.className = "def"; main.textContent = t[2]; }
+    card.appendChild(main);
+    var st = Math.min(3, streakOf(t[0]));
+    var b = document.createElement("span"); b.className = "badge " + (st >= 3 ? "m" : "l");
+    b.textContent = st >= 3 ? "Mastered" : "Not mastered yet (" + st + " of 3 in a row)";
+    card.appendChild(b);
+    var fl = document.createElement("span"); fl.className = "flip"; fl.textContent = fcFlipped ? "Click to see the term" : "Click to see the definition";
+    card.appendChild(fl);
+    cnt.textContent = "Card " + (fcIdx + 1) + " of " + deck.length;
+  }
+  function renderFlash(){ if (!document.getElementById("flashDeck").hidden) buildDeck(); }
+
+  /* ---------- 10 narrative versions: 15 blanks each, about 70% bolded terms ---------- */
+  var VERSIONS = [
+    { title:"Priya’s first semester",
+      text:"When Priya signed up for Hinduism and Buddhism, she assumed she already knew what religion was. Her teacher warned the class about [[Confirmation bias]], the overwhelming tendency to look for what confirms the beliefs we already hold. He pointed to a world map with Europe in the middle and called it [[Eurocentric]], because it treats Europe as the center of everything. Each of us, he explained, sees through a [[Worldview]], a set of fundamental beliefs that shapes our outlook on life. In the Hinduism unit, Priya learned that the basic problem of life is [[Samsara]], the cycle of birth, death, and rebirth, and that the solution is [[Moksha]], liberation from that cycle. Philosophical Hindus say the world only looks like a collection of separate things because of [[Maya]], an illusion. On the path of wisdom, [[Jnana yoga]], seeing through it reveals that the individual self, or [[Atman]], is identical to [[Brahman]], the universal self. Most Hindus, though, prefer [[Bhakti yoga]], the path of devotion to a chosen god. Later, Priya read about [[The Buddha]], whose journey began with [[The Four Sights]]: a sick man, an old man, a corpse, and a spiritual seeker. They taught him [[Impermanence]], the truth that nothing lasts. After rejecting both luxury and self-starvation, he followed [[The Middle Way]], and under a bodhi tree he reached [[Nirvana]], which one teacher described as “this moment seen directly.”" },
+    { title:"A conversation on the battlefield",
+      text:"The Bhagavad Gita opens on a battlefield. The warrior prince [[Arjuna]] looks across at his cousins, teachers, and kinsmen and says, “I shall not fight.” His dilemma comes from conflicting [[Dharma]]: as a warrior his sacred duty is to fight, yet he also has a duty not to kill those he should respect. His charioteer, [[Krishna]], turns out to be far more than a driver. He is an [[Avatar]] of [[Vishnu]], the Preserver, who takes human form whenever dharma is in trouble. Krishna first reassures Arjuna that the [[Atman]] is indestructible; we change bodies the way we change clothes, moving through [[Samsara]] again and again. If Arjuna abandons his duty, he will “gain evil,” that is, bad [[Karma]]. Later chapters describe several paths. Those who surrender all their actions to Krishna out of love follow [[Bhakti yoga]], while those whose “reason clings to my unmanifest nature” follow [[Jnana yoga]] and seek [[Brahman]], the universal self. Either way, the person who acts without selfish desire reaches [[Moksha]]. Because the Gita is a sacred story that establishes Hindu ethics, rituals, and worldviews, our class calls it a [[Myth]]. A reader who already believes the Gita simply glorifies war may fall prey to [[Confirmation bias]], ignoring that Gandhi, a famous pacifist, kept it at his bedside. Emerson and Thoreau loved the Gita too, a reminder that a [[Eurocentric]] list of “great books” leaves out some of the world’s most influential texts." },
+    { title:"The prince who left the palace",
+      text:"Prince Siddhartha grew up in luxury because his father, a king, wanted to keep all suffering out of sight. Buddhists call him a [[Bodhisattva]] during this time, a being on the way to enlightenment. Everything changed with [[The Four Sights]]: a sick man, an old man, a corpse, and a spiritual seeker. The first three taught him [[Impermanence]], the truth that nothing, not youth, health, or life itself, lasts. Like the Hindus around him, he wanted to escape [[Samsara]] and reach [[Moksha]]. He had already lived one extreme, [[Hedonism]], the pursuit of pleasure, in the palace. So he left and became a renunciant, like the Hindu seekers who pursued [[Jnana yoga]], the path of wisdom. For six years he practiced [[Asceticism]], extreme self-denial, until a village maiden offered him rice porridge and he realized starving himself was not the answer either. The balanced path between the two became known as [[The Middle Way]]. Meditating under the bodhi tree, he did not find an eternal [[Atman]], as philosophical Hindus taught; instead he came to see that “you” are made of elements that are not you, a teaching called [[Nonself]]. Seeing reality clearly, without distortion, is what Buddhists later called [[Right View]]. That night he reached [[Nirvana]], and from then on he was called [[The Buddha]], “the Awakened One.” When he began teaching, he spoke truthfully and never cruelly, the practice of [[Right Speech]]." },
+    { title:"Jerry in the library",
+      text:"Jerry was sure Patty liked him. Every friendly glance in Biology seemed like proof, and he ignored every sign that she was just being polite. That is a textbook case of [[Confirmation bias]], which our class treats as one type of [[Cognitive bias]], a mental mistake caused by simplified, even lazy thinking. Thich Nhat Hanh would say Jerry needed [[Right View]], because “where there is perception, there is deception.” After Patty laughed and walked out, Jerry wanted to complain about her to everyone. A Buddhist friend reminded him of [[Right Speech]], one step of [[The Eightfold Path]]: speak truthfully, don’t say one thing to one person and something else to another, and never speak cruelly. She also reminded him of the [[Four Noble Truths]], which begin with the truth that life involves suffering. His embarrassment, she said, was subject to [[Impermanence]]; like everything else, it would pass. Even the “Jerry” who felt humiliated was not fixed, since according to the teaching of [[Nonself]], he was simply a collection of changing experiences. Instead of either wallowing for weeks or pretending nothing happened, he could take [[The Middle Way]] between the extremes. Peace, Hanh says, is not far away: [[Nirvana]] is “something we already have.” A [[Bodhisattva]], she added, would have helped Patty study out of compassion, not to get a date. His Hindu friend agreed in her own terms: Jerry should do his [[Dharma]] as a classmate and help without selfish desire. Acting that way earns no [[Karma]] at all, she explained, which is how Hindus finally reach [[Moksha]]. Jerry decided to talk it over with his [[Sangha]], the Buddhist community, or at least with his friends in the dining hall." },
+    { title:"Two roads to liberation",
+      text:"Hindus largely agree that the problem is [[Samsara]] and the solution is [[Moksha]], but they disagree about how to get there. Each path is called a [[Yoga]], from a Sanskrit word meaning “to yoke” or “union.” The path of wisdom, [[Jnana yoga]], asks a person to see through illusion until they realize that their individual self, the [[Atman]], is the same as the universal self, [[Brahman]]. Prothero calls this approach “functionally atheistic,” because moksha is achieved by yourself. Far more popular is [[Bhakti yoga]], the path of devotion, followed by roughly a billion Hindus. A devotee might choose [[Vishnu]], the Preserver, whose discus and Garuda mount make him easy to spot, and dedicate every action to him. Vishnu comes to earth in ten forms; each one is an [[Avatar]], and the most beloved, [[Krishna]], is worshipped as a supreme god in his own right. In return for devotion, the god removes the devotee’s [[Karma]], the moral law of cause and effect that fuels rebirth. Meanwhile, all Hindus are expected to do their [[Dharma]], their sacred duty according to caste, sex, and role in the family. Western students sometimes find all of this confusing, but judging it by the standard of one God and one path is [[Eurocentric]]. Worse, a student who expects confusion may fall prey to [[Confirmation bias]] and notice only what seems contradictory. The Buddha, by contrast, would later reject the atman entirely and teach [[Nonself]]." },
+    { title:"Diana Eck and the habit of oneness",
+      text:"Diana Eck noticed that Westerners tend to expect the best things to come in ones: one God, one truth, one winner. That expectation is part of a Western [[Worldview]], and it creates a [[Bias]], an inclination or leaning in how we judge others. When we judge Hinduism by it, our view becomes [[Eurocentric]], treating European culture as the standard. A student who already believes polytheism is confused may fall prey to [[Confirmation bias]] and only notice evidence that Hinduism is chaotic. In fact, many Hindus say all the gods are faces of one ultimate reality, [[Brahman]]. [[Vishnu]] alone has ten forms, and each one is an [[Avatar]], a god’s incarnation in human or animal form. His most famous one, [[Krishna]], is worshipped by many as a supreme god in his own right. Hinduism also accepts four legitimate aims of life: kama (pleasure), [[Artha]] (wealth, fame, and power), [[Dharma]] (sacred duty), and [[Moksha]] (liberation from [[Samsara]], the cycle of birth, death, and rebirth). There are even different paths to that liberation. Devotees who pour their love into a chosen god follow [[Bhakti yoga]], while philosophers follow [[Jnana yoga]], seeking to realize that the [[Atman]] is Brahman. Both prove Eck’s point that “manyness is valued.”" },
+    { title:"The hungry tigress",
+      text:"In “The Bodhisattva and the Hungry Tigress,” a future Buddha comes upon a starving tigress too weak to feed her cubs and offers his own body. A [[Bodhisattva]] is a being who seeks enlightenment out of compassion for all others, and in this story he places others’ welfare above his own life. Because the story establishes Buddhist ethics of compassion, it functions as a Buddhist [[Myth]]. It also teaches [[Impermanence]]: the body he gives away was never going to last. And it echoes [[Nonself]], since “you are made of elements that are not you.” Seeing his own body this clearly, without clinging to it, is a form of [[Right View]]. Lifetime after lifetime of compassion carries the bodhisattva through [[Samsara]] toward [[Nirvana]], much as Hindus hope to reach [[Moksha]]. Hindu stories offer a parallel figure: an [[Avatar]] such as Krishna comes down to earth to protect others and restore dharma. Some first-time readers decide the story is simply gruesome; if they then notice only the gory details, they have fallen into [[Confirmation bias]]. Ordinary Buddhists practice the same compassion through [[The Eightfold Path]], which includes [[Right Speech]], never speaking cruelly. They also avoid extremes, following [[The Middle Way]] that [[The Buddha]] discovered between pleasure-seeking and self-punishment. For Buddhists and Hindus alike, the goal of this long journey is [[Enlightenment]], a state of greater knowledge, understanding, or insight." },
+    { title:"Day one, revisited",
+      text:"On the first day of class, the teacher defined [[Bias]] as “an inclination, leaning, tendency, bent; predilection; prejudice.” One kind is [[Cognitive bias]], a mental mistake caused by simplified, even lazy thinking; the most famous example is [[Confirmation bias]], the tendency to look for what confirms our beliefs. Another kind is cultural, as when a [[Eurocentric]] map places Europe at the center of the world. Every culture passes down a [[Worldview]], a set of fundamental beliefs about life, and students must keep that in mind when they study unfamiliar Hindu ideas, [[e.g.]], reincarnation, karma, and the caste system. The central problem in Hinduism is [[Samsara]], [[i.e.]], the cycle of birth, death, and rebirth. The solution is [[Moksha]], liberation from that cycle. On the path of wisdom, [[Jnana yoga]], a seeker tries to realize that their individual self, the [[Atman]], is identical to the universal self, [[Brahman]]. On the path of devotion, [[Bhakti yoga]], a believer might worship Krishna, an [[Avatar]] of Vishnu. Either way, every Hindu is expected to do their [[Dharma]], their sacred duty." },
+    { title:"Sam’s bad grade",
+      text:"Sam got a C on a test he thought he had aced, and his whole night was ruined. His roommate, who had just finished a Buddhism unit, quoted the [[Four Noble Truths]]: there is suffering, suffering is caused by craving, suffering can end, and the way to end it is [[The Eightfold Path]]. These teachings are part of the Buddha’s [[Dharma]], the word Buddhists use for his teaching. First, she said, practice [[Right View]]: Sam’s belief that he was “bad at history” came from one test, and his perceptions carried “all the errors of subjectivity.” He had also fallen into [[Confirmation bias]], remembering every past mistake while forgetting the A he earned on the last quiz. Second, practice [[Right Speech]]: no trashing the teacher in the group chat. Third, remember [[Impermanence]]; this grade, and this mood, would change. Even “Sam the C student” is an illusion according to [[Nonself]], because he is a changing collection of experiences, not a fixed thing. Rather than either giving up and losing himself in [[Hedonism]] or staying up all night cramming, he could follow [[The Middle Way]]. And instead of sulking, he could act like a [[Bodhisattva]] and help the classmate who also struggled. Peace, Hanh says, is not far off: [[Nirvana]] is “something we already have.” Their Hindu hallmate offered a different lens. Sam could study hard but let go of the grade, the way a devotee on the path of [[Bhakti yoga]] offers every action to a god. Underneath all his worry, she said, his [[Atman]] was untouched and one with [[Brahman]]." },
+    { title:"Knowing the self",
+      text:"Lao Tzu wrote that “knowing the self is [[Enlightenment]].” Hinduism and Buddhism both take this seriously, but they reach different conclusions about what the self is. For philosophical Hindus, [[Maya]] makes us think we are separate from everything else. A seeker on the path of [[Jnana yoga]] sees through it and realizes that one’s [[Atman]] is identical to [[Brahman]]. With no separate self to serve, that person acts selflessly, gathers no [[Karma]], and reaches [[Moksha]]. Even devotees on the path of [[Bhakti yoga]] must give up selfish desire and surrender their actions to their chosen god. [[The Buddha]], however, after years of [[Asceticism]] failed him, looked within and found no permanent self at all. This teaching, [[Nonself]], says that “you are made of elements that are not you,” and it goes hand in hand with [[Impermanence]], since every part of us is always changing. Seeing ourselves this clearly is part of [[Right View]], the first step on the Eightfold Path. It also takes the same honesty our class practiced at the start of the year, when we learned how [[Confirmation bias]] distorts what we think we know. When craving and the illusion of a fixed self fall away, a person reaches [[Nirvana]]." }
+  ];
+
+  /* ---------- Navigation and acknowledgment ---------- */
+  var navBtns = Array.prototype.slice.call(document.querySelectorAll("nav.steps button"));
+  function show(id){
+    document.querySelectorAll("section.panel").forEach(function(p){ p.classList.toggle("active", p.id === id); });
+    navBtns.forEach(function(b){ b.setAttribute("aria-current", b.dataset.go === id ? "true" : "false"); });
+    if (location.hash !== "#"+id) { try { history.replaceState(null,"","#"+id); } catch(e){} }
+    window.scrollTo(0,0);
+    if (id === "progress") renderProgress();
+    if (id === "flash") renderFlash();
+  }
+  function unlock(){
+    navBtns.forEach(function(b){ b.disabled = false; });
+    document.getElementById("ackText").textContent = "Format confirmed. The practice sections are unlocked.";
+    var ab = document.getElementById("ackBtn");
+    ab.textContent = "Start the fill-in-the-blank";
+  }
+  var acked = !!store.get("ack");
+  if (acked) unlock();
+  document.getElementById("ackBtn").addEventListener("click", function(){
+    if (!acked){ acked = true; store.set("ack", true); unlock(); }
+    show("fill");
+  });
+  navBtns.forEach(function(b){ b.addEventListener("click", function(){ if(!b.disabled) show(b.dataset.go); }); });
+  document.querySelectorAll("[data-jump]").forEach(function(b){ b.addEventListener("click", function(){ show(b.dataset.jump); }); });
+  document.getElementById("flashStart").addEventListener("click", function(){
+    document.getElementById("flashNote").hidden = true;
+    document.getElementById("flashDeck").hidden = false;
+    buildDeck();
+  });
+  document.getElementById("fcIncl").addEventListener("change", buildDeck);
+  document.getElementById("fcFilter").addEventListener("change", buildDeck);
+  document.getElementById("fcShuffle").addEventListener("click", function(){
+    for (var i = deck.length-1; i > 0; i--){ var j = Math.floor(Math.random()*(i+1)); var x = deck[i]; deck[i] = deck[j]; deck[j] = x; }
+    fcIdx = 0; fcFlipped = false; renderCard();
+  });
+  document.getElementById("fcCard").addEventListener("click", function(){ fcFlipped = !fcFlipped; renderCard(); });
+  document.getElementById("fcNext").addEventListener("click", function(){ if (!deck.length) return; fcIdx = (fcIdx+1) % deck.length; fcFlipped = false; renderCard(); });
+  document.getElementById("fcPrev").addEventListener("click", function(){ if (!deck.length) return; fcIdx = (fcIdx-1+deck.length) % deck.length; fcFlipped = false; renderCard(); });
+  document.getElementById("pReset").addEventListener("click", function(){
+    if (confirm("Reset all your mastery progress? This can’t be undone.")){ store.set("streak", {}); renderProgress(); }
+  });
+  function fromHash(){
+    var h = (location.hash||"").replace("#","");
+    if (h && document.getElementById(h) && (acked || h === "format")) show(h);
+  }
+  window.addEventListener("hashchange", fromHash);
+  fromHash();
+
+  /* ---------- Fill in the blank ---------- */
+  var current = 0, activeInput = null, inputs = [], answers = [], checked = false;
+  var best = store.get("best") || {};
+  var versionsEl = document.getElementById("versions");
+
+  function renderVersionButtons(){
+    versionsEl.innerHTML = "";
+    VERSIONS.forEach(function(v,i){
+      var b = document.createElement("button");
+      b.setAttribute("aria-pressed", i === current ? "true" : "false");
+      b.setAttribute("aria-label", "Version "+(i+1)+(best[i]!=null ? ", best score "+best[i]+" out of 15" : ""));
+      b.innerHTML = (i+1) + '<span class="best">' + (best[i]!=null ? best[i]+"/15" : "&nbsp;") + "</span>";
+      b.addEventListener("click", function(){ loadVersion(i); });
+      versionsEl.appendChild(b);
+    });
+  }
+  function shuffle(a){ for (var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+
+  function loadVersion(i){
+    current = i; checked = false; activeInput = null;
+    document.getElementById("checkBtn").disabled = false;
+    var v = VERSIONS[i];
+    document.getElementById("vtitle").textContent = "Version " + (i+1) + ": " + v.title;
+    var parts = v.text.split(/\[\[(.+?)\]\]/);
+    var pass = document.getElementById("passage");
+    pass.innerHTML = ""; inputs = []; answers = [];
+    parts.forEach(function(p, idx){
+      if (idx % 2 === 0){ pass.appendChild(document.createTextNode(p)); return; }
+      answers.push(p);
+      var n = answers.length;
+      var wrap = document.createElement("span"); wrap.className = "blank";
+      var num = document.createElement("span"); num.className = "num"; num.textContent = n;
+      var inp = document.createElement("input");
+      inp.type = "text"; inp.autocomplete = "off"; inp.spellcheck = false;
+      inp.setAttribute("aria-label", "Blank " + n);
+      inp.addEventListener("focus", function(){ activeInput = inp; });
+      inp.addEventListener("input", function(){ grow(inp); markUsed(); });
+      wrap.appendChild(num); wrap.appendChild(inp);
+      pass.appendChild(wrap); inputs.push(inp);
+    });
+    // word bank: the 15 answers + distractors, 20 words total
+    var ansNorm = answers.map(norm);
+    var pool = TERMS.filter(function(t){ return ansNorm.indexOf(norm(t[0])) === -1; });
+    var bank = shuffle(answers.slice().concat(shuffle(pool).slice(0, Math.max(0, 20 - answers.length)).map(function(t){ return t[0]; })));
+    var chips = document.getElementById("chips"); chips.innerHTML = "";
+    bank.forEach(function(w){
+      var c = document.createElement("button");
+      c.className = "chip " + catClass(w); c.type = "button"; c.textContent = w; c.dataset.n = norm(w);
+      c.addEventListener("click", function(){ placeWord(w); });
+      chips.appendChild(c);
+    });
+    document.getElementById("score").textContent = "";
+    document.getElementById("review").hidden = true;
+    renderVersionButtons();
+  }
+  function grow(inp){ inp.style.width = Math.max(9.5, inp.value.length * 0.62 + 1) + "em"; }
+  function placeWord(w){
+    if (checked) return;
+    var target = (activeInput && !activeInput.value) ? activeInput : null;
+    if (!target) target = inputs.filter(function(x){ return !x.value; })[0] || activeInput;
+    if (!target) return;
+    target.value = w; grow(target); markUsed();
+    var next = inputs.filter(function(x){ return !x.value; })[0];
+    if (next){ next.focus(); } else { target.focus(); }
+  }
+  function markUsed(){
+    var vals = inputs.map(function(x){ return norm(x.value); });
+    document.querySelectorAll("#chips .chip").forEach(function(c){ c.classList.toggle("used", vals.indexOf(c.dataset.n) !== -1); });
+  }
+  document.getElementById("checkBtn").addEventListener("click", function(){
+    if (checked) return;
+    var right = 0, newly = [];
+    inputs.forEach(function(inp, k){
+      var w = inp.parentNode;
+      var old = w.querySelector(".fix"); if (old) old.remove();
+      var ok = norm(inp.value) === norm(answers[k]);
+      w.classList.toggle("ok", ok); w.classList.toggle("no", !ok);
+      if (ok) right++;
+      if (recordResult(answers[k], ok)) newly.push(answers[k]);
+      else { var f = document.createElement("span"); f.className = "fix"; f.textContent = "→ " + answers[k]; w.appendChild(f); }
+    });
+    checked = true;
+    document.getElementById("checkBtn").disabled = true;
+    document.getElementById("score").textContent = right + " / " + answers.length + (newly.length ? ". Newly mastered: " + newly.join(", ") : "");
+    if (best[current] == null || right > best[current]){ best[current] = right; store.set("best", best); }
+    renderVersionButtons();
+    var dl = document.getElementById("reviewList"); dl.innerHTML = "";
+    answers.forEach(function(a, k){
+      var t = TERM_BY_NORM[norm(a)];
+      var dt = document.createElement("dt"); dt.className = catClass(a); dt.textContent = a;
+      if (norm(inputs[k].value) !== norm(a)){ var mx = document.createElement("span"); mx.className = "miss"; mx.textContent = " ✗ missed"; dt.appendChild(mx); }
+      var dd = document.createElement("dd"); dd.textContent = t ? t[2] : "";
+      dl.appendChild(dt); dl.appendChild(dd);
+    });
+    document.getElementById("review").hidden = false;
+  });
+  document.getElementById("resetBtn").addEventListener("click", function(){ loadVersion(current); });
+  document.getElementById("nextBtn").addEventListener("click", function(){ loadVersion((current+1) % VERSIONS.length); });
+  loadVersion(0);
+
+  /* ---------- Writing tasks ---------- */
+  function words(s){ return (s.trim().match(/\S+/g) || []).length; }
+  function copyText(t){
+    function fallback(){
+      return new Promise(function(res, rej){
+        var tmp = document.createElement("textarea"); tmp.value = t; tmp.setAttribute("readonly","");
+        tmp.style.position = "fixed"; tmp.style.opacity = "0"; document.body.appendChild(tmp); tmp.select();
+        var ok = false; try { ok = document.execCommand("copy"); } catch(e){}
+        document.body.removeChild(tmp); ok ? res() : rej();
+      });
+    }
+    if (navigator.clipboard && window.isSecureContext){ return navigator.clipboard.writeText(t).catch(fallback); }
+    return fallback();
+  }
+  var TERM_PATTERNS = TERMS.filter(function(t){ return t[0] !== "e.g." && t[0] !== "i.e."; }).map(function(t){
+    var base = t[0].replace(/^The\s+/,"");
+    var src = base.replace(/[.*+?^${}()|[\]\\]/g,"\\$&").replace(/\s+/g,"[\\s-]*");
+    if (base === "Nonself") src = "non[\\s-]?self";
+    return { label: t[0], re: new RegExp("\\b" + src + "s?\\b", "i") };
+  });
+  var HINDU = ["Karma","Moksha","Samsara","Maya","Krishna","Arjuna","Atman","Brahman","Jnana yoga","Artha","Dharma","Vishnu","Bhakti yoga","Yoga","Avatar"];
+  var BUDDH = ["The Buddha","Four Noble Truths","Bodhisattva","The Eightfold Path","The Four Sights","Hedonism","Asceticism","Impermanence","Nonself","Nirvana","Sangha","The Middle Way","Right Speech","Right View","Dharma"];
+  function item(cls, text){ var li = document.createElement("li"); li.className = cls; li.textContent = text; return li; }
+
+  document.querySelectorAll(".task:not(.example)").forEach(function(task){
+    var key = task.dataset.task, min = +task.dataset.min;
+    var ta = task.querySelector("textarea"), wc = task.querySelector(".wc"), bar = task.querySelector(".bar i");
+    var btn = task.querySelector("[data-reveal]"), rev = task.querySelector(".reveal");
+    var saved = store.get("draft:"+key); if (saved) ta.value = saved;
+    function update(){
+      var n = words(ta.value);
+      wc.textContent = n + " / " + min + " words";
+      bar.style.width = Math.min(100, n/min*100) + "%";
+      bar.classList.toggle("full", n >= min);
+      btn.disabled = n < min;
+      store.set("draft:"+key, ta.value);
+    }
+    ta.addEventListener("input", update); update();
+    var row = document.createElement("div"); row.className = "copyrow";
+    var cbtn = document.createElement("button"); cbtn.type = "button"; cbtn.className = "btn ghost"; cbtn.textContent = "Copy my answer";
+    var cmsg = document.createElement("p"); cmsg.className = "small"; cmsg.setAttribute("aria-live", "polite");
+    var tip = "Want feedback? Copy your answer, then email it to Mr. Johnson or paste it into your OneNote and ask him to look at it.";
+    cmsg.textContent = tip;
+    row.appendChild(cbtn); row.appendChild(cmsg);
+    btn.insertAdjacentElement("afterend", row);
+    cbtn.addEventListener("click", function(){
+      if (!ta.value.trim()){ cmsg.className = "small"; cmsg.textContent = "Write your answer first, then copy it."; return; }
+      var payload = "Question: " + task.querySelector(".prompt").textContent.trim() + "\n\nMy answer:\n" + ta.value.trim();
+      copyText(payload).then(function(){
+        cmsg.className = "ok"; cmsg.textContent = "Copied. Now paste it into an email to Mr. Johnson or into your OneNote, and ask him to take a look.";
+      }, function(){
+        ta.focus(); ta.select();
+        cmsg.className = "small"; cmsg.textContent = "Your browser blocked copying. Your answer is selected; press Ctrl+C (or ⌘+C) to copy it.";
+      });
+    });
+    btn.addEventListener("click", function(){
+      if (words(ta.value) < min) return;
+      var text = ta.value;
+      if (key === "mythdef"){
+        var dc = task.querySelector("[data-defcheck]"); dc.innerHTML = "";
+        [["sacred", /sacred/i], ["often symbolic", /symbol/i], ["story", /stor(y|ies)/i], ["explains or establishes", /explain|establish/i], ["rituals", /ritual/i], ["ethics", /ethic/i], ["worldviews", /world\s*-?\s*views?/i]].forEach(function(p){
+          dc.appendChild(item(p[1].test(text) ? "y" : "n", p[0]));
+        });
+      }
+      if (task.dataset.para){
+        var found = TERM_PATTERNS.filter(function(p){ return p.re.test(text); }).map(function(p){ return p.label; });
+        var fd = task.querySelector("[data-found]"); fd.innerHTML = "";
+        if (!found.length){ var s = document.createElement("span"); s.textContent = "No review-sheet terms found yet"; s.style.background="var(--bad-soft)"; s.style.color="var(--bad)"; fd.appendChild(s); }
+        found.forEach(function(f){ var s = document.createElement("span"); s.className = catClass(f); s.textContent = f; fd.appendChild(s); });
+        var h = found.filter(function(f){ return HINDU.indexOf(f) !== -1; }).length;
+        var b = found.filter(function(f){ return BUDDH.indexOf(f) !== -1; }).length;
+        var pc = task.querySelector("[data-paracheck]"); pc.innerHTML = "";
+        pc.appendChild(item("q", "Topic sentence answers the question and previews your evidence (1 pt): reread your first sentence"));
+        pc.appendChild(item(found.length >= 4 ? "y" : "n", "At least four terms (4 pts): " + found.length + " found. Make sure each is used correctly"));
+        if (task.dataset.para === "1"){
+          pc.appendChild(item(h >= 2 && b >= 2 ? "y" : "n", "At least two Hindu terms and two Buddhist terms: " + h + " Hindu, " + b + " Buddhist"));
+          pc.appendChild(item(/\b(than|whereas|unlike|while buddhis|while hindu)\b/i.test(text) ? "q" : "y", "Explains diversity WITHIN each religion rather than contrasting them (watch words like “unlike” or “whereas”)"));
+        } else {
+          pc.appendChild(item(h >= 1 && b >= 1 ? "y" : "n", "Covers BOTH Hinduism and Buddhism: " + h + " Hindu, " + b + " Buddhist terms"));
+          pc.appendChild(item(/\bself|atman|nonself|non-self\b/i.test(text) ? "y" : "n", "Stays focused on knowing the SELF"));
+        }
+        pc.appendChild(item("q", "Two distinctive arguments (6 pts): can you point to where each one starts?"));
+      }
+      rev.classList.add("open");
+      if (task.dataset.para) btn.textContent = "Recheck my paragraph";
+    });
+  });
+})();
+</script>
+</body>
+</html>
